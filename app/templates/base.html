@@ -31,9 +31,9 @@
               <img src="{% static 'img/1_logo.png' %}">
             </div>
             <div class="col-sm-12 text-center">
-              <h1 class="big-tagline">Inicia tu historia como emprendedor</h1>
-              <h3 class="small-tagline">21, 22 y 23 de Noviembre. </h3>
-              <h4>Biblioteca Nacional Pedro Henríquez Ureña</h4>
+                <h1 class="big-tagline">{{ event.title }}</h1>
+                <h3 class="small-tagline">{{ event.date }} </h3>
+                <h4>{{event.place}}</h4>
             </div>
         </div>
           <div class="row">
@@ -61,10 +61,12 @@
               <a class="navbar-brand" href="#">
                 <img src="{% static 'img/menu_logo.png' %}">
               </a>
+              <!--
               <a class="navbar-brand" href="https://www.facebook.com/swsantodomingo"><img src="{% static 'img/fb.png' %}"></a>
               <a class="navbar-brand" href="https://twitter.com/swsantodomingo"><img src="{% static 'img/tw.png' %}"></a>
               <a class="navbar-brand" href="https://www.youtube.com/user/startupweekenddo"><img src="{% static 'img/yt.png' %}"></a>
               <a class="navbar-brand" href="http://instagram.com/swsantodomingo"><img src="{% static 'img/ig.png' %}"></a>
+              -->
             </div><!-- /navbar-header -->
             <div class="collapse navbar-collapse" role="menu">
               <ul class="nav navbar-nav navbar-right">
@@ -217,383 +219,111 @@
 
 
             <h2>Diamante</h2>
-
+            
             <ul class="gold">
+            {% for diamond in sponsors.diamond %}
               <li>
-                <a href="http://bpd.com.do" target="_blank">
-                  <img src="{% static 'img/sponsors/BPD.png' %}" alt="Banco Popular Dominicano" />
+                  <a href="{{ diamond.url }}" target="_blank">
+                      <img src="{{ diamond.image.url }}" alt="{{ diamond.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/vicepresidencia.png' %}" alt="Vicepresidencia" />
-                </a>
-              </li>
+            {% endfor %}
             </ul>
 
             <h2>Platino</h2>
 
             <ul class="gold">
+            {% for platinum in sponsors.platinums %}
               <li>
-                <a href="http://coworking.do" target="_blank">
-                  <img src="{% static 'img/sponsors/coworking.png' %}" alt="Coworking Space" />
+                  <a href="{{ platinum.url }}" target="_blank">
+                      <img src="{{ platinum.image.url }}" alt="{{ platinum.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/mic.png' %}" alt="MIC" />
-                </a>
-              </li>
+            {% endfor %}
             </ul>
 
             <h2>Oro</h2>
             <ul class="gold">
+            {% for gold in sponsors.golds %}
               <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/publicitylab.png' %}" alt="PublicityLab" />
+                  <a href="{{ gold.url }}">
+                      <img src="{{ gold.image.url }}" alt="{{ gold.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="http://mr.net.do">
-                  <img src="{% static 'img/sponsors/mr.png' %}" alt="MR" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.theventure.com/do/es/" target="_blank">
-                  <img src="{% static 'img/sponsors/chivas.jpg' %}" alt="Chivas: The Venture" />
-                </a>
-              </li>
-              <li>
-                <a href="http://claro.com.do" target="_blank">
-                  <img src="{% static 'img/sponsors/claro.png' %}" alt="Claro Dominicana" />
-                </a>
-              </li>
+            {% endfor %}
             </ul>
 
             <h2>Plata</h2>
             <ul class="silver">
+                {% for silver in sponsor.silvers %}
               <li>
-                <a href="http://ecompany.com.do">
-                  <img src="{% static 'img/sponsors/eCompany.png' %}" alt="eCompany" />
+                  <a href="{{ silver.url }}">
+                      <img src="{{ silver.image.url  }}" alt="{{ silver.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="http://lavaina.com/" target="_blank">
-                  <img src="{% static 'img/sponsors/lavaina.png' %}" alt="LaVaina.com" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/duhal.jpg' %}" alt="Duhal" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/intec.png' %}" alt="Centro Emprendedurismo e Innovacion de INTEC" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.microsoft.com/es-do/default.aspx">
-                  <img src="{% static 'img/sponsors/microsoft.jpg' %}" alt="Microsoft" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.comprasegura.do/">
-                  <img src="{% static 'img/sponsors/compra-segura.png' %}" alt="Compra Segura" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.robotechrd.com/">
-                  <img src="{% static 'img/sponsors/robotech.png' %}" alt="RobotechRD" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.jompeame.com/">
-                  <img src="{% static 'img/sponsors/Logo-Jompeame.png' %}" alt="Jumpéame" />
-                </a>
-              </li>
+              {% endfor %}
             </ul>
 
             <h2>Bronce</h2>
             <ul class="bronze">
+                {% for bronze in sponsor.bronzes %}
               <li>
-                <a href="http://codemera.com/">
-                  <img src="{% static 'img/sponsors/codemera.png' %}" alt="Codemera" />
+                  <a href="{{ bronze.url }}">
+                      <img src="{{ bronzez.image.url }}" alt="{{ bronze.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="http://marcos.do/">
-                  <img src="{% static 'img/sponsors/marcos.png' %}" alt="Marcos" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.facebook.com/uncuartocreativord">
-                  <img src="{% static 'img/sponsors/cuarto-creativo.jpg' %}" alt="1/4 Creativo" />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <img src="{% static 'img/sponsors/roqueburgos.jpg' %}" alt="Roque Burgos" />
-                </a>
-              </li>
-              <li>
-                <a href="https://kikaboni.com.do/" target="_blank">
-                  <img src="{% static 'img/sponsors/kikaboni.jpg' %}" alt="Kikaboni" />
-                </a>
-              </li>
+              {% endfor %}
             </ul>
 
             <h2>Media Partner</h2>
             <ul class="gold">
+                {% for media_partner in sponsor.media_partner %}
               <li>
-                <a href="http://elnacional.com.do">
-                  <img src="{% static 'img/sponsors/elnacional.png' %}" alt="El Nacional" />
+                  <a href="{{ media_partner.url }}">
+                      <img src="{{ media_partner.image.url }}" alt="{{ media_partner.name }}" />
                 </a>
               </li>
-              <li>
-                <a href="http://gpi.argentarium.com/">
-                  <img src="{% static 'img/sponsors/argentarium.png' %}" alt="Argentarium" />
-                </a>
-              </li>
-              <li>
-                <a href="http://hd.com.do/">
-                  <img src="{% static 'img/sponsors/hd.png' %}" alt="HD.com.do" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.via-tecnologica.com/">
-                  <img src="{% static 'img/sponsors/viateclogo.png' %}" alt="Vía Tecnológica" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.almuerzodenegocios.com/">
-                  <img src="{% static 'img/sponsors/logo_almuerzo_de_negocios.jpg' %}" alt="Almuerzo de Negocios" />
-                </a>
-              </li>
-              <li>
-                <a href="http://www.fidelityfm.com.do/">
-                  <img src="{% static 'img/sponsors/panoramica.jpg' %}" alt="La Panorámica" />
-                </a>
-              </li>
+              {% endfor %}
             </ul>
+
           </div>
         </div>
       </div>
     </div>
 
+    {% for facilitator in facilitators %}
     <div id="facilitator">
       <div class="container text-center">
         <h1>Facilitadora</h1>
           <div class="row">
             <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/facilitators/lucia.jpg' %}" class="img-circle">
-              <h4>Lucía Tróchez Ardila</h4>
+                <img src="{{ facilitator.image.url }}" class="img-circle">
+              <h4>{{ facilitator.name }}</h4>
             </div>
             <div class="col-sm-8">
-              <p>Ingeniera en multimedia, emprendedora, y apasionada por la tecnología, el diseño, la ilustración y la generación de comunidades. Especialista de Marketing Digital para UP Global en Latinoamérica.</p>
+                <p>{{ facilitator.bio }}</p>
             </div>
           </div><!-- /row -->
         </div><!-- /container -->
       </div><!-- /collaborators -->
+    {% endfor %}
 
+<!-- mentors -->
     <div id="coaches">
       <div class="container text-center">
         <h1>Mentores</h1>
-        
-        
+        {% for mentor in mentors %}
         <div class="row">
             <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/marco.jpeg' %}" class="img-circle">
-              <h4>Marco Marmolejos</h4>
-              <h5>Programación / VideoJuegos</h5>
+              <img src="{{ mentor.image.url }}" class="img-circle">
+              <h4>{{ mentor.name }}</h4>
+              <h5>{{ mentor.position }}</h5>
             </div>
             <div class="col-sm-8">
-                <p>Game Developer con experiencia en plataformas móviles a través de AIR y Unity3D. Fundador de Entytec, creadores del juego educativo dominicano Yara-ri. Actual consultor de StoryTime Studios, creadores de la aplicación de animación Skit. Estudió Ingeniería Electrónica y Telecomunicaciones en INTEC. Tuvo la oportunidad de aprender los principios del Game Design por medio de Nick Fortugno de la escuela de Parson School of Design.</p>
+                <p>{{ mentor.bio }}</p>
             </div>
         </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/leandro.jpg' %}" class="img-circle">
-              <h4>Leandro Leonardo</h4>
-              <h5>Negocios</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Empresario, consultor para Latinoamérica de <a href="http://ethosiq.com/">ethosIQ</a> posicionada #65 de crecimiento exponencial según INC.500 para empresas privadas en Estados Unidos, actual accionista de <a href="http://www.capacityacademy.com/">Capacity Academy</a> y miembro del consejo de directores de <a href="http://instagram.com/grupoledu">@grupoledu.</a></p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/organizers/rene.jpg' %}" class="img-circle">
-              <h4>René Olivo</h4>
-              <h5>Programación</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>René es Ingeniero en Sistemas, graduado con mérito de la maestría en Comercio Electrónico y Bases de Datos de la Universidad de Westminster del Reino Unido y tiene mas de 15 años de experiencia como ingeniero full stack en el área de desarrollo web utilizando tecnologicas como Javascript, NodeJS, Angular, PHP, MySQL, MongoDB, entre otras. Actualmente ejerce como Director Digital de Capital DBG.</p>
-            </div>
-        </div><!-- /row -->
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/yan-piero.jpg' %}" class="img-circle">
-              <h4>Yan Piero Nuñez</h4>
-              <h5>Negocios / Pitches</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Yan Piero tiene más de 9 años de experiencia liderando areas comerciales del sector financiero tanto en la banca como en el sector asegurador y de fondos de Inversiones. Es graduado de Administración de Empresas en UNIBE y posee un MBA de Barna Business School. Desde el 2009 es miembro de la Asociación Nacional de Jóvenes Empresarios ANJE en la cual funge como co-coordinador de la comisión de Emprendedurismo.</p>
-
-                <p>En el 2012 inicia sus pasos como emprendedor cuando fundó <a href="http://mesuma.com.do">meSuma.com</a>, una plataforma para el manejo de finanzas personales dirigida al mercado latino americano la cual pretende estar disponible inicialmente para el público dominicano a principios del 2015. Basado en esta experiencia emprendedora fue seleccionado como un TEDxSpeaker en TEDxSantoDomingo en 2013.</p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/ronen.jpg' %}" class="img-circle">
-              <h4>Ronen Babayoff</h4>
-              <h5>Programación / Negocios</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Ronen Babayoff es un empresario israelí de alta tecnología con más de 15 años de experiencia en la industria. Fue el co-fundador de varios startups en Israel y en el Silicon Valley, incluyendo Cahoots y Yoomba. Después de una larga carrera, Ronense mudó hace unos años a la República Dominicana para surfear y relajarse un poco. Después de un buen descanso, está de vuelta en el juego creando tiendas online en Latino americano bajo la marca LaVaina.com que permite a gente que no usan tarjetas de crédito, no tienen conocimiento ni de tiendas en línea en Estados Unidos ni de courriers, a comprar en línea directamente de Estados Unidos a la casa en la manera más sencilla posible. En el futuro LaVaina.com está planeando ofrecer un servicio de tiendas virtuales basada en su plataforma.</p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/organizers/eneldoserrata.jpg' %}" class="img-circle">
-              <h4>Eneldo Serrata</h4>
-              <h5>Negocios / Programación</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Eneldo es fundador de Marcos Organizador de negocios, empresa de software en el area de administracion de recursos empresariales (ERP). Es presidente de EYM Importadores SRL empresa familiar y líder en distribución de pinturas arquitectónicas, industriales, marinas y automotrices expertos en asesoría y en evaluación de estructuras para la correcta aplicación de pintura.</p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/hernandez.png' %}" class="img-circle">
-              <h4>Raúl Hernández</h4>
-              <h5>Negocios / Finanzas</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Actualmente Coordinador de la Unidad de Estudios Económicos de la Dirección General de Aduanas. Encargado del Area de Macroeconomía e Inversiones del Centro de Investigación de Economía y Finanzas//CIEF Consulting, empresa de investigación y consultoría en los mercado de capitales de República Dominicana desde el 2006. Actualmente también es miembro del Comité de Finanzas de la Organización Mundial de las Aduanas con sede en Bélgica y miembros de Consejos Directivos y comités en el área financiera y de educación. Trabajo en la coordinación y el desarrollo de la Ley 189-11 de Mercado Hipotecario y Fideicomiso.</p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/abrahan.jpg' %}" class="img-circle">
-              <h4>Abrahan Nuñez</h4>
-              <h5>Diseño / UX/UI</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Project Manager, Front-end Developer and Web/UI Designer. Fundador de Trigger Digital Lab y Empleorama.net. Estudió Ingeniería de Sistemas de Información en UNAPEC y me preparé en el área de Web / UX / UI en Noble Desktop, New York, NYC, USA. Experiencia en el manejo de tecnologías como HTML5, CSS3, jQuery, AngularJS, PHP, MySQL, Microsoft SQL Server y C#.</p>
-            </div>
-        </div><!-- /row --> 
-        
-        
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/noe.jpg' %}" class="img-circle">
-              <h4>Noe Branagan</h4>
-              <h5>Programación / Móvil</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Desarrollador con más de 10 años de experiencia, especializado en el desarrollo de aplicaciones móviles; Trainer, charlista internacional; Organizador la comunidad para desarrolladores GDG Santo Domingo; DevFest Santo Domingo; Actualmente es Senior mobile developer en Orange R&D Skill Center. </p>
-            </div>
-        </div><!-- /row -->  
-        
-        
-        
-         
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/PaulJimenez.jpg' %}" class="img-circle">
-              <h4>Paul Jimenez</h4>
-              <h5>Diseño / UX/UI</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>UI/UX Designer, Brand Designer... Estudió Publicidad en la Universidad APEC, Diseño Transmedia y Branding en La Escuela de Diseño Altos de Chavón, Mobile Marketing en la Universidad de Palermo Argentina. Paul tiene más de 8 años en el area de la publicidad digital, trabajó en Pages BBDO y Capital DBG. En 2011 participó como Diseñador Web en la campaña "Yo Nado con Marcos" ganadora de Bronce en el Festival Cannes Lios. En el 2012 funda Katión Interactive una agencia digital especializada en crear soluciones de comunicación a través del mundo digital, combinando innovación e investigación. Actualmente es UI/UX Designer Lead de Katión Interactive y Consultor de Usabilidad en el Programa de Administración Financiera Integrada (PAFI).</p>
-            </div>
-        </div><!-- /row --> 
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/RafaelNazario.jpg' %}" class="img-circle">
-              <h4>Rafael T. Nazario</h4>
-              <h5>Negocios </h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Director Ejecutivo, Fundación Central Barahona. Rafael tiene a su cargo la responsabilidad social del Consorcio Azucarero Central, está a cargo de la estrategia, búsqueda de financiación y ejecución de los proyectos de desarrollo social. Además ha puesto en marcha diversos emprendimientos dentro de los que se destacan firma de consultores de riesgos y corredora de seguros, una consultoría de comunicación estratégica y marketing y una importadora-exportadora de neumáticos con presencia en Europa, México y Rep. Dom. Ha impartido diversas asignaturas en el programa de Negocios Internacionales de UNIBE y FIU. También, posee una licenciatura de Administración de Empresa y postgrado en Finanzas de la PUCMM, un Máster en Marketing y Dirección Comercial del Centro de Estudios Financieros de Madrid, y un MBA en Dirección y Gestión de Empresas concentración en Negocios Internacionales y Economía de la Empresa de la Universidad de Alcalá, así como diversas especialidades y certificaciones para complementar su hoja de vida.</p>
-            </div>
-        </div><!-- /row -->
-        
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/fernando.jpeg' %}" class="img-circle">
-              <h4>Fernando Rodríguez</h4>
-              <h5>Diseño / Branding</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Es especialista en el diseño y desarrollo estratégico de comunicación a través de diversos medios, es reconocido como uno de los mejores diseñadores gráficos y pionero en el campo de los medios digitales en República Dominicana. En 1999 crea la compañía de multimedia Canoa Interactiva, junto a sus asociados, donde desarrolla extraordinarios proyectos para las principales compañías del país. En el 2011 formaliza su sueño de crear una empresa única, Mente Elástica™, donde pone de manifiesto, junto a un grupo de talentosos e innovadores profesionales, su visión sobre la importancia y potencial que representan las nuevas tecnologías para el desarrollo de estrategias de comunicación efectivas y transcendentales.</p>
-            </div>
-        </div><!-- /row -->  
-        
-        
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/joanmiranda.jpg' %}" class="img-circle">
-              <h4>Joan Miranda</h4>
-              <h5>Mercadeo</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Curioso por naturaleza. Ha trabajado para los departamentos de marketing de distintas empresas del Fortune 500 como Colgate Palmolive, Diageo y Bacardi. Es de los pioneros del Account Planning en la República  Dominicana. Actualmente se desempeña como Director de Planificación Estratégica en la agencia Kraneo/*S,C,P,F… y es co-fundador y CMO del startup @GetANapZzz</p>
-            </div>
-        </div><!-- /row --> 
-        
-         <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/camilo.jpg' %}" class="img-circle">
-              <h4>Camilo Sánchez </h4>
-              <h5>Diseño / UI/UX</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Estudió publicidad en UNAPEC, sin embargo se ha desarrollado en todo lo que tiene que ver con tecnología e innovación en áreas como User Experience, Social Media, Analytics, Programación, Medios Digitales y Producción Digital. Ha estado trabajando en proyectos digitales desde el 2006 en empresas como Comunique, Pages BBDO, Havas en República Dominicana y Puerto Rico con marcas como Banco Popular, Presidente, Orange, Nissan Puerto Rico y Pepsi. Fue Director Creativo Digital en Lowe Interamerica a cargo de toda la operación digital de la agencia y trabajando con marcas como Induveca y Unilever. Actualmente trabaja en travelwise como Director de Iniciativas Digitales.</p>
-            </div>
-        </div><!-- /row -->  
-       
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/leonardo.jpg' %}" class="img-circle">
-              <h4>Leonardo Jimenez</h4>
-              <h5>Negocios / Programación</h5>
-            </div>
-            <div class="col-sm-8">
-              <p>Leonardo es Ingeniero Industrial con mas de ocho años de experiencia en el area de operaciones y cadena de suministros. CEO de Stance Data, una compañía dedicada al Desarrollo de aplicaciones web, outsourcing de operaciones  y consultoría. También es CEO de ClaimSolver, un startup que revolucionara el sector de los ajustadores de seguros a través de Saas (Software as a Service).</p>
-
-              <p>Ganador de Reto Emprendedor 2013, reconocido como el emprendedor con mayores ventas de esa Edición. Funge las veces de Secretario en la Mesa de Industria de Soporte de la Red de Emprendimiento. Co-fundador de las comunidades de programación de Python y Javascript Dominicana.</p>
-
-              <p>Si necesitas ayuda con tu modelo de negocios, elaboración del pitch o validando tu idea , Leonardo estará para asistirte.</p>
-            </div>
-        </div><!-- /row -->  
-        
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/coaches/ruby.jpg' %}" class="img-circle">
-              <h4>Rudy Ganna</h4>
-              <h5>Tecnologia y Negocios</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Fundador de Omniticket, proveedora de tickets y servicios de control de acceso para los jugadores más importantes del mundo del entretenimiento, mercado cultural, deporte y de grandes eventos en el mundo. Fundador de  Connect Business Unit, una tecnología revolucionaria e innovadora con capacidad de instruir conocimiento del mundo del entretenimiento, lugares culturales y eventos deportivos de distintos países y así ofrecer paquetes más completos e atractivos a los turistas. Fundador de Pyhex Ventures Inc., una compañía dedicada a los proyectos que utilizan tecnología para aumentar la calidad de vida de las personas con discapacidades que en los últimos años se ha enfocado en proporcionar soluciones tecnológicas a los países emergentes, con énfasis en la recaudación fiscal, inmigración, salud, transporte y educación, haciendo uso extensivo de tecnologías innovadoras como la computación en nube, Biometría y RFID. Cofundador de Feedback SA (www.feedbacksa.com) Socio, CEO y CTA de Laurus International Enterprises, más innovadores y revolucionarios escritorios virtuales para la industria de Centros de Llamada.  </p>
-            </div>
-        </div><!-- /row --> 
-        
-        
+        {% endfor %}
       </div><!-- /container -->
     </div>
       
@@ -615,87 +345,27 @@
       </div>
       -->
 
+<!-- judges -->
       <div id="judges">
         <div class="container text-center">         
           <h1>Jueces</h1>
-
+            
+          {% for judge in judges %}
           <div class="row">
             <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/galbes.jpg' %}" class="img-circle">
-              <h4>Roberto Gálvez</h4>
-              <h5>Avisor Technologies Caribe (eCollect)</h5>
+                <img src="{{ judge.image.url }}" class="img-circle">
+                <h4>{{ judge.name }}</h4>
+                <h5>{{ judge.position }}</h5>
             </div>
             <div class="col-sm-8">
-              <p>Colombiano. Ingeniero mecánico con vocación de emprendedor. Entusiasta y aprendiz permanente sobre tecnología, involucrado desde el año 2000 en proyectos de software y diseño web, comercio electrónico y gestión de proyectos de e-learning.</p>
-
-              <p>Socio fundador de Avisor Technologies Caribe, empresa dedicada a la consultoría y provisión de soluciones de cobro y medios de pago en línea, con operación en Colombia y en República Dominicana.</p>
+                <p>{{ judge.bio }}</p>
             </div>
           </div><!-- /row -->
+            {% endfor %}
 
-          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/grullon.png' %}" class="img-circle" alt="Manuel A. Grullón">
-              <h4>Manuel A. Grullón H.</h4>
-            </div>
-            <div class="col-sm-8">
-              <p>Inició sus estudios de Mercadeo y Negocios en Babson en Boston y FIU en Miami. Tiene más de 14 años de experiencia comercial, desarrollo y conceptualización de ideas creativas. Más de 10 años de experiencia en las industrias tecnología, finanzas, comestibles, retail y telecomunicaciones.</p>
-
-              <p>Actualmente es Fundador y Executive Chairman de GCS International, empresa que comercializa tPago® y Presidente Ejecutivo de Nerdot®. En su tiempo libre Manuel Alejandro disfruta pasar tiempo con su esposa y sus 4 hijos y compartir su conocimiento y experiencia en charlas privadas y públicas a ejecutivos, emprendedores y estudiantes del país.</p>
-            </div>
-          </div><!-- /row -->
-          
-          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/felipe.jpg' %}" class="img-circle">
-              <h4>Felipe Amador</h4>
-              <h5>Director</h5>
-            </div>
-            <div class="col-sm-8">
-              <p>El Sr. Amador nació en Cuba pero se estableció con su familia en la Republica Dominicana en 1992. Es egresado, con summa cum laude, de la licenciatura en economía de la Pontificia Universidad Católica Madre y Maestra de Santo Domingo. Obtuvo su Maestría en Administración de Empresas (MBA) en Stanford University y ha realizado posgrados y maestrías en finanzas corporativas en Barna y la Universitat de Barcelona.</p>
-
-              <p>El Sr. Amador cuenta con más de 12 años de experiencia en el ámbito financiero y de mercado de valores desempeñándose actualmente como el nuevo Vicepresidente Ejecutivo / Gerente General de la Bolsa de Valores de la República Dominicana (BVRD). Antes de la BVRD, el Sr. Amador ejerció como Vicepresidente de la división de banca de inversión de Barclays Capital (anteriormente Lehman Brothers), donde a largo de su carrera tuvo a su cargo la estructuración y ejecución de más de US$30,000 millones de dólares en emisiones de valores de deuda y patrimonio de oferta pública y privada. También, se especializó en la asesoría financiera a fondos de capital riesgo privado (private equity) con relación a la valoración y financiamiento de adquisiciones y fusiones de empresas, así como la monetización de dichas inversiones. Antes de trabajar en Barclays/Lehman, el Sr. Amador trabajó como Consultor Senior en Deloitte en el grupo de Servicios de Asesoría Financiera (FAS) en la República Dominicana.</p>
-            </div>
-          </div><!-- /row -->
-          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/maria.jpg' %}" class="img-circle">
-              <h4>Maria Elmudesi</h4>
-              <h5></h5>
-            </div>
-            <div class="col-sm-8">
-                <p>
-                Maria Virginia Elmúdesi
-
-                Economista, con más de 25 años de experiencia en la industria de financiamiento. Graduada de MBA en Babson College Boston.  Actualmente Consejera, Consejos de Directores en Finanzas Corporativas y Gobernanza para compañías ya establecidas.  Muy  interesada en el proceso de emprendimiento y su contribución al desarrollo de las economías; el valor de los mentores y el financiamiento en etapas tempranas.  Participó en la fundación del Banco Múltiple Promérica en la Republica Dominicana desde sus inicios;   proceso que inició con la instalación de los sistemas de información, las aprobaciones de licencias bancarias y  finalmente las  aprobaciones de los manuales de  políticas, procedimientos.  Responsable del ingreso de los primeros US$60MM en la institución y de la creación de la Gestión de Riesgos y Cumplimiento de dicha institución.  Durante el periodo 2000-2014 completó exitosamente las posiciones de  Gerente General División Bancaria, Vicepresidente de Banca Privada e Inversiones y Vicepresidente de Riesgos y Cumplimiento.  Profesora de Inversiones  y Directora del Postgrado de Finanzas Corporativas (PFC) en la PUCMM desde el año 2000 al año 2008.  Colaboró también en las siguientes instituciones:  State Street Bank en Boston, USAID Ecuador y Citibank en la Republica Dominicana.  
-                </p>
-                <p>
-               Amante de la lectura, de los viajes, de la fotografía y de los deportes al aire libre. 
-                </p>
-            </div>
-          </div><!-- /row -->
-<!--          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/pablo.jpg' %}" class="img-circle">
-              <h4>Pablo E. Marcano</h4>
-              <h5>Country Manager Cisco Systems</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Pablo Ernesto Marcano es Country Manager de la empresa internacional Cisco System. Fue VP detecnologíaa de la empresa ZTE y es Presidente y fundador de la empresa SigmaPlus. Tienemáss de 14 años de experiencia en los sectores de telecomunicaciones y TI. </p>
-            </div>
-        </div><!-- /row -->
-          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{% static 'img/judges/francisco.jpg' %}" class="img-circle">
-              <h4>Francisco Navia</h4>
-              <h5></h5>
-            </div>
-            <div class="col-sm-8">
-                <p>Francisco Navia es Venezolano, especialista en sistemas de control y procesamiento de datos en el área de la Computación Neuronal y la Inteligencia Artificial, Petrolera y Geofísica Computacional. Actualmente es Socio y Director AFE Consulting Group. Estudió en la Universidad Complutense de Madrid.
-                </p>
-            </div>
-          </div><!-- /row -->
         </div><!-- /container -->
       </div><!-- /collaborators -->
+
 
   <div id="organisers">
     <div class="container text-center">
@@ -704,56 +374,13 @@
             <h1>Organizadores</h1>
 
             <p>Startup Weekend Santo Domingo llega a ti por la labor de las siguientes personas</p>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/jorge.jpg' %}" class="img-circle">
-              <h4>Jorge Vargas</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/luz.jpg' %}" class="img-circle">
-              <h4>Luz Gonzalez</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/onil.png' %}" class="img-circle">
-              <h4>Onil Pereyra</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/michelle.jpg' %}" class="img-circle">
-              <h4>Michelle Guzman Olivo</h4>
-            </div>
             
+            {% for organizer in organizer %}
             <div class="organiser">
-              <img src="{% static 'img/organizers/joey.jpg' %}" class="img-circle">
-              <h4>Joey Morel</h4>
+                <img src="{{ organizer.image.url }}" class="img-circle">
+                <h4>{{ organizer.name }}</h4>
             </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/patricia.jpg' %}" class="img-circle">
-              <h4>Patricia Acosta</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/ana.jpg' %}" class="img-circle">
-              <h4>Ana Abreu</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/karen.jpg' %}" class="img-circle">
-              <h4>Karen Soto</h4>
-            </div>
-            
-            <div class="organiser">
-              <img src="{% static 'img/organizers/joan.jpg' %}" class="img-circle">
-              <h4>Joan Guerrero</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/emily.jpg' %}" class="img-circle">
-              <h4>Emily Lorenzo</h4>
-            </div>
+            {% endfor %}
 
           </div><!-- col -->
         </div><!-- /row -->
@@ -761,42 +388,19 @@
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1">
             <h1>Colaboradores</h1>
-
+            
+            {% for collaborator in collaborators %}
             <div class="organiser">
-              <img src="{% static 'img/organizers/manzueta.jpg' %}" class="img-circle">
-              <h4>Armando Manzueta</h4>
+                <img src="{{ collaborator.image.url }}" class="img-circle">
+                <h4>{{ collaborator.name }}</h4>
             </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/michelle-luna.jpg' %}" class="img-circle">
-              <h4>Michelle Luna</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/hamlet.jpg' %}" class="img-circle">
-              <h4>Hamlet Reynoso</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/rene.jpg' %}" class="img-circle">
-              <h4>René Olivo</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/wilson.jpg' %}" class="img-circle">
-              <h4>Wilson Paulino</h4>
-            </div>
-
-            <div class="organiser">
-              <img src="{% static 'img/organizers/micael.jpg' %}" class="img-circle">
-              <h4>Micael Lopez</h4>
-            </div>
-          </div><!-- row -->
-        </div><!-- col -->
+            {% endfor %}
+            
+          </div><!-- col -->
+        </div><!-- row -->
       </div><!-- /container -->
     </div><!-- /organisers -->
 
-    <!--
     <div class="footer">
       <div class="container">
         <div class="col-sm-4 col-sm-offset-4 text-center">
@@ -807,7 +411,6 @@
         </div>
       </div>
     </div>
-    -->
 
     <div class="credits">
       <div class="container">
