@@ -319,12 +319,20 @@ p, a {
 }
 
 #since2008 {
-  background:url('../img/4_bckgrnd.png') no-repeat;
-  background-size: 100% auto;
-  background-position: center;
-  color: #fff;
-  max-height: 749px;
-  height: 749px;
+	background-size: 100% auto;
+    color: #fff;
+    height: 100%;
+}
+
+#since2008 img {
+	padding-bottom: 20px;
+	width: 100%;
+}
+
+@media (max-width:500px){
+	#since2008 img {
+		width: 100%;
+	}
 }
 
 .box {
