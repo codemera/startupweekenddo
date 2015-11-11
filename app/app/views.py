@@ -27,7 +27,7 @@ def home(request):
                 'bronzes': bronze,
                 'media_partners': media_partner}
 
-    event = Event.objects.all()[:1]
+    event = Event.objects.first()
 
     content = {'facilitators': facilitators,
                'mentors': mentors,
@@ -35,6 +35,6 @@ def home(request):
                'organizer': organizer,
                'sponsors': sponsors,
                'collaborators': collaborators,
-               'event': event[0]}
+               'event': event}
 
     return render_to_response('base.html', content)
