@@ -205,7 +205,7 @@
         <div class="row">
           <div class="col-sm-12">
             <h1 class="text-center">Patrocinadores</h1>
-            {% if sponsors.diamonds|length >= 1 %}
+            {% if sponsors.diamonds|length != 0 %}
                 <h2>Diamante</h2>
                 
                 <ul class="gold">
@@ -219,7 +219,7 @@
                 </ul>
             {% endif %}
             
-            {% if sponsors.diamonds.platinums|length >= 1%}
+            {% if sponsors.platinums|length != 0%}
                 <h2>Platino</h2>
 
                 <ul class="gold">
@@ -233,7 +233,7 @@
                 </ul>
             {% endif %}
 
-            {% if sponsors.diamonds.golds|length >= 1 %}
+            {% if sponsors.golds|length != 0 %}
                 <h2>Oro</h2>
                 <ul class="gold">
                 {% for gold in sponsors.golds %}
@@ -246,7 +246,7 @@
                 </ul>
             {% endif %}
 
-            {% if sponsors.diamonds.silvers|length >= 1 %}
+            {% if sponsors.silvers|length != 0 %}
                 <h2>Plata</h2>
                 <ul class="silver">
                     {% for silver in sponsors.silvers %}
@@ -259,7 +259,7 @@
                 </ul>
             {% endif %}
             
-            {% if sponsors.diamonds.bronzes|length >= 1 %}
+            {% if sponsors.bronzes|length != 0 %}
                 <h2>Bronce</h2>
                 <ul class="bronze">
                     {% for bronze in sponsors.bronzes %}
@@ -272,7 +272,7 @@
                 </ul>
             {% endif %}
 
-            {% if sponsors.diamonds.media_partners|length >= 1 %}
+            {% if sponsors.media_partners|length != 0 %}
                 <h2>Media Partner</h2>
                 <ul class="gold">
                     {% for media_partner in sponsors.media_partners %}
