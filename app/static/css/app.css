@@ -237,17 +237,17 @@ p, a {
 }
 
 #sponsors .gold li img {
-  width: 250px;
+  width: 25%;
   height: auto;
 }
 
 #sponsors .silver li img {
-  width: 250px;
+  width: 25%;
   height: auto;
 }
 
 #sponsors .bronze li img {
-  width: 200px;
+  width: 20%;
   height: auto;
 }
 
@@ -277,7 +277,7 @@ p, a {
 }
 
 .collaborator img {
-	height: 150px
+	height: 10%
 }
 
 #collaborators p, 
@@ -315,7 +315,8 @@ p, a {
 }
 
 .organiser img {
-	height: 150px;
+    width: 25%;
+	height: auto;
 }
 
 #since2008 {
