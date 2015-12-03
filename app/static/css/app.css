@@ -237,17 +237,17 @@ p, a {
 }
 
 #sponsors .gold li img {
-  width: 25%;
+  width: 13em;
   height: auto;
 }
 
 #sponsors .silver li img {
-  width: 25%;
+  width: 170px;
   height: auto;
 }
 
 #sponsors .bronze li img {
-  width: 20%;
+  width: 170px;
   height: auto;
 }
 
@@ -277,7 +277,7 @@ p, a {
 }
 
 .collaborator img {
-	height: 10%
+	height: 150px
 }
 
 #collaborators p, 
@@ -315,25 +315,16 @@ p, a {
 }
 
 .organiser img {
-    width: 25%;
-	height: auto;
+	height: 150px;
 }
 
 #since2008 {
-	background-size: 100% auto;
-    color: #fff;
-    height: 100%;
-}
-
-#since2008 img {
-	padding-bottom: 20px;
-	width: 100%;
-}
-
-@media (max-width:500px){
-	#since2008 img {
-		width: 100%;
-	}
+  background:url('../img/4_bckgrnd.png') no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+  color: #fff;
+  max-height: 749px;
+  height: 749px;
 }
 
 .box {
