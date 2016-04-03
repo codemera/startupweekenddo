@@ -3,13 +3,15 @@ from django.db import models
 # Create your models here.
 
 class Event(models.Model):
-    first_date = models.DateTimeField(verbose_name='Primer Dia')
-    second_date = models.DateTimeField(verbose_name='Segundo Dia')
-    third_date = models.DateTimeField(verbose_name='Tercer Dia')
-    title = models.CharField(max_length=50)
-    place = models.CharField(max_length=100)
+    first_date = models.DateField(verbose_name='Primer Dia', blank=True, null=True)
+    second_date = models.DateField(verbose_name='Segundo Dia', blank=True, null=True)
+    third_date = models.DateField(verbose_name='Tercer Dia', blank=True, null=True)
+    title = models.CharField(max_length=50, blank=True, null=True)
+    place = models.CharField(max_length=100, blank=True, null=True)
     image = models.ImageField(upload_to='event/', verbose_name='Imagen principal')
     registration = models.URLField(verbose_name='Link de registro')
+    banner = models.ImageField(upload_to='event/banner/', verbose_name='Banner', blank=True, null=True)
+    logo = models.ImageField(upload_to='event/logo/', verbose_name='Logo', blank=True, null=True)
 
     def __str__(self):
         return self.title
@@ -36,6 +38,7 @@ class Sponsor(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='person/')
+    visible = models.BooleanField()
 
     def __str__(self):
         return self.name
