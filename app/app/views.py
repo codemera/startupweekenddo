@@ -6,10 +6,10 @@ from collaborators.models import (Facilitator, Mentor,
 
 
 def home(request):
-    facilitators = Facilitator.objects.all()[:1]
+    facilitators = Facilitator.objects.all()
     mentors = Mentor.objects.all()
     judges = Judges.objects.all()
-    organizer = Organizer.objects.all()
+    organizer = Organizer.objects.order_by('number_order').all()
     collaborators = Collaborator.objects.all()
 
     # sponsors categori
