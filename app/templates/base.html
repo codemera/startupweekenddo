@@ -24,16 +24,24 @@
   </head>
 
   <body>
-    <div id="cover">
+      <div id="cover" style="background: transparent url('{{ event.image.url }}') no-repeat scroll 0% 0% / 100% auto">
       <div class="container">
         <div class="row">
-            <div class="col-sm-12">
-              <img src="{% static 'img/1_logo.png' %}">
-            </div>
+                <div class="col-sm-12">
+                    {% if event.logo %}
+                        <img src="{{ event.logo.url }}">
+                    {% endif %}
+                </div>
             <div class="col-sm-12 text-center">
-                <h1 class="big-tagline">{{ event.title }}</h1>
-                <h3 class="small-tagline">{{ event.first_date|date:'d' }} , {{ event.second_date|date:'d' }} y {{ event.third_date|date:'d F' }} </h3>
-                <h4>{{ event.place }}</h4>
+                {% if event.title %}
+                    <h1 class="big-tagline">{{ event.title }}</h1>
+                {% endif %}
+                {% if event.first_date and event.second_date and event.third_date %}
+                    <h3 class="small-tagline">{{ event.first_date|date:'d' }} , {{ event.second_date|date:'d' }} y {{ event.third_date|date:'d F' }} </h3>
+                {% endif %}
+                {% if event.place %}
+                    <h4>{{ event.place }}</h4>
+                {% endif %}
             </div>
         </div>
           <div class="row">
@@ -93,9 +101,10 @@
       </div><!-- /container -->
     </div><!-- /about -->
 
-    <div id="since2008">
-        <img src="{{ event.image.url  }}">
+    {% if event.banner %}
+    <div id="since2008" style="background: transparent url('{{ event.banner.url }}') no-repeat scroll center center / 100% auto;">
     </div><!-- /section-redboy -->
+    {% endif %}
 
     <div id="program">
       <div class="container">
@@ -222,10 +231,9 @@
           <div class="col-sm-12">
             <h1 class="text-center">Patrocinadores</h1>
             {% if sponsors.diamonds|length >= 0 %}
-                <h2>Diamante</h2>
-                
-                <ul class="gold">
                 {% for diamond in sponsors.diamonds %}
+                <h2>Diamante</h2>
+                <ul class="gold">
                   <li>
                       <a href="{{ diamond.url }}" target="_blank">
                           <img src="{{ diamond.image.url }}" alt="{{ diamond.name }}" />
@@ -307,42 +315,50 @@
       </div>
     </div>
 
-    {% for facilitator in facilitators %}
-    <div id="facilitator">
-      <div class="container text-center">
-        <h1>Facilitadora</h1>
-          <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-                <img src="{{ facilitator.image.url }}" class="img-circle">
-              <h4>{{ facilitator.name }}</h4>
-              <h4>{{ facilitator.twitter }}</h4>
-            </div>
-            <div class="col-sm-8">
-                <p>{{ facilitator.bio }}</p>
-            </div>
-          </div><!-- /row -->
-        </div><!-- /container -->
-      </div><!-- /collaborators -->
-    {% endfor %}
+    {% if facilitators %}
+        <div id="facilitator">
+          <div class="container text-center">
+            <h1>Facilitador/a</h1>
+                {% for facilitator in facilitators %}
+                    {% if facilitator.visible %}
+                        <div class="row">
+                            <div class="collaborator col-sm-4 text-center">
+                                <img src="{{ facilitator.image.url }}" class="img-circle">
+                                <h4>{{ facilitator.name }}</h4>
+                                <h4>{{ facilitator.twitter }}</h4>
+                            </div>
+                            <div class="col-sm-8">
+                                <p>{{ facilitator.bio }}</p>
+                            </div>
+                        </div><!-- /row -->
+                    {% endif %}
+                {% endfor %}
+            </div><!-- /container -->
+          </div><!-- /collaborators -->
+      {% endif %}
 
-<!-- mentors -->
-    <div id="coaches">
-      <div class="container text-center">
-        <h1>Mentores</h1>
-        {% for mentor in mentors %}
-        <div class="row">
-            <div class="collaborator col-sm-4 text-center">
-              <img src="{{ mentor.image.url }}" class="img-circle">
-              <h4>{{ mentor.name }}</h4>
-              <h5>{{ mentor.position }}</h5>
-            </div>
-            <div class="col-sm-8">
-                <p>{{ mentor.bio }}</p>
-            </div>
-        </div><!-- /row --> 
-        {% endfor %}
-      </div><!-- /container -->
-    </div>
+    <!-- mentors -->
+    {% if mentors %}
+        <div id="coaches">
+          <div class="container text-center">
+            <h1>Mentores</h1>
+            {% for mentor in mentors %}
+                {% if mentor.visible %}
+                    <div class="row">
+                        <div class="collaborator col-sm-4 text-center">
+                          <img src="{{ mentor.image.url }}" class="img-circle">
+                          <h4>{{ mentor.name }}</h4>
+                          <h5>{{ mentor.position }}</h5>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>{{ mentor.bio }}</p>
+                        </div>
+                    </div><!-- /row --> 
+                {% endif %}
+            {% endfor %}
+          </div><!-- /container -->
+        </div>
+    {% endif %}
       
       <!--
       <div class="container text-center">
@@ -362,24 +378,28 @@
       </div>
       -->
 
-<!-- judges -->
+    <!-- judges -->
+    {% if judges %}
       <div id="judges">
         <div class="container text-center">
           <h1>Jueces</h1>
             {% for judge in judges %}
-              <div class="row">
-                <div class="collaborator col-sm-4 text-center">
-                    <img src="{{ judge.image.url }}" class="img-circle">
-                    <h4>{{ judge.name }}</h4>
-                    <h5>{{ judge.position }}</h5>
-                </div>
-                <div class="col-sm-8">
-                    <p>{{ judge.bio }}</p>
-                </div>
-              </div><!-- /row -->
+                {% if judge.visible %}
+                  <div class="row">
+                    <div class="collaborator col-sm-4 text-center">
+                        <img src="{{ judge.image.url }}" class="img-circle">
+                        <h4>{{ judge.name }}</h4>
+                        <h5>{{ judge.position }}</h5>
+                    </div>
+                    <div class="col-sm-8">
+                        <p>{{ judge.bio }}</p>
+                    </div>
+                  </div><!-- /row -->
+                {% endif %}
             {% endfor %}
         </div><!-- /container -->
       </div><!-- /collaborators -->
+      {% endif %}
 
 
   <div id="organisers">
@@ -391,10 +411,12 @@
             <p>Startup Weekend Santo Domingo llega a ti por la labor de las siguientes personas</p>
             
             {% for organizer in organizer %}
-            <div class="organiser">
-                <img src="{{ organizer.image.url }}" class="img-circle">
-                <h4>{{ organizer.name }}</h4>
-            </div>
+                {% if organizer.visible %}
+                    <div class="organiser">
+                        <img src="{{ organizer.image.url }}" class="img-circle">
+                        <h4>{{ organizer.name }}</h4>
+                    </div>
+                {% endif %}
             {% endfor %}
 
           </div><!-- col -->
@@ -406,10 +428,12 @@
             <h1>Colaboradores</h1>
             
             {% for collaborator in collaborators %}
-            <div class="organiser">
-                <img src="{{ collaborator.image.url }}" class="img-circle">
-                <h4>{{ collaborator.name }}</h4>
-            </div>
+                {% if collaborator.visible %}
+                    <div class="organiser">
+                        <img src="{{ collaborator.image.url }}" class="img-circle">
+                        <h4>{{ collaborator.name }}</h4>
+                    </div>
+                {% endif %}
             {% endfor %}
             
           </div><!-- col -->
