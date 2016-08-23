@@ -38,3 +38,8 @@ tramp
 Thumbs.db
 Desktop.ini
 
+# Linux
+.python-version
+
+# Local settings
+local_settings.py
