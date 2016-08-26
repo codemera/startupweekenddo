@@ -42,7 +42,7 @@ class Sponsor(models.Model):
     event = models.ForeignKey('Event', null=False)
     url = models.URLField()
 
-    image_crop = ImageRatioField('image', '300x300')  # TODO: Define these sizes
+    image_crop = ImageRatioField('image', '500x400')  # TODO: Define these sizes
 
     def __str__(self):
         return "[{category}] {name}".format(category=self.category, name=self.name)
