@@ -43,5 +43,5 @@ Desktop.ini
 
 # Local settings
 local_settings.py
-static/
 media/
+node_modules
