@@ -1,0 +1,19 @@
+{
+  "name": "startupweekenddo",
+  "description": "Frontend application for StartupWeekendDO",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "https://github.com/codemera/startupweekenddo",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "~3.3.6",
+    "font-awesome": "fontawesome#~4.5.0"
+  }
+}
