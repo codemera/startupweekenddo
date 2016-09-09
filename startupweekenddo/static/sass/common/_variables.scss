@@ -15,3 +15,64 @@ $navbar-default-toggle-hover-bg: transparent;
 // Typography Variables:
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-serif: 'Montserrat', sans-serif;
+$browser-font-size: 14; // The browsers' default font size (in pxs) = 16 bc the html tag is set to 100%
+$font-size-base: 14px;
+
+// Breakpoints Variables:
+
+// Got these breakpoints from the Responsive BP framework
+// https://github.com/ResponsiveBP/Responsive/blob/master/src/sass/utilities/_variables.scss#L43
+
+$breakpoints-values: (
+  xs: 37.5,
+  sm: 48,
+  md: 62,
+  lg: 75
+);
+
+// Saving the bp's names in a list
+$breakpoints-names: xs, sm, md, lg;
+
+// Base variables for the Modular Scale package
+$ms-base: 1;
+$ms-ratio: 1.2;
+
+// Defining a base font size for each breakpoint and saving it in a sass map
+$breakpoints-font-sizes: (
+  xs: ms(-2, 1, 1.067),
+  sm: ms(-1, 1, 1.067),
+  md: ms(0, 1, 1.067),
+  lg: ms(1, 1, 1.067)
+);
+
+// Defining a font size for each heading and saving it in a sass map
+$headings-sizes: (
+  h5: ms(0),
+  h4: ms(1),
+  h3: ms(2),
+  h2: ms(3),
+  h1: ms(4)
+);
+
+// Defining the font sizes for the font sizing helper classes
+$font-sizes: (
+  xs: ms(-2),
+  sm: ms(-1),
+  md: ms(0),
+  lg: ms(1)
+);
+
+// Saving the headings's names in a list
+$headings: h1, h2, h3, h4, h5;
+
+// Vertical Rhythm:
+
+// Defining an increment for each vertical spacing helper class
+$spacing-sizes: (
+  xs: .5,
+  sm: 1,
+  md: 2,
+  lg: 3
+);
+
+$sizing-names: xs, sm, md, lg;
