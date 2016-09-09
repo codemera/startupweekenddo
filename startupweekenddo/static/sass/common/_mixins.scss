@@ -1,0 +1,124 @@
+// ---------------------------------------------------------------------------
+// Mixins and Functions
+// ---------------------------------------------------------------------------
+
+// MEDIA QUERIES MIXIN
+
+// This mixin defines 4 media queries.
+// One for each breakpoint (xs, sm, md, lg)
+// And they don't overlap.
+
+// To know the specific range of each media query reference to the $breakpoints-values variable
+// in the _variables.scss file. But, in a nutshell:
+// 1. xs = viewports < $xs
+// 2. sm = viewports > $xs and < $md
+// 3. md = viewports > $md and < $lg
+// 4. lg = viewports > $lg
+
+// You give this mixin the name of a breakpoint and it will print your rule-set
+// inside a media query assigned to that breakpoint.
+
+// PRO TIP:
+// Use along with the @each function and the $breakpoints-names variable to print a given
+// rule-set for each existing breakpoint
+// i.e.:
+// @each $bp in $breakpoints-names {
+//   @include media-queries(#{$bp}) {
+//   }
+// }
+
+@mixin media-queries($breakpoint-name) {
+  @if $breakpoint-name == xs {
+    @media screen and (max-width: map-get($breakpoints-values, xs) * 1rem) {
+      @content;
+    }
+  }
+  @else if $breakpoint-name == sm {
+    @media screen and (min-width: map-get($breakpoints-values, xs) + 0.0001rem) and (max-width: map-get($breakpoints-values, md) - 0.0001rem) {
+      @content;
+    }
+  }
+  @else if $breakpoint-name == md {
+    @media screen and (min-width: map-get($breakpoints-values, md) * 1rem) and (max-width: map-get($breakpoints-values, lg) - 0.0001rem) {
+      @content;
+    }
+  }
+  @else if $breakpoint-name == lg {
+    @media screen and (min-width: map-get($breakpoints-values, lg) * 1rem) {
+      @content;
+    }
+  }
+}
+
+
+// MORE HELPERS FOR RESPONSIVE DESIGN
+// These media queries do overlap.
+
+@mixin media-query($mq) {
+  // Media query mixin for viewports: 992px and up
+  // It targets: desktops
+  @if $mq == desktops-and-up {
+    @media (min-width: $screen-lg) {
+      @content;
+    }
+  }
+
+  // Media query mixin for viewports: 992px and up
+  // It targets: landscape tablets and desktops
+  @else if $mq == tablets-and-up {
+    @media (min-width: $screen-md) {
+      @content;
+    }
+  }
+
+  // Media query mixin for viewports: 768px and up
+  // It targets: landscape phones, tablets (landscape and portrait) and desktops
+  @else if $mq == landscape-phones-and-up {
+    @media (min-width: $screen-sm) {
+      @content;
+    }
+  }
+
+  // Media query mixin for viewports: 992px and down
+  // It targets: tablets (landscape and portrait) and phones (landscape and portrait)
+  @else if $mq == tablets-and-down {
+    @media (max-width: $screen-md) {
+      @content;
+    }
+  }
+
+  // Media query mixin for viewports: 768px and down
+  // It targets: landscape phones and portrait phones
+  @else if $mq == landscape-phones-and-down {
+    @media (max-width: $screen-sm) {
+      @content;
+    }
+  }
+
+  // Media query mixin for viewports: 480px and down
+  // It targets: portrait phones
+  @else if $mq == phones {
+    @media (max-width: $screen-xs) {
+      @content;
+    }
+  }
+}
+
+// The "Secret Symphony" function
+
+// Based on Chris Pearson's formula to find a line height that holds a perfect relationship between
+// font size and line width:
+// "Secret Symphony: The Ultimate Guide to Readable Web Typography" http://t.co/KoeUoEWrNS
+// «Font size (f) and line height (l) are proportionally related through a ratio (h)»
+// i.e.: (l) = (f)(h)
+
+@function secret-symphony($font-size, $line-width) {
+  $ratio: $golden - 1 / (2 * $golden) * (1 - ($line-width / pow(($font-size * $golden), 2)));
+  $line-height: $font-size * $ratio;
+  @return $line-height;
+}
+
+@function secret-symphony-ratio($font-size, $line-width) {
+  $ratio: $golden - 1 / (2 * $golden) * (1 - ($line-width / pow(($font-size * $golden), 2)));
+  @return $ratio;
+}

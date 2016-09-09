@@ -1,4 +1,13 @@
+@import '../components/modular-scale/stylesheets/modular-scale';
+
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,400i,700,700i';
 @import 'common/variables';
 
 @import 'bootstrap';
 @import 'font-awesome';
+@import '../components/mathsass/dist/math';
+
+@import 'common/mixins';
+@import 'common/global';
+@import 'layouts/header';
+@import 'layouts/footer';

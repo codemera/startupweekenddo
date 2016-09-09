@@ -1,0 +1,226 @@
+// GLOBAL.SCSS
+
+// ===========================================================================
+// Typography
+// ===========================================================================
+
+html {
+  // Setting this to 100% means we're using
+  // the browser's default font size, which is 16px:
+  font-size: 100% !important;
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 210px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-serif;
+
+  > a {
+    color: $gray-dark;
+  }
+}
+
+// ===========================================================================
+//  Font Sizing and Line Heights
+// ===========================================================================
+
+// Setting the appropiate body font size for each breakpoint:
+
+@each $bp in $breakpoints-names {
+  @include media-queries(#{$bp}) {
+    // Since this is the base font size, I'm going to set it in pixels. But, I defined font sizes
+    // using a modular scale and they're expressed in a relative font unit. So, to get the font
+    // size in pixels you need to multiply that relative value by what 1rem equals to
+    // in pixels, in the project. In this project 1rem = 16px. Why? Because my root element
+    // is set to 100% and that means I'm using the browser's default font size, which is 16px.
+
+    $body-font-size: map-get($breakpoints-font-sizes, #{$bp}) * $browser-font-size;
+
+    // Setting the optimal line height for the breakpoint:
+
+    // «For any font size, the line height must increase as the line width increases»
+
+    // First, I get the font size and express the value in pixels again (without any units, tho)
+    // because the line height formula will only make sense if you give it pixel-based values.
+    // I don't understand what I'm doing enough to get creative and *update* the equation to work
+    // with any other font unit. So I'll just convert the result to whatever I want later.
+
+    // Then, I use each breakpoint's value as the line width. Certainly, breakpoints don't
+    // represent the exact width of all the lines of your text, but it's a good foundation, IMO.
+
+    $body-line-width: map-get($breakpoints-values, $bp) * $browser-font-size;
+    $body-line-height: secret-symphony-ratio($body-font-size, $body-line-width);
+    $body-line-height-in-px: $body-line-height * $body-font-size;
+
+    body {
+      font-size: round($body-font-size) * 1px;
+      line-height: $body-line-height;
+    }
+
+
+    // =======================================================================
+    // Line-height for Headings
+    // =======================================================================
+
+    @each $heading in $headings {
+      #{$heading}, .#{$heading} {
+        $font-size: map-get($headings-sizes, #{$heading}) * $browser-font-size;
+        $line-height: secret-symphony-ratio($font-size, $body-line-width);
+        line-height: $line-height;
+      }
+    }
+
+
+    // =======================================================================
+    // Line-height for the Font Sizing
+    // Helper Classes
+    // =======================================================================
+
+    @each $size in $sizing-names {
+      .text-#{$size} {
+        $font-size: map-get($font-sizes, #{$size}) * $browser-font-size;
+        $line-height: secret-symphony-ratio($font-size, $body-line-width);
+        line-height: $line-height;
+      }
+    }
+
+
+    // =======================================================================
+    // Vertical Rhythm
+    // =======================================================================
+
+    // In order to keep the rhythm of the text:
+    // - differing text [in size] should take up a multiple of the basic leading [aka line height]
+    // - the vertical spacing between blocks [margins] should be the same as the line height
+    // http://webtypography.net/2.2.2
+
+    p,
+    blockquote,
+    ul {
+      margin-top: $body-line-height * 1em;
+      margin-bottom: $body-line-height * 1em;
+    }
+
+    // =======================================================================
+    // Vertical Rhythm Helper Classes
+    // =======================================================================
+
+    // We use these to assign a reasonable top/bottom margin or padding to an element,
+    // while mantaining a vertical rhythm
+
+    @each $size in $sizing-names {
+      .gap-top-#{$size},
+      .gap-#{$size} {
+        margin-top: $body-line-height * map-get($spacing-sizes, #{$size}) * 1em;
+      }
+      .gap-bottom-#{$size},
+      .gap-#{$size} {
+        margin-bottom: $body-line-height * map-get($spacing-sizes, #{$size}) * 1em;
+      }
+      .pad-top-#{$size},
+      .pad-#{$size} {
+        padding-top: $body-line-height * map-get($spacing-sizes, #{$size}) * 1em;
+      }
+      .pad-bottom-#{$size},
+      .pad-#{$size} {
+        padding-bottom: $body-line-height * map-get($spacing-sizes, #{$size}) * 1em;
+      }
+    }
+  }
+}
+
+.gap-none {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+}
+
+.gap-top-none {
+  margin-top: 0 !important;
+}
+
+.gap-bottom-none {
+  margin-bottom: 0 !important;
+}
+
+
+// ===========================================================================
+// Font Sizing Helper Classes
+// ===========================================================================
+
+@each $size in $sizing-names {
+  .text-#{$size} {
+    font-size: map-get($font-sizes, #{$size}) * 1em;
+  }
+}
+
+
+// ===========================================================================
+// Headings' Font Sizes
+// ===========================================================================
+
+// Note: I decided to use ems instead of rems for headings because this unit is relative to
+// the parent element's font size, so it will scale automatically. This way I only set these
+// sizes once and they'll adjust based on the base font size I set on every breakpoint
+
+@each $heading in $headings {
+  #{$heading}, .#{$heading} {
+    font-size: map-get($headings-sizes, #{$heading}) * 1em;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-rendering: optimizeLegibility;
+
+  + p {
+    margin-top: 0;
+  }
+}
+
+.text-thin {
+  font-weight: 300;
+}
+
+
+// ===========================================================================
+// Helpers
+// ===========================================================================
+
+.vmiddle,
+.vtop,
+.vbottom {
+  display: inline-block;
+  float: none;
+}
+
+.vmiddle {
+  vertical-align: middle;
+}
+
+.vtop {
+  vertical-align: top;
+}
+
+.vbottom {
+  vertical-align: bottom;
+}
+
+.pull-right-xs {
+  @include media-query(tablets-and-up) {
+    float: right !important;
+  }
+}
