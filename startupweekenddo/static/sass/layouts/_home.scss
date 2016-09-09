@@ -20,10 +20,17 @@
       }
     }
     @include media-query(landscape-phones-and-down) {
-      font-size: 12px;
+      .jumbotron-content {
+        font-size: 10px;
+        width: 90%;
+        > p {
+          font-size: 1.5em;
+        }
+      }
     }
   }
   section {
-    padding: 50px 0;
+    padding-bottom: 50px;
+    padding-top: 50px;
   }
 }
