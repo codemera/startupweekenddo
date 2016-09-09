@@ -24,10 +24,20 @@ h4,
 h5,
 h6 {
   font-family: $font-family-serif;
+  font-weight: 700;
+  color: #414141;
 
   > a {
     color: $gray-dark;
   }
+
+  &.xlarge {
+    font-size: 3.3em;
+  }
+}
+
+p {
+  color: #535353;
 }
 
 // ===========================================================================
@@ -222,4 +232,22 @@ h5 {
   @include media-query(tablets-and-up) {
     float: right !important;
   }
+}
+
+// ===========================================================================
+// Buttons
+// ===========================================================================
+
+.btn {
+  font-family: $font-family-serif;
+  padding: 12px 28px;
+  text-transform: uppercase;
+}
+
+.btn-rounded {
+  border-radius: 50px;
+}
+
+.btn-white {
+  @include button-variant($brand-primary, #fff, transparent);
 }
