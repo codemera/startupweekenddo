@@ -10,7 +10,11 @@ $navbar-default-link-hover-bg: $brand-primary;
 $navbar-default-border: #f2f2f2;
 $navbar-default-link-active-color: #fff;
 $navbar-default-link-active-bg: $brand-primary;
-$navbar-default-toggle-hover-bg: transparent;
+
+$navbar-default-toggle-hover-bg: #f7f7f7;
+$navbar-default-toggle-icon-bar-bg: $brand-primary;
+$navbar-default-toggle-border-color: transparent;
+
 
 // Typography Variables:
 $font-family-sans-serif: 'Open Sans', sans-serif;
