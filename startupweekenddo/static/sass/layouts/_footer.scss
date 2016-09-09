@@ -1,0 +1,34 @@
+$footer-main-bg: #262626;
+
+.footer {
+  &-main {
+    background: $footer-main-bg;
+    color: #fff;
+    padding: 50px 0;
+    a {
+      color: #fff;
+    }
+    .social-links > li {
+      background: #fff;
+      border-radius: 50%;
+      height: 32px;
+      text-align: center;
+      line-height: 32px;
+      width: 32px;
+      > a {
+        color: $footer-main-bg;
+      }
+      &:not(:last-child) {
+        margin-right: .5em;
+      }
+    }
+    .list-inline {
+      margin: 10px 0;
+    }
+  }
+  &-bottom {
+    background: #101010;
+    color: $gray-light;
+    padding: 25px 0;
+  }
+}
