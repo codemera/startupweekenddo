@@ -251,3 +251,29 @@ h5 {
 .btn-white {
   @include button-variant($brand-primary, #fff, transparent);
 }
+
+// ===========================================================================
+// Sections
+// ===========================================================================
+
+section {
+  padding-bottom: 50px;
+  padding-top: 50px;
+  &.gray-bg {
+    background: #f7f7f7;
+  }
+  &.primary-bg {
+    background: $brand-primary;
+    color: #fff !important;
+  }
+}
+
+.flex-header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+  h1 {
+    margin-top: 0;
+  }
+}
