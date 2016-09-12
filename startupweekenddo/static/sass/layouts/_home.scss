@@ -29,8 +29,45 @@
       }
     }
   }
-  section {
-    padding-bottom: 50px;
-    padding-top: 50px;
+  .counters {
+    &--container {
+      text-align: center;
+    }
+    &--number {
+      font-size: 1.25em;
+      font-weight: bold;
+    }
+    &--title {
+      color: lighten(#fff, .75);
+    }
+  }
+
+  //
+  // Homepage Calendar
+  //
+  .calendar {
+    &--container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    &--event {
+      align-content: flex-end;
+      border-bottom: 1px solid $gray-lighter;
+      display: flex;
+      flex: 0 1 48%;
+      justify-content: space-between;
+      margin-bottom: 1em;
+      padding-bottom: 1em;
+      &-date {
+        color: $gray-light;
+        font-family: $font-family-serif;
+      }
+      &-title {
+        color: $brand-primary;
+        font-size: 1.25em;
+        font-weight: bold;
+      }
+    }
   }
 }
