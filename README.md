@@ -25,7 +25,7 @@ Installation
 
         virtualenv startupweekendo
 
-3. Install base dependencies :
+3. Install base dependencies:
 
         cd startupweekendo
         pip install -r requirements.txt  # If production
@@ -44,6 +44,12 @@ Installation
 
         ./manage.py syncdb
         ./manage.py migrate
+
+6. Install third-party assets:
+
+        npm install
+        bower install
+        gulp
 
 Running
 ---------
