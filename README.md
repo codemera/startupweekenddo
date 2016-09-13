@@ -51,6 +51,10 @@ Installation
         bower install
         gulp
 
+7. Load initial data
+
+        ./manage.py loaddata startupweekenddo/fixtures/initial_data.json
+
 Running
 ---------
 

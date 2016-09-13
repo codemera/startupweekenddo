@@ -45,3 +45,4 @@ Desktop.ini
 local_settings.py
 media/
 node_modules
+dev.db
