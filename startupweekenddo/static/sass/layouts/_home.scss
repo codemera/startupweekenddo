@@ -29,6 +29,18 @@
       }
     }
   }
+  //
+  // Recent Blog Posts
+  //
+  .recent-posts {
+    h4 > a {
+      color: $brand-primary;
+    }
+  }
+
+  //
+  // Homepage Counters
+  //
   .counters {
     &--container {
       text-align: center;

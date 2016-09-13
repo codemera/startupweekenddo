@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load blog_tags %}
+
 {% block full_title %}
 Startup Weekend DO
 {% endblock full_title %}
@@ -46,6 +48,18 @@ Startup Weekend DO
     <div class="flex-header">
       <h1><b>Noticias Recientes</b></h1>
       <a href="#"><b>Ver más noticias &raquo;</b></a>
+    </div>
+    <div class="row recent-posts">
+      {% blog_recent_posts 3 as recent_posts %}
+      {% for post in recent_posts %}
+      <div class="col-sm-4">
+        <h4>
+          <a href="#">
+            {{ post.title }}
+          </a>
+        </h4>
+      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
