@@ -4,6 +4,7 @@ from startupweekenddo.models import (
     Event, Facilitator, Mentor, Sponsor, Judge, Organizer,
     Collaborator, Schedule, ScheduleItem
 )
+from mezzanine.pages.admin import PageAdmin
 
 
 class FacilitatorInline(ImageCroppingMixin, admin.TabularInline):
@@ -37,9 +38,9 @@ class SponsorInline(ImageCroppingMixin, admin.TabularInline):
     extra = 0
 
 
-class EventAdmin(ImageCroppingMixin, admin.ModelAdmin):
+class EventAdmin(ImageCroppingMixin, PageAdmin):
     inlines = [SponsorInline, OrganizerInline, CollaboratorInline, JudgeInline, MentorInline]
-    list_display = ['title', 'start_date', 'place']
+    list_display = ['title', 'start_date', 'status']
 
 
 class ScheduleItemInline(admin.TabularInline):

@@ -1,13 +1,14 @@
 from django.db import models
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.translation import ugettext as _
+from mezzanine.pages.models import Page
 
 
-class Event(models.Model):
+class Event(Page):
     start_date = models.DateField(verbose_name=_('Start Date'), blank=False, null=False)
     end_date = models.DateField(verbose_name=_('End Date'), blank=True, null=True)
-    title = models.CharField(max_length=50, unique=True)
-    place = models.CharField(max_length=100, blank=True, null=True)
+    location = models.CharField(max_length=100, blank=True, null=True)
+    city = models.CharField(max_length=100, blank=False, null=False)
     image = models.ImageField(upload_to='event/', verbose_name=_('Main Image'), null=True, blank=True)
     registration_uri = models.URLField(verbose_name=_('Registration Link'))
 
@@ -17,8 +18,13 @@ class Event(models.Model):
     banner_crop = ImageRatioField('banner', '800x400')  # TODO: Define these sizes
     logo_crop = ImageRatioField('logo', '400x400')  # TODO: Define these sizes
 
+    participants = models.PositiveIntegerField(default=0)
+
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ["-start_date", "title"]
 
 SPONSOR_DIAMOND = 1
 SPONSOR_PLATINUM = 2
