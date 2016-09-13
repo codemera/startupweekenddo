@@ -71,3 +71,17 @@
     }
   }
 }
+
+//
+// Mailchimp Signup Form
+//
+.mailchimp-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .form-control {
+    font-family: $font-family-serif;
+    padding: 21px 28px;
+    text-transform: uppercase;
+  }
+}
