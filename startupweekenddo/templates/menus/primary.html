@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         {% for page in page_branch %}
-        <li>
+        <li{% if page.is_current %} class="active"{% endif %}>
           <a href="{{ page.get_absolute_url }}">{{ page.title }}</a>
         </li>
         {% endfor %}
