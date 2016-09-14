@@ -20,6 +20,7 @@
       }
     }
     @include media-query(landscape-phones-and-down) {
+      min-height: 450px !important;
       .jumbotron-content {
         font-size: 10px;
         width: 90%;
@@ -81,6 +82,11 @@
         font-weight: bold;
       }
     }
+    @include media-query(landscape-phones-and-down) {
+      &--event {
+        flex: 0 1 100%;
+      }
+    }
   }
 }
 
@@ -88,12 +94,26 @@
 // Mailchimp Signup Form
 //
 .mailchimp-form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   .form-control {
     font-family: $font-family-serif;
     padding: 21px 28px;
     text-transform: uppercase;
+    &.longer {
+      min-width: 250px;
+    }
+  }
+  @include media-query(desktops-and-up) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: 1199px) {
+    .form-group {
+      display: block;
+      margin-bottom: 1em;
+    }
+    .form-control {
+      width: 100%;
+    }
   }
 }

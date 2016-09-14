@@ -24,7 +24,11 @@ $footer-main-bg: #262626;
     }
     .list-inline {
       margin: 10px 0;
+      @include media-query(landscape-phones-and-down) {
+        margin: 20px 0 10px -5px;
+      }
     }
+
   }
   &-bottom {
     background: #101010;
