@@ -40,6 +40,10 @@ p {
   color: #535353;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 // ===========================================================================
 //  Font Sizing and Line Heights
 // ===========================================================================
@@ -250,6 +254,11 @@ h5 {
 
 .btn-white {
   @include button-variant($brand-primary, #fff, transparent);
+}
+
+.btn-outline {
+  @include button-variant(#fff, transparent, #fff);
+  border-width: 2px;
 }
 
 // ===========================================================================
