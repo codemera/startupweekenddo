@@ -1,0 +1,124 @@
+{% load blog_tags %}
+
+<div class="jumbotron gap-none">
+  <div class="jumbotron-content text-center">
+    <h1 class="xlarge uppercase">
+      No Talk, All Action.
+    </h1>
+    <p class="lead gap-bottom-xs">
+      Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem
+      lacinia quam venenatis vestibulum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+    </p>
+    <a href="#" class="btn btn-white btn-rounded">Inscríbete</a>
+  </div>
+</div>
+
+<section class="container">
+  <h1 class="xlarge text-center gap-bottom-xs">¿Qué es el Startup Weekend?</h1>
+  <p>
+    Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+    Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus varius blandit
+    sit amet non magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+    ridiculus mus.
+  </p>
+  <p>
+    Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer posuere erat a
+    ante venenatis dapibus posuere velit aliquet. Maecenas faucibus mollis interdum.
+  </p>
+
+  <div class="text-center">
+    <h3 class="gap-bottom-xs">¿Aenean lacinia bibendum nulla sed consectetur?</h3>
+    <a href="#" class="btn btn-primary btn-rounded text-center">
+      Ver Eventos Pasados
+    </a>
+  </div>
+</section>
+
+<section class="gray-bg">
+  <div class="container">
+    <div class="flex-header">
+      <h1><b>Noticias Recientes</b></h1>
+      <a href="#"><b>Ver más noticias &raquo;</b></a>
+    </div>
+    <div class="row recent-posts">
+      {% blog_recent_posts 3 as recent_posts %}
+      {% for post in recent_posts %}
+      <div class="col-sm-4">
+        <h4>
+          <a href="#">
+            {{ post.title }}
+          </a>
+        </h4>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <h1 class="xlarge text-center gap-bottom-xs">Vulputate Dapibus Ultricies</h1>
+  <div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+      <p class="gap-top-none">
+        Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra
+        augue. Cras mattis consectetur purus sit amet fermentum. Maecenas sed diam eget risus
+        varius blandit sit amet non magna. Cum sociis natoque penatibus et magnis dis parturient
+        montes, nascetur ridiculus mus.
+      </p>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cPScUWwP6ec"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="primary-bg counters--container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="row">
+          <div class="col-xs-4">
+            <i class="fa fa-2x fa-calendar"></i>
+            <div class="counters--number">{{ events_count }}</div>
+            <div class="counters--title">Eventos</div>
+          </div>
+          <div class="col-xs-4">
+            <i class="fa fa-2x fa-users"></i>
+            <div class="counters--number">{{ participants_count }}</div>
+            <div class="counters--title">Participantes</div>
+          </div>
+          <div class="col-xs-4">
+            <i class="fa fa-2x fa-map-marker"></i>
+            <div class="counters--number">{{ cities_count }}</div>
+            <div class="counters--title">Ciudades</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="flex-header">
+    <h1><b>Calendario</b></h1>
+    <a href="#"><b>Ver más eventos &raquo;</b></a>
+  </div>
+  <div class="calendar--container">
+    <div class="calendar--event">
+      <div class="calendar--event-info">
+        <div class="calendar--event-date">02 Mar 2016</div>
+        <div class="calendar--event-title">Adipiscing Ornare</div>
+      </div>
+      <div class="calendar--btn">
+        <a href="#" class="btn btn-primary btn-rounded">Ver Más</a>
+      </div>
+    </div>
+  </div>
+</section>

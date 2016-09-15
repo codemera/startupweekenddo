@@ -1,0 +1,35 @@
+<div class="jumbotron current-event gap-none"
+  style="background: url('{{ current_event.banner.url }}');">
+  <div class="jumbotron-content text-center">
+    <h5 class="uppercase gap-none"><b>Próximo Evento</b></h5>
+    <h1 class="uppercase gap-top-none">
+      {{ current_event.title }}
+    </h1>
+    <div class="info-row gap-bottom-sm">
+      <div>
+        <i class="fa fa-calendar"></i>&nbsp;
+        {{ current_event.start_date|date:"d M" }} - {{ current_event.end_date|date:"d M, Y" }}
+      </div>
+      <div>
+        <i class="fa fa-map-marker"></i>&nbsp;
+        {{ current_event.location }}
+      </div>
+    </div>
+    <a href="{{ current_event.registration_uri }}"
+      class="btn btn-white btn-rounded">
+      Inscríbete
+    </a>
+    &nbsp;
+    <a href="#startupweekend"
+      class="btn btn-outline btn-rounded">
+      Más Información
+    </a>
+  </div>
+  <div class="overlay"></div>
+</div>
+
+<section id="startupweekend">
+  <div class="container">
+    <h1>¿Qué es el Startup Weekend?</h1>
+  </div>
+</section>
