@@ -28,8 +28,52 @@
   <div class="overlay"></div>
 </div>
 
-<section id="startupweekend">
+<section id="startupweekend" class="gray-bg">
   <div class="container">
     <h1>¿Qué es el Startup Weekend?</h1>
   </div>
+</section>
+
+<section class="container">
+  <h1>Programa</h1>
+  {% with schedule_items=current_event.schedule.scheduleitem_set.all %}
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-primary">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          Programa del evento
+        </h4>
+      </div>
+    </div>
+
+    {% for day in schedule_days %}
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab">
+        <h4 class="panel-title">
+          <a role="button"
+            data-toggle="collapse"
+            data-parent="#accordion"
+            href="#schedule_day_{{ forloop.counter }}">
+            {{ day|date:"D d M" }}
+          </a>
+        </h4>
+      </div>
+      <div id="schedule_day_{{ forloop.counter }}"
+        class="panel-collapse collapse in"
+        role="tabpanel">
+        <div class="panel-body">
+          {# TODO this should only iterate through schedue_items for each day #}
+          {% for item in schedule_items %}
+          <div class="schedule-item">
+            <b>{{ item.time|date:"g:i A" }}</b>
+            <span>{{ item.title }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+  {% endwith %}
 </section>
