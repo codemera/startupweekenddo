@@ -27,6 +27,10 @@
       {{ blog_post.content|richtext_filters|safe }}
     </div>
 
+    <div class="col-sm-4">
+      {% include 'blog/includes/sidebar.html' %}
+    </div>
+
   </div>
 </section>
 {% endblock %}
