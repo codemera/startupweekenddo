@@ -1,0 +1,15 @@
+{% load blog_tags %}
+
+<aside class="sidebar sidebar-blog">
+  <div class="sidebar-section">
+    <h4 class="gap-top-none">
+      Entradas recientes
+    </h4>
+    {% blog_recent_posts 3 as recent_posts %}
+    {% for post in recent_posts %}
+    <ul class="unstyled">
+      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+    </ul>
+    {% endfor %}
+  </div>
+</aside>
