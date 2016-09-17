@@ -37,9 +37,9 @@
 <section class="container">
   <h1>Programa</h1>
   {% with schedule_items=current_event.schedule.scheduleitem_set.all %}
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel-group" id="event_schedule" role="tablist" aria-multiselectable="true">
     <div class="panel panel-primary">
-      <div class="panel-heading" role="tab" id="headingTwo">
+      <div class="panel-heading">
         <h4 class="panel-title">
           Programa del evento
         </h4>
@@ -52,9 +52,12 @@
         <h4 class="panel-title">
           <a role="button"
             data-toggle="collapse"
-            data-parent="#accordion"
+            data-parent="#event_schedule"
             href="#schedule_day_{{ forloop.counter }}">
             {{ day|date:"D d M" }}
+            <span class="pull-right">
+              <i class="fa fa-plus"></i>
+            </span>
           </a>
         </h4>
       </div>
