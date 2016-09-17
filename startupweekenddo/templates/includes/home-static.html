@@ -47,9 +47,7 @@
       {% for post in recent_posts %}
       <div class="col-sm-4">
         <h4>
-          <a href="#">
-            {{ post.title }}
-          </a>
+          <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </h4>
       </div>
       {% endfor %}
