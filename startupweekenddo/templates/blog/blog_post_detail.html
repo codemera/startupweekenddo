@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n disqus_tags %}
+
+{% block title %}{{ blog_post.meta_title }}{% endblock %}
+
+{% block body %}
+<section class="container">
+  <div class="row">
+
+    <div class="col-sm-8">
+      <header>
+        <h1 class="gap-top-none">{{ blog_post.title }}</h1>
+        <div class="byline text-muted gap-bottom-sm">
+          Publicado por
+          {% with blog_post.user as author %}
+          <a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+          {% endwith %}
+          | {{ blog_post.publish_date }}
+        </div>
+      </header>
+
+      {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+      <img class="img-responsive" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 0 %}">
+      {% endif %}
+
+      {{ blog_post.content|richtext_filters|safe }}
+    </div>
+
+  </div>
+</section>
+{% endblock %}
