@@ -1,5 +1,5 @@
 <div class="jumbotron current-event gap-none"
-  style="background: url('{{ current_event.banner.url }}');">
+  style="{% if current_event.banner %}background: url('{{ current_event.banner.url }}');{% endif %}">
   <div class="jumbotron-content text-center">
     <h5 class="uppercase gap-none"><b>Próximo Evento</b></h5>
     <h1 class="uppercase gap-top-none">
