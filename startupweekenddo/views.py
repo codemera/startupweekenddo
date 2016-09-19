@@ -1,18 +1,25 @@
 from startupweekenddo.models import Event
 from django.db.models import Count, Sum
 from django.template.response import TemplateResponse
+from collections import OrderedDict
 
 
 def index(request):
 
     current_event = Event.objects.published().first()
-    schedule_days = None
+    schedule_days = OrderedDict()
     try:
         if current_event:
-            schedule_days = current_event.schedule.scheduleitem_set.all().datetimes('time', 'day')
+            items = current_event.schedule.items.all()
+            for item in items:
+                date = item.time.date()
+                if date not in schedule_days:
+                    schedule_days[date] = [item]
+                else:
+                    schedule_days[date].append(item)
     except Exception:
         # Event has no schedule
-        schedule_days = None
+        schedule_days = {}
 
     context = {
         'events_count': Event.objects.published().count(),

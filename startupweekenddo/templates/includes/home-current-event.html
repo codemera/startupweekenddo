@@ -1,3 +1,5 @@
+{% load swdo_utils %}
+
 <div class="jumbotron current-event gap-none"
   style="{% if current_event.banner %}background: url('{{ current_event.banner.url }}');{% endif %}">
   <div class="jumbotron-content text-center">
@@ -36,7 +38,6 @@
 
 <section class="container">
   <h1>Programa</h1>
-  {% with schedule_items=current_event.schedule.scheduleitem_set.all %}
   <div class="panel-group" id="event_schedule" role="tablist" aria-multiselectable="true">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -65,8 +66,8 @@
         class="panel-collapse collapse in"
         role="tabpanel">
         <div class="panel-body">
-          {# TODO this should only iterate through schedue_items for each day #}
-          {% for item in schedule_items %}
+          {# TODO this should only iterate through schedule_items for each day #}
+          {% for item in schedule_days|get_item:day %}
           <div class="schedule-item">
             <b>{{ item.time|date:"g:i A" }}</b>
             <span>{{ item.title }}</span>
@@ -76,7 +77,5 @@
       </div>
     </div>
     {% endfor %}
-
   </div>
-  {% endwith %}
 </section>

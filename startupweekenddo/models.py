@@ -117,7 +117,7 @@ class Schedule(models.Model):
 
 
 class ScheduleItem(models.Model):
-    schedule = models.ForeignKey('Schedule')
+    schedule = models.ForeignKey('Schedule', related_name='items')
     time = models.DateTimeField(null=False, blank=False)
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500, blank=True, null=True)
