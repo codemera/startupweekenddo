@@ -2,6 +2,8 @@ from django.db import models
 from image_cropping import ImageRatioField, ImageCropField
 from django.utils.translation import ugettext as _
 from mezzanine.pages.models import Page
+from collections import OrderedDict
+from itertools import groupby
 
 
 class Event(Page):
@@ -19,6 +21,15 @@ class Event(Page):
     logo_crop = ImageRatioField('logo', '400x400')  # TODO: Define these sizes
 
     participants = models.PositiveIntegerField(default=0)
+
+    @property
+    def sponsors_by_category(self):
+        sponsors = sorted(self.sponsors.all(), key=lambda x: x.category)
+        cats = dict(SPONSOR_CATEGORIES)
+        result = OrderedDict((cat, []) for cat in cats.values())
+        for cat, spons in groupby(sponsors, key=lambda x: x.category):
+            result[cats.get(cat)].extend(spons)
+        return result
 
     @property
     def judges(self):
