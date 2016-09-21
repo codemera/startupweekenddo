@@ -20,6 +20,26 @@ class Event(Page):
 
     participants = models.PositiveIntegerField(default=0)
 
+    @property
+    def judges(self):
+        return Judge.objects.filter(event=self)
+
+    @property
+    def facilitators(self):
+        return Facilitator.objects.filter(event=self)
+
+    @property
+    def mentors(self):
+        return Mentor.objects.filter(event=self)
+
+    @property
+    def organizers(self):
+        return Organizer.objects.filter(event=self)
+
+    @property
+    def collaborators(self):
+        return Collaborator.objects.filter(event=self)
+
     def __str__(self):
         return self.title
 
@@ -45,7 +65,7 @@ class Sponsor(models.Model):
     name = models.CharField(max_length=50)
     image = ImageCropField(upload_to='sponsors/')
     category = models.IntegerField(choices=SPONSOR_CATEGORIES, null=False, blank=False)
-    event = models.ForeignKey('Event', null=False)
+    event = models.ForeignKey('Event', null=False, related_name="sponsors")
     url = models.URLField()
 
     image_crop = ImageRatioField('image', '500x400')  # TODO: Define these sizes
