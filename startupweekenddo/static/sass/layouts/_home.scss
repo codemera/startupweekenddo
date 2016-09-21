@@ -155,7 +155,13 @@
       display: flex;
       @extend .gap-bottom-md;
       &-item {
-        flex: 0 1 20%;
+        flex: 0 1 18%;
+        margin-right: 2%;
+      }
+    }
+    @include media-query(landscape-phones-and-down) {
+      &--row {
+        flex-wrap: wrap;
       }
     }
   }
