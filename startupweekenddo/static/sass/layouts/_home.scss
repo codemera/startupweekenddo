@@ -140,6 +140,25 @@
       }
     }
   }
+
+  //
+  // Event Sponsors
+  //
+  .sponsors {
+    h5 {
+      font-weight: normal;
+      text-transform: uppercase;
+      @extend .text-muted;
+    }
+    &--row {
+      align-items: center;
+      display: flex;
+      @extend .gap-bottom-md;
+      &-item {
+        flex: 0 1 20%;
+      }
+    }
+  }
 }
 
 //
