@@ -5,7 +5,6 @@ from collections import OrderedDict
 
 
 def index(request):
-
     current_event = Event.objects.published().first()
     schedule_days = OrderedDict()
     try:
