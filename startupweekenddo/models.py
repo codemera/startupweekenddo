@@ -77,7 +77,7 @@ class Sponsor(models.Model):
     image = ImageCropField(upload_to='sponsors/')
     category = models.IntegerField(choices=SPONSOR_CATEGORIES, null=False, blank=False)
     event = models.ForeignKey('Event', null=False, related_name="sponsors")
-    url = models.URLField()
+    url = models.URLField(blank=True, null=True)
 
     image_crop = ImageRatioField('image', '500x400')  # TODO: Define these sizes
 
@@ -106,7 +106,7 @@ class Person(models.Model):
 
 class Facilitator(Person):
     bio = models.TextField(max_length=500)
-    twitter = models.CharField(max_length=25)
+    twitter = models.CharField(max_length=25, null=True, blank=True)
 
     def __str__(self):
         return self.name
