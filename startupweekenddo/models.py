@@ -106,7 +106,7 @@ class Person(models.Model):
 
 class Facilitator(Person):
     bio = models.TextField(max_length=500)
-    twitter = models.CharField(max_length=25)
+    twitter = models.CharField(max_length=25, null=True, blank=True)
 
     def __str__(self):
         return self.name
