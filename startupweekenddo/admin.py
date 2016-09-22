@@ -39,7 +39,7 @@ class SponsorInline(ImageCroppingMixin, admin.TabularInline):
 
 
 class EventAdmin(ImageCroppingMixin, PageAdmin):
-    inlines = [SponsorInline, OrganizerInline, CollaboratorInline, JudgeInline, MentorInline]
+    inlines = [SponsorInline, OrganizerInline, CollaboratorInline, JudgeInline, MentorInline, FacilitatorInline]
     list_display = ['title', 'start_date', 'status']
 
 
