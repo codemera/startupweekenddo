@@ -9,10 +9,50 @@
     <ul class="unstyled gap-none">
     {% for post in recent_posts %}
       <li>
-        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        <a href="{{ post.get_absolute_url }}"><b>{{ post.title }}</b></a>
         <div class="text-muted text-xs">{{ post.publish_date }}</div>
       </li>
     {% endfor %}
+    </ul>
+  </div>
+
+  <div class="sidebar-section">
+    <h4 class="gap-top-none">
+      Suscríbete a nuestro boletín
+    </h4>
+    <div class="box box-gray">
+      <div class="text-sm gap-bottom-xs">
+        Regístrate para recibir periódicamente nuestro boletín de noticias y próximos eventos.
+      </div>
+      {% include 'includes/mailchimp-form.html' %}
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <h4 class="gap-top-none">
+      Síguenos
+    </h4>
+    <ul class="list-inline social-links">
+      <li>
+        <a href="https://www.facebook.com/SantoDomingoStartupWeekend" target="_blank">
+          <i class="fa fa-lg fa-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/swsantodomingo" target="_blank">
+          <i class="fa fa-lg fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.youtube.com/user/startupweekenddo" target="_blank">
+          <i class="fa fa-lg fa-youtube-play"></i>
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/swsantodomingo/" target="_blank">
+          <i class="fa fa-lg fa-instagram"></i>
+        </a>
+      </li>
     </ul>
   </div>
 </aside>
