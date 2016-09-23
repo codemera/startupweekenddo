@@ -10,5 +10,15 @@
     justify-content: space-between;
     padding: 15px 20px;
     border-left: 9px solid $brand-primary;
+    @extend .gap-bottom-sm;
+    @include media-query(landscape-phones-and-down) {
+      flex-wrap: wrap;
+      &--col {
+        flex: 0 1 100%;
+        &:not(:last-child) {
+          margin-bottom: 1em;
+        }
+      }
+    }
   }
 }
