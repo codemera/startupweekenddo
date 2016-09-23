@@ -1,4 +1,11 @@
 #blog {
+  article {
+    &.blog-post-list {
+      border-bottom: 1px solid $gray-lighter;
+      margin: 2em 0;
+      padding: 2em 0;
+    }
+  }
   .sidebar-blog {
     .recent-posts {
       ul {

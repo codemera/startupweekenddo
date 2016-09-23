@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load mezzanine_tags comment_tags keyword_tags rating_tags i18n %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block body_id %}blog{% endblock %}
+
+{% block body %}
+<section class="container">
+  <div class="row">
+
+    <div class="col-sm-8">
+      <header>
+        <h1 class="gap-top-none">{{ page.title }}</h1>
+      </header>
+
+      {% for blog_post in blog_posts.object_list %}
+      <article class="blog-post-list">
+        {% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+        <a href="{{ blog_post.get_absolute_url }}">
+          <img class="img-responsive gap-bottom-xs" src="{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 800 0 %}">
+        </a>
+        {% endif %}
+        <h2 class="gap-top-none">
+          <a href="{{ blog_post.get_absolute_url }}">{{ blog_post.title }}</a>
+        </h2>
+        <div class="byline text-muted gap-bottom-sm">
+          Publicado por
+          {% with blog_post.user as author %}
+          <a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+          {% endwith %}
+          | {{ blog_post.publish_date }}
+        </div>
+        {{ blog_post.description_from_content|safe }}
+        <a href="{{ blog_post.get_absolute_url }}" class="btn btn-primary btn-rounded">
+          Leer más
+        </a>
+      </article>
+      {% endfor %}
+
+      {% pagination_for blog_posts %}
+    </div>
+
+    <div class="col-sm-4">
+      {% include 'blog/includes/sidebar.html' %}
+    </div>
+
+  </div>
+</section>
+{% endblock %}
