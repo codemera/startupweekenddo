@@ -1,4 +1,4 @@
-{% load swdo_utils %}
+{% load swdo_utils cropping %}
 
 <div class="jumbotron current-event gap-none"
   style="{% if current_event.banner %}background: url('{{ current_event.banner.url }}');{% endif %}">
@@ -76,6 +76,82 @@
       </div>
     </div>
     {% endfor %}
+  </div>
+</section>
+
+<section class="gray-bg">
+  <div class="container">
+    <h1 class="gap-bottom-xs">Facilitador</h1>
+    {% for facilitator in current_event.facilitators %}
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="{% cropped_thumbnail facilitator 'image_crop' %}" alt="{{ facilitator.name }}" class="img-responsive gap-bottom-sm">
+        </div>
+        <div class="col-sm-9">
+          <h2 class="gap-top-none">{{ facilitator.name }}</h2>
+          {{ facilitator.bio }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="dark-bg">
+  <div class="container">
+    <h1 class="gap-none">Mentores</h1>
+    <p class="gap-top-none">
+      Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
+    </p>
+    <div class="people--container">
+    {% for mentor in current_event.mentors %}
+      <div class="people--row-item">
+        <img src="{% cropped_thumbnail mentor 'image_crop' %}"
+          alt="{{ mentor.name }}"
+          class="img-responsive img-thumbnail gap-bottom-sm"
+          data-toggle="tooltip" data-placement="bottom" title="{{ mentor.bio }}">
+        <h5 class="gap-none">{{ mentor.name }}</h5>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="dark-gray-bg">
+  <div class="container">
+    <h1 class="gap-none">Jueces</h1>
+    <p class="gap-top-none">
+      Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
+    </p>
+    <div class="people--container">
+    {% for judge in current_event.judges %}
+      <div class="people--row-item">
+        <img src="{% cropped_thumbnail judge 'image_crop' %}"
+          alt="{{ judge.name }}"
+          class="img-responsive img-thumbnail gap-bottom-sm"
+          data-toggle="tooltip" data-placement="bottom" title="{{ judge.bio }}">
+        <h5 class="gap-none">{{ judge.name }}</h5>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="gray-bg">
+  <div class="container">
+    <h1 class="gap-none">Organizadores</h1>
+    <p class="gap-top-none">
+      {{ current_event.title }} llega a ti por la labor de las siguientes personas
+    </p>
+    <div class="people--container">
+    {% for organizer in current_event.organizers %}
+      <div class="people--row-item">
+        <img src="{% cropped_thumbnail organizer 'image_crop' %}"
+          alt="{{ organizer.name }}"
+          class="img-responsive img-thumbnail gap-bottom-sm">
+        <h5 class="gap-none">{{ organizer.name }}</h5>
+      </div>
+    {% endfor %}
+    </div>
   </div>
 </section>
 

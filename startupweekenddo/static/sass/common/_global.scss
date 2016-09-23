@@ -277,7 +277,23 @@ section {
   }
   &.primary-bg {
     background: $brand-primary;
-    color: #fff !important;
+    color: #fff;
+  }
+  &.dark-gray-bg {
+    background: #262626;
+    color: #fff;
+  }
+  &.dark-bg {
+    background: $sw-blue-dark;
+    color: #fff;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    color: inherit;
   }
 }
 
