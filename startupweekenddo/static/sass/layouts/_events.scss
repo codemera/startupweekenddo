@@ -1,0 +1,14 @@
+//
+// Past Events
+//
+#past-events {
+  background: #f7f7f7;
+  .past-event {
+    align-items: center;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-left: 9px solid $brand-primary;
+  }
+}
