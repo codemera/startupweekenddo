@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load mezzanine_tags keyword_tags pages_tags %}
+
+{% block title %}{{ page.meta_title }}{% endblock %}
+
+{% block meta_keywords %}{% metablock %}
+{% keywords_for page as keywords %}
+{% for keyword in keywords %}
+    {% if not forloop.first %}, {% endif %}
+    {{ keyword }}
+{% endfor %}
+{% endmetablock %}{% endblock %}
+
+{% block meta_description %}{% metablock %}
+{{ page.description }}
+{% endmetablock %}{% endblock %}
+
+{% block body %}
+<header class="page-header">
+  <div class="container">
+    <ul class="breadcrumb">
+    {% spaceless %}
+    {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+    {% endspaceless %}
+    </ul>
+    <h1 class="gap-top-none gap-bottom-xs">{{ page.title }}</h1>
+  </div>
+</header>
+
+{% block content %}
+<div class="container content-wrap">
+  {% block main %}
+  {% editable page.richtextpage.content %}
+  {{ page.richtextpage.content|richtext_filter|safe }}
+  {% endeditable %}
+  {% endblock %}{# end of block main  #}
+</div>
+{% endblock %}{# end of block content  #}
+{% endblock %}
