@@ -16,7 +16,9 @@
 {% endmetablock %}{% endblock %}
 
 {% block body %}
+{% block page_header %}
 <header class="page-header">
+  {% block breadcrumbs %}
   <div class="container">
     <ul class="breadcrumb">
     {% spaceless %}
@@ -25,7 +27,9 @@
     </ul>
     <h1 class="gap-top-none gap-bottom-xs">{{ page.title }}</h1>
   </div>
+  {% endblock %}
 </header>
+{% endblock %}
 
 {% block content %}
 <div class="container content-wrap">
