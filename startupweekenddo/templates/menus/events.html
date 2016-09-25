@@ -1,7 +1,9 @@
 {% for page in page_branch %}
 <div class="past-event">
   <div class="past-event--col">
-    <b>{{ page.event.title }}</b>
+    <a href="{{ page.event.get_absolute_url }}">
+      <b>{{ page.event.title }}</b>
+    </a>
   </div>
   <div class="past-event--col">
     <i class="fa fa-calendar"></i>&nbsp;
