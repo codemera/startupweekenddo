@@ -6,6 +6,10 @@
   font-family: $font-family-serif;
 
   .navbar-brand {
-    padding: 16px;
+    padding: 20px 16px;
+    img {
+      height: auto;
+      width: 97px;
+    }
   }
 }

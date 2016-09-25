@@ -5,6 +5,10 @@ $footer-main-bg: #262626;
     background: $footer-main-bg;
     color: #fff;
     padding: 50px 0;
+    .footer-logo {
+      height: auto;
+      width: 97px;
+    }
     a {
       color: #fff;
     }
