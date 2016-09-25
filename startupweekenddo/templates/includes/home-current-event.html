@@ -85,7 +85,9 @@
     {% for facilitator in current_event.facilitators %}
       <div class="row">
         <div class="col-sm-3">
-          <img src="{% cropped_thumbnail facilitator 'image_crop' %}" alt="{{ facilitator.name }}" class="img-responsive gap-bottom-sm">
+          <img src="{% cropped_thumbnail facilitator 'image_crop' %}"
+            class="img-responsive gap-bottom-sm"
+            alt="{{ facilitator.name }}">
         </div>
         <div class="col-sm-9">
           <h2 class="gap-top-none">{{ facilitator.name }}</h2>
@@ -102,17 +104,7 @@
     <p class="gap-top-none">
       Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
     </p>
-    <div class="people--container">
-    {% for mentor in current_event.mentors %}
-      <div class="people--row-item">
-        <img src="{% cropped_thumbnail mentor 'image_crop' %}"
-          alt="{{ mentor.name }}"
-          class="img-responsive img-thumbnail gap-bottom-sm"
-          data-toggle="tooltip" data-placement="bottom" title="{{ mentor.bio }}">
-        <h5 class="gap-none">{{ mentor.name }}</h5>
-      </div>
-    {% endfor %}
-    </div>
+    {% include "includes/team.html" with team=current_event.mentors %}
   </div>
 </section>
 
@@ -122,17 +114,7 @@
     <p class="gap-top-none">
       Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
     </p>
-    <div class="people--container">
-    {% for judge in current_event.judges %}
-      <div class="people--row-item">
-        <img src="{% cropped_thumbnail judge 'image_crop' %}"
-          alt="{{ judge.name }}"
-          class="img-responsive img-thumbnail gap-bottom-sm"
-          data-toggle="tooltip" data-placement="bottom" title="{{ judge.bio }}">
-        <h5 class="gap-none">{{ judge.name }}</h5>
-      </div>
-    {% endfor %}
-    </div>
+    {% include "includes/team.html" with team=current_event.judges %}
   </div>
 </section>
 
@@ -142,38 +124,13 @@
     <p class="gap-top-none">
       {{ current_event.title }} llega a ti por la labor de las siguientes personas
     </p>
-    <div class="people--container">
-    {% for organizer in current_event.organizers %}
-      <div class="people--row-item">
-        <img src="{% cropped_thumbnail organizer 'image_crop' %}"
-          alt="{{ organizer.name }}"
-          class="img-responsive img-thumbnail gap-bottom-sm">
-        <h5 class="gap-none">{{ organizer.name }}</h5>
-      </div>
-    {% endfor %}
-    </div>
+    {% include "includes/team.html" with team=current_event.organizers %}
   </div>
 </section>
 
 <section class="container">
   <div class="flex-row">
     <h1 class="gap-bottom-xs">Sponsors</h1>
-
-    <div class="sponsors">
-    {% for category in current_event.sponsors_by_category %}
-    <div class="sponsors--container">
-      <h5 class="gap-none">{{ category }}</h5>
-      <div class="sponsors--row">
-      {% for sponsor in current_event.sponsors_by_category|get_item:category %}
-      <div class="sponsors--row-item">
-        <a href="{{ sponsor.url }}" target="_blank">
-          <img src="{{ sponsor.image.url }}" alt="{{ sponsor.name }}" class="img-responsive">
-        </a>
-      </div>
-      {% endfor %}
-      </div>
-    </div>
-    {% endfor %}
-    </div>
+    {% include "includes/sponsors.html" with event=current_event %}
   </div>
 </section>

@@ -1,0 +1,15 @@
+{% load cropping %}
+
+<div class="team--container">
+{% for person in team %}
+  <div class="team--row-item">
+    <img src="{% cropped_thumbnail person 'image_crop' %}"
+      alt="{{ person.name }}"
+      class="img-responsive img-thumbnail gap-bottom-sm"
+      {% if person.bio %}
+      data-toggle="tooltip" data-placement="bottom" title="{{ person.bio }}"
+      {% endif %}>
+    <h5 class="gap-none">{{ person.name }}</h5>
+  </div>
+{% endfor %}
+</div>
