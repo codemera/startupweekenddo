@@ -1,5 +1,48 @@
 //
-// Past Events
+// Event Sponsors
+//
+.sponsors {
+  h5 {
+    font-weight: normal;
+    text-transform: uppercase;
+    @extend .text-muted;
+  }
+  &--row {
+    align-items: center;
+    display: flex;
+    @extend .gap-bottom-md;
+    &-item {
+      flex: 0 1 18%;
+      margin-right: 2%;
+    }
+  }
+  @include media-query(landscape-phones-and-down) {
+    &--row {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+//
+// Event Mentors, Judges, Organizers
+//
+.team {
+  &--container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1%;
+  }
+  &--row-item {
+    flex: 0 1 14.66%;
+    margin: 0 1% 2em;
+    @include media-query(phones) {
+      flex-basis: 48%;
+    }
+  }
+}
+
+//
+// Past Events page
 //
 #past-events {
   background: #f7f7f7;
