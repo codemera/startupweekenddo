@@ -31,4 +31,10 @@
 
 {% block main %}
 
+{% include "includes/sponsors.html" with event=page.event %}
+{% include "includes/team.html" with team=page.event.mentors %}
+{% include "includes/team.html" with team=page.event.coaches %}
+{% include "includes/team.html" with team=page.event.judges %}
+{% include "includes/team.html" with team=page.event.organizers %}
+
 {% endblock %}
