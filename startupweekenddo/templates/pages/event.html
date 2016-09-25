@@ -1,0 +1,34 @@
+{% extends "base-section.html" %}
+
+{% load mezzanine_tags pages_tags comment_tags keyword_tags rating_tags i18n %}
+
+{% block body_id %}past-events--detail{% endblock %}
+
+{% block page_header %}
+<header class="page-header"
+  style="{% if page.event.banner %}background: url('{{ page.event.banner.url }}');{% endif %}">
+  <div class="container">
+    <ul class="breadcrumb">
+    {% spaceless %}
+    {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+    {% endspaceless %}
+    </ul>
+    <h1 class="gap-none">{{ page.title }}</h1>
+    <div class="info-row gap-bottom-sm">
+      <div>
+        <i class="fa fa-calendar"></i>&nbsp;
+        {{ page.event.start_date|date:"d M" }} - {{ page.event.end_date|date:"d M, Y" }}
+      </div>
+      <div>
+        <i class="fa fa-map-marker"></i>&nbsp;
+        {{ page.event.location }}
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</header>
+{% endblock %}
+
+{% block main %}
+
+{% endblock %}
