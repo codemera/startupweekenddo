@@ -13,13 +13,13 @@ class Event(Page):
     end_date = models.DateField(verbose_name=_('End Date'), blank=True, null=True)
     location = models.CharField(max_length=100, blank=True, null=True)
     city = models.CharField(max_length=100, blank=False, null=False)
-    image = models.ImageField(upload_to='event/', verbose_name=_('Main Image'), null=True, blank=True)
     registration_uri = models.URLField(verbose_name=_('Registration Link'))
 
     banner = ImageCropField(upload_to='event/banner/', verbose_name='Banner', blank=True, null=True)
     logo = ImageCropField(upload_to='event/logo/', verbose_name='Logo', blank=True, null=True)
 
-    banner_crop = ImageRatioField('banner', '800x400')  # TODO: Define these sizes
+    banner_crop = ImageRatioField('banner', '2000x1200')
+
     logo_crop = ImageRatioField('logo', '400x400')  # TODO: Define these sizes
 
     participants = models.PositiveIntegerField(default=0)
