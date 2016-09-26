@@ -1,9 +1,11 @@
-from django.db import models
-from image_cropping import ImageRatioField, ImageCropField
-from django.utils.translation import ugettext as _
-from mezzanine.pages.models import Page
 from collections import OrderedDict
 from itertools import groupby
+
+from django.db import models
+from django.utils.translation import ugettext as _
+from image_cropping import ImageCropField, ImageRatioField
+from mezzanine.core.models import RichTextField
+from mezzanine.pages.models import Page
 
 
 class Event(Page):
@@ -156,3 +158,16 @@ class ScheduleItem(models.Model):
     def __str__(self):
         return "{event} [{time}] {desc}".format(event=self.schedule.event.title,
                                                 time=self.time, desc=self.description)
+
+
+class Question(models.Model):
+    question = models.CharField(unique=True, max_length=200)
+    answer = RichTextField(blank=False, null=False)
+
+    order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return "{q}: {a}".format(q=self.question, a=self.answer)
+
+    class Meta:
+        ordering = ['order', 'id']
