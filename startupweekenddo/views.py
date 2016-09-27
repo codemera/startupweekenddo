@@ -20,6 +20,9 @@ def index(request):
         # Event has no schedule
         schedule_days = {}
 
+    url = HomePageData.objects.first().embed_link
+    url_embed = url.replace("watch?v=", "embed/")
+
     context = {
         'events_count': Event.objects.published().count(),
         'participants_count': 0,
@@ -27,6 +30,7 @@ def index(request):
         'current_event': current_event,
         'schedule_days': schedule_days,
         'homepagedata': HomePageData.objects.first(),
+        'url_embed': url_embed,
     }
 
     context.update(Event.objects.published().aggregate(participants_count=Sum('participants'),
