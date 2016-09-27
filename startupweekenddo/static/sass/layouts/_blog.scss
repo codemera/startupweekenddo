@@ -10,9 +10,6 @@
     }
   }
   .sidebar-blog {
-    .sidebar-section {
-      @extend .gap-bottom-md;
-    }
     .recent-posts {
       ul {
         list-style-type: none;
@@ -22,15 +19,6 @@
         border-bottom: 1px solid $gray-lighter;
         margin-bottom: 1em;
         padding-bottom: 1em;
-      }
-    }
-    .mailchimp-form {
-      .form-group,
-      .form-control {
-        width: 100%;
-      }
-      .form-group {
-        margin-bottom: .5em;
       }
     }
     .social-links > li {

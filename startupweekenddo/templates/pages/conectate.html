@@ -1,3 +1,19 @@
 {% extends 'base-section.html' %}
+{% load mailchimp_form %}
 
 {% block body_id %}conectate{% endblock %}
+
+{% block main %}
+<div class="row">
+  <div class="col-sm-8">
+    <h3 class="gap-top-none">Suscríbete a nuestro boletín</h3>
+    <div class="text-muted gap-bottom-xs">
+      Regístrate para recibir periódicamente nuestro boletín de noticias y próximos eventos.
+    </div>
+    {% mailchimp_form form_class='form-full' labels=True %}
+  </div>
+  <div class="col-sm-4">
+    {% include 'includes/sidebar-conectate.html' %}
+  </div>
+</div>
+{% endblock %}

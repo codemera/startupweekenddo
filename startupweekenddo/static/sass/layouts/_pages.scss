@@ -7,5 +7,16 @@
     margin: 0 0 1em;
     padding: 0;
   }
+}
 
+.mailchimp-form {
+  &.form-full {
+    .form-group,
+    .form-control {
+      width: 100%;
+    }
+    .form-group {
+      margin-bottom: .5em;
+    }
+  }
 }
