@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load mailchimp_form %}
 
 {% block full_title %}
 Startup Weekend DO
@@ -22,7 +23,7 @@ Startup Weekend DO
 
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
-        {% include 'includes/mailchimp-form.html' %}
+        {% mailchimp_form %}
       </div>
     </div>
 

@@ -1,4 +1,4 @@
-{% load blog_tags %}
+{% load blog_tags mailchimp_form %}
 
 <aside class="sidebar sidebar-blog">
   <div class="sidebar-section recent-posts">
@@ -24,7 +24,7 @@
       <div class="text-sm gap-bottom-xs">
         Regístrate para recibir periódicamente nuestro boletín de noticias y próximos eventos.
       </div>
-      {% include 'includes/mailchimp-form.html' %}
+      {% mailchimp_form form_class='form-full' %}
     </div>
   </div>
 

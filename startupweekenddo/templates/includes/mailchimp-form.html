@@ -3,11 +3,11 @@
     method="post"
     id="mc-embedded-subscribe-form"
     name="mc-embedded-subscribe-form"
-    class="form-inline mailchimp-form validate"
+    class="mailchimp-form validate {{ form_class }}"
     target="_blank"
     novalidate>
     <div class="form-group">
-      <label class="sr-only" for="mce-FNAME">Primer Nombre</label>
+      <label {% if not labels %}class="sr-only"{% endif %} for="mce-FNAME">Primer Nombre</label>
       <input
         type="text"
         value=""
@@ -17,7 +17,7 @@
         placeholder="Primer Nombre">
     </div>
     <div class="form-group">
-      <label class="sr-only" for="mce-LNAME">Apellido</label>
+      <label {% if not labels %}class="sr-only"{% endif %} for="mce-LNAME">Apellido</label>
       <input
         type="text"
         value=""
@@ -27,7 +27,7 @@
         placeholder="Apellido">
     </div>
     <div class="form-group">
-      <label class="sr-only" for="mce-EMAIL">Correo Electrónico</label>
+      <label {% if not labels %}class="sr-only"{% endif %} for="mce-EMAIL">Correo Electrónico</label>
       <input
         type="email"
         value=""
