@@ -46,14 +46,16 @@
       {% blog_recent_posts 3 as recent_posts %}
       {% for post in recent_posts %}
       <div class="col-sm-4">
-        {% if settings.BLOG_USE_FEATURED_IMAGE and post.featured_image %}
-        {% thumbnail post.featured_image 360x200 as image %}
-        <img class="img-responsive" src="{{ image.url }}">
-        {% else %}
-        <img src="{{ STATIC_URL }}images/post-default-image.png"
-          class="img-responsive"
-          alt="Startup Weekend Santo Domingo">
-        {% endif %}
+        <a href="{{ post.get_absolute_url }}">
+          {% if settings.BLOG_USE_FEATURED_IMAGE and post.featured_image %}
+          {% thumbnail post.featured_image 360x200 as image %}
+          <img class="img-responsive" src="{{ image.url }}">
+          {% else %}
+          <img src="{{ STATIC_URL }}images/post-default-image.png"
+            class="img-responsive"
+            alt="Startup Weekend Santo Domingo">
+          {% endif %}
+        </a>
         <h4>
           <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </h4>
