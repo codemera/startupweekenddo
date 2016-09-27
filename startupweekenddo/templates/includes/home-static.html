@@ -1,4 +1,4 @@
-{% load blog_tags %}
+{% load blog_tags thumbnail %}
 
 <div class="jumbotron gap-none">
   <div class="jumbotron-content text-center">
@@ -46,9 +46,24 @@
       {% blog_recent_posts 3 as recent_posts %}
       {% for post in recent_posts %}
       <div class="col-sm-4">
+        {% if settings.BLOG_USE_FEATURED_IMAGE and post.featured_image %}
+        {% thumbnail post.featured_image 360x200 as image %}
+        <img class="img-responsive" src="{{ image.url }}">
+        {% else %}
+        <img src="{{ STATIC_URL }}images/post-default-image.png"
+          class="img-responsive"
+          alt="Startup Weekend Santo Domingo">
+        {% endif %}
         <h4>
           <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </h4>
+        <div class="byline text-muted gap-bottom-sm">
+          Publicado por
+          {% with post.user as author %}
+          <a href="{% url "blog_post_list_author" author %}">{{ author.get_full_name|default:author.username }}</a>
+          {% endwith %}
+          | {{ post.publish_date }}
+        </div>
       </div>
       {% endfor %}
     </div>
