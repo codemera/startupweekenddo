@@ -176,7 +176,7 @@ class Question(models.Model):
 class HomePageData(models.Model):
     header = RichTextField(blank=False, null=False)
     about = RichTextField(blank=False, null=False)
-    embed_link = models.URLField(null=True, blank=True)
+    embed_link_id = models.CharField(max_length=50, null=True, blank=True)
     video_description = RichTextField(blank=False, null=False)
 
     enabled = models.BooleanField(default=True)
