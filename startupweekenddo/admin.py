@@ -2,7 +2,7 @@ from django.contrib import admin
 from image_cropping import ImageCroppingMixin
 from startupweekenddo.models import (
     Event, Facilitator, Mentor, Sponsor, Judge, Organizer,
-    Collaborator, Schedule, ScheduleItem, Question
+    Collaborator, Schedule, ScheduleItem, Question, HomePageData
 )
 from mezzanine.pages.admin import PageAdmin
 
@@ -64,6 +64,21 @@ class QuestionAdmin(admin.ModelAdmin):
     rendered_answer.allow_tags = True
     rendered_answer.short_description = 'Answer'
 
+
+class HomePageDataAdmin(admin.ModelAdmin):
+    list_display = ['rendered_header', 'date_added', 'enabled']
+    list_editable = ['enabled']
+
+    readonly_fields = ['date_added']
+
+    def rendered_header(self, obj):
+        return obj.header
+
+    rendered_header.allow_tags = True
+    rendered_header.short_description = 'Header'
+
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(HomePageData, HomePageDataAdmin)

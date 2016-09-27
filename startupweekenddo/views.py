@@ -1,4 +1,4 @@
-from startupweekenddo.models import Event
+from startupweekenddo.models import Event, HomePageData
 from django.db.models import Count, Sum
 from django.template.response import TemplateResponse
 from collections import OrderedDict
@@ -26,6 +26,7 @@ def index(request):
         'cities_count': 0,
         'current_event': current_event,
         'schedule_days': schedule_days,
+        'homepagedata': HomePageData.objects.first(),
     }
 
     context.update(Event.objects.published().aggregate(participants_count=Sum('participants'),

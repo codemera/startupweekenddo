@@ -171,3 +171,16 @@ class Question(models.Model):
 
     class Meta:
         ordering = ['order', 'id']
+
+
+class HomePageData(models.Model):
+    header = RichTextField(blank=False, null=False)
+    about = RichTextField(blank=False, null=False)
+    embed_link = models.URLField(null=True, blank=True)
+    video_description = RichTextField(blank=False, null=False)
+
+    enabled = models.BooleanField(default=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date_added', 'enabled']
