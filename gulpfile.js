@@ -3,10 +3,10 @@ var sass = require('gulp-sass');
 var notify = require('gulp-notify');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var livereload = require('gulp-livereload');
 var scsslint = require('gulp-scss-lint');
 var autoprefixer = require('gulp-autoprefixer');
-var exec = require('child_process').exec;
 
 config = {
   sassPath: 'startupweekenddo/static/sass',
@@ -40,14 +40,14 @@ gulp.task('scss-lint', function() {
     }));
 });
 
-// gulp.task('task', function(cb) {
-//   exec('node_modules/requirejs/bin/r.js -o build.js', function(err, stdout, stderr) {
-//     console.log('command was run')
-//     console.log(stdout);
-//     console.log(stderr);
-//     cb(err);
-//   });
-// });
+gulp.task('scripts', function() {
+    return gulp.src(config.jsPath + '/**/*.js')
+        .pipe(concat('scripts.js'))
+        .pipe(gulp.dest('startupweekenddo/static/dist/js/'))
+        .pipe(rename('scripts.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('startupweekenddo/static/dist/js/'));
+});
 
 // Compile Font Awesome
 gulp.task('icons', function() {
