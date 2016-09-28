@@ -1,6 +1,36 @@
 //
-// Event Sponsors
+// General Event elements
 //
+.info-row {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  > div:first-child {
+    margin-right: 1em;
+  }
+}
+
+// Past Event row layout
+.past-event {
+  align-items: center;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-left: 9px solid $brand-primary;
+  @extend .gap-bottom-sm;
+  @include media-query(landscape-phones-and-down) {
+    flex-wrap: wrap;
+    &--col {
+      flex: 0 1 100%;
+      &:not(:last-child) {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
+
+// Event Sponsors
 .sponsors {
   h5 {
     font-weight: normal;
@@ -23,9 +53,7 @@
   }
 }
 
-//
 // Event Mentors, Judges, Organizers
-//
 .team {
   &--container {
     display: flex;
@@ -42,32 +70,11 @@
 }
 
 //
-// Past Event row layout
-//
-.past-event {
-  align-items: center;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  border-left: 9px solid $brand-primary;
-  @extend .gap-bottom-sm;
-  @include media-query(landscape-phones-and-down) {
-    flex-wrap: wrap;
-    &--col {
-      flex: 0 1 100%;
-      &:not(:last-child) {
-        margin-bottom: 1em;
-      }
-    }
-  }
-}
-
-//
 // Past Events page
 //
 #past-events {
   background: #f7f7f7;
+
   //
   // Past Event Detail page
   //
@@ -75,8 +82,6 @@
     .page-header {
       background-size: cover !important;
       background-position: center center !important;
-      margin: 0 0 2em;
-      padding: 40px 0;
       position: relative;
       h1,
       a {
@@ -84,14 +89,6 @@
       }
       .breadcrumb > .active {
         color: $gray-lighter;
-      }
-      .info-row {
-        color: #fff;
-        display: flex;
-        margin: .75em 0 0;
-        > div:first-child {
-          margin-right: 2em;
-        }
       }
       .container {
         position: relative;
