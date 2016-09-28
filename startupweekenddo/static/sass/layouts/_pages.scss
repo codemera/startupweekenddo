@@ -19,4 +19,25 @@
       margin-bottom: .5em;
     }
   }
+  .required {
+    color: $sw-red;
+  }
+  .extra-fields {
+    display: none;
+  }
+}
+
+//
+// "Conectate" page
+//
+#conectate {
+  .mailchimp-form {
+    .form-group {
+      margin-bottom: 2em;
+    }
+  }
+  .fb-page,
+  .twitter-timeline {
+    min-height: 500px;
+  }
 }
