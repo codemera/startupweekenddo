@@ -62,4 +62,4 @@ gulp.task('watch',function() {
     gulp.watch(config.sassPath + '/**/*.scss', ['styles', 'scss-lint']);
 });
 
-gulp.task('default', ['styles', 'icons']);
+gulp.task('default', ['styles', 'scripts', 'icons']);
