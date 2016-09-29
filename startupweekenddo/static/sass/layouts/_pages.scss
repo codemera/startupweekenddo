@@ -91,3 +91,60 @@
     min-height: 500px;
   }
 }
+
+//
+// "Press Kit" page
+//
+#press-kit {
+  .press-list-container {
+    justify-content: space-between;
+    @include media-query(landscape-phones-and-down) {
+      flex-wrap: wrap;
+      .press-list-individual {
+        flex: 0 1 auto;
+        margin-bottom: 2em;
+      }
+    }
+  }
+  .press-list-individual {
+    padding: 25px;
+    flex: 0 1 31%;
+    position: relative;
+    &--gray {
+      background: #f7f7f7;
+    }
+    &--primary {
+      background: $brand-primary;
+    }
+    .logo-text {
+      background: #eee;
+      color: $gray;
+      margin: 25px -25px -25px !important;
+      padding: 10px;
+      text-align: center;
+    }
+    .overlay {
+      background: fade-out($brand-primary, .25);
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: opacity .25s;
+      span {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    a:hover {
+      text-decoration: none;
+      .overlay {
+        opacity: 1;
+      }
+    }
+  }
+}

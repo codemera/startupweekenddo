@@ -1,3 +1,50 @@
 {% extends 'base-section.html' %}
 
 {% block body_id %}press-kit{% endblock %}
+
+{% block main %}
+{{ block.super }}
+
+<h2 class="gap-bottom-none">Logos</h2>
+<section class="press-list-container flex-row">
+  <div class="press-list-individual press-list-individual--gray">
+    <a href="{{ STATIC_URL }}images/press-kit/sw-negro.png">
+      <div class="logo-img">
+        <img src="{{ STATIC_URL }}images/press-kit/sw-negro.png">
+      </div>
+      <div class="logo-text">
+        Startup Weekend (Negro)
+      </div>
+      <div class="overlay">
+        <span class="fa fa-3x fa-download"></span>
+      </div>
+    </a>
+  </div>
+  <div class="press-list-individual press-list-individual--gray">
+    <a href="{{ STATIC_URL }}images/press-kit/sw-color.png">
+      <div class="logo-img">
+        <img src="{{ STATIC_URL }}images/press-kit/sw-color.png">
+      </div>
+      <div class="logo-text">
+        Startup Weekend (Color)
+      </div>
+      <div class="overlay">
+        <span class="fa fa-3x fa-download"></span>
+      </div>
+    </a>
+  </div>
+  <div class="press-list-individual press-list-individual--primary">
+    <a href="{{ STATIC_URL }}images/press-kit/sw-blanco.png">
+      <div class="logo-img">
+        <img src="{{ STATIC_URL }}images/press-kit/sw-blanco.png">
+      </div>
+      <div class="logo-text">
+        Startup Weekend (Blanco)
+      </div>
+      <div class="overlay">
+        <span class="fa fa-3x fa-download"></span>
+      </div>
+    </a>
+  </div>
+</section>
+{% endblock %}
