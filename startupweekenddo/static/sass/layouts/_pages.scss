@@ -1,3 +1,6 @@
+//
+// Page Header
+//
 .page-header {
   background: $brand-primary;
   border: 0;
@@ -17,6 +20,9 @@
   }
 }
 
+//
+// Breadcrumbs
+//
 .breadcrumb {
   background-color: transparent;
   margin: 0;
@@ -34,6 +40,9 @@
   }
 }
 
+//
+// Mailchimp Form
+//
 .mailchimp-form {
   &.form-full {
     .form-group,
