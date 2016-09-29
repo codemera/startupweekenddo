@@ -13,6 +13,7 @@ def add_faq(request, page):
 
     return {'faq': questions}
 
+
 @processor_for('startup-weekend')
 def add_events(request, page):
     events = Event.objects.published()[:3]
