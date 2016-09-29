@@ -182,7 +182,7 @@ class Question(models.Model):
         return "{q}: {a}".format(q=self.question, a=self.answer)
 
     class Meta:
-        ordering = ['order', 'id']
+        ordering = ['category__order', 'order', 'id']
 
 
 class HomePageData(models.Model):
