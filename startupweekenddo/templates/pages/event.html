@@ -1,6 +1,6 @@
 {% extends "base-section.html" %}
 
-{% load mezzanine_tags pages_tags comment_tags keyword_tags rating_tags i18n swdo_utils %}
+{% load mezzanine_tags pages_tags comment_tags keyword_tags rating_tags i18n swdo_utils thumbnail %}
 
 {% block body_id %}past-events--detail{% endblock %}
 
@@ -13,7 +13,7 @@
     {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
     {% endspaceless %}
     </ul>
-    <h1 class="gap-none">{{ page.title }}</h1>
+    <h1 class="gap-none">{{ page.event.title }}</h1>
     <div class="info-row gap-bottom-sm">
       <div>
         <i class="fa fa-calendar"></i>&nbsp;
@@ -30,25 +30,45 @@
 {% endblock %}
 
 {% block main %}
+<div class="row">
+  <div class="col-sm-3">
+    {% thumbnail page.event.logo 200x200 as logo %}
+    <div class="gap-bottom-sm">
+      <img src="{{ logo.url }}"
+        alt="{{ page.event.title }}"
+        class="gap-bottom-xs">
+      <h3>{{ page.event.title }}</h3>
+      <div>
+        <i class="fa fa-calendar"></i>&nbsp;
+        {{ page.event.start_date|date:"d M" }} - {{ page.event.end_date|date:"d M, Y" }}
+      </div>
+      <div>
+        <i class="fa fa-map-marker"></i>&nbsp;
+        {{ page.event.location }}
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
 
-<section>
-  <h1 class="gap-bottom-xs">Mentores</h1>
-  {% include "includes/team.html" with team=page.event.mentors %}
-</section>
+    <section>
+      <h1 class="gap-top-none gap-bottom-xs">Mentores</h1>
+      {% include "includes/team.html" with team=page.event.mentors %}
+    </section>
 
-<section>
-  <h1 class="gap-bottom-xs">Jueces</h1>
-  {% include "includes/team.html" with team=page.event.judges %}
-</section>
+    <section>
+      <h1 class="gap-bottom-xs">Jueces</h1>
+      {% include "includes/team.html" with team=page.event.judges %}
+    </section>
 
-<section>
-  <h1 class="gap-bottom-xs">Organizadores</h1>
-  {% include "includes/team.html" with team=page.event.organizers %}
-</section>
+    <section>
+      <h1 class="gap-bottom-xs">Organizadores</h1>
+      {% include "includes/team.html" with team=page.event.organizers %}
+    </section>
 
-<section>
-  <h1 class="gap-bottom-xs">Sponsors</h1>
-  {% include "includes/sponsors.html" with event=page.event %}
-</section>
-
+    <section>
+      <h1 class="gap-bottom-xs">Sponsors</h1>
+      {% include "includes/sponsors.html" with event=page.event %}
+    </section>
+  </div>
+</div>
 {% endblock %}

@@ -8,6 +8,10 @@
   > div:first-child {
     margin-right: 1em;
   }
+  @include media-query(landscape-phones-and-down) {
+    flex-wrap: wrap;
+    margin-top: 2em;
+  }
 }
 
 // Past Event row layout
@@ -101,6 +105,9 @@
         width: 100%;
         height: 100%;
       }
+    }
+    section {
+      padding: 0;
     }
   }
 }
