@@ -160,7 +160,19 @@ class ScheduleItem(models.Model):
                                                 time=self.time, desc=self.description)
 
 
+class QuestionCategory(models.Model):
+    name = models.CharField(unique=True, max_length=200)
+    order = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['order', 'id']
+
+
 class Question(models.Model):
+    category = models.ForeignKey('QuestionCategory', related_name='questions', null=True, blank=True)
     question = models.CharField(unique=True, max_length=200)
     answer = RichTextField(blank=False, null=False)
 
