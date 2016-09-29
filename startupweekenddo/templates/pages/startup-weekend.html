@@ -9,9 +9,16 @@
 {{ block.super }}
 {% endblock %}
 
+<section class="container content-wrap">
+  {% block main %}
+  {{ block.super }}
+  {% endblock %}
+</section>
+
 <section class="gray-bg">
   <div class="container">
-    <h2 class="gap-bottom-xs">Eventos Pasados</h2>
+    <h2 class="gap-bottom-none">Eventos Pasados</h2>
+    <p class="lead text-muted gap-bottom-sm">¿Quieres conocer sobre los eventos anteriores?</p>
     {% for event in past_events %}
       {% include "fragments/event.html" %}
     {% endfor %}
