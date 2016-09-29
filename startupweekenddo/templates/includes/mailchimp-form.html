@@ -7,7 +7,11 @@
     target="_blank"
     novalidate>
     <div class="form-group">
-      <label {% if not labels %}class="sr-only"{% endif %} for="mce-FNAME">Primer Nombre</label>
+      <label
+        {% if not labels %}class="sr-only"{% endif %}
+        for="mce-FNAME">
+        Primer Nombre <span class="required">*</span>
+      </label>
       <input
         type="text"
         value=""
@@ -27,7 +31,11 @@
         placeholder="Apellido">
     </div>
     <div class="form-group">
-      <label {% if not labels %}class="sr-only"{% endif %} for="mce-EMAIL">Correo Electrónico</label>
+      <label
+        {% if not labels %}class="sr-only"{% endif %}
+        for="mce-EMAIL">
+        Correo Electrónico <span class="required">*</span>
+      </label>
       <input
         type="email"
         value=""
@@ -36,6 +44,44 @@
         id="mce-EMAIL"
         placeholder="Correo Electrónico">
     </div>
+    {% if dropdowns %}
+    <div class="form-group">
+      <strong>¿Has participado en Startup Weekend?</strong>
+      <div class="radio">
+        <label>
+          <input type="radio" name="MMERGE3" id="mce-MMERGE3-0" value="Sí">
+          Sí
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="MMERGE3" id="mce-MMERGE3-1" value="No">
+          No
+        </label>
+      </div>
+    </div>
+    <div class="mc-field-group form-group extra-fields">
+    	<label for="mce-MMERGE5">¿Cuál ha sido tu rol? </label>
+    	<select name="MMERGE5" class="form-control" id="mce-MMERGE5">
+      	<option value=""></option>
+      	<option value="Organizador">Organizador</option>
+        <option value="Participante">Participante</option>
+        <option value="Juez">Juez</option>
+        <option value="Coach">Coach</option>
+        <option value="Staff">Staff</option>
+    	</select>
+    </div>
+    <div class="mc-field-group form-group extra-fields">
+    	<label for="mce-MMERGE4">¿Cuál es tu perfil profesional? </label>
+    	<select name="MMERGE4" class="form-control" id="mce-MMERGE4">
+      	<option value=""></option>
+      	<option value="Programador">Programador</option>
+        <option value="Diseñador">Diseñador</option>
+        <option value="Negocios">Negocios</option>
+        <option value="Otro perfil">Otro perfil</option>
+    	</select>
+    </div>
+    {% endif %}
     <div id="mce-responses" class="clear">
       <div class="response" id="mce-error-response" style="display:none"></div>
       <div class="response" id="mce-success-response" style="display:none"></div>

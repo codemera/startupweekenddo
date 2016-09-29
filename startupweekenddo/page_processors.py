@@ -1,5 +1,5 @@
 from mezzanine.pages.page_processors import processor_for
-from startupweekenddo.models import QuestionCategory
+from startupweekenddo.models import QuestionCategory, Event
 from collections import OrderedDict
 
 
@@ -12,3 +12,9 @@ def add_faq(request, page):
         questions[cat.name] = cat.questions.all()
 
     return {'faq': questions}
+
+@processor_for('startup-weekend')
+def add_events(request, page):
+    events = Event.objects.published()[:3]
+
+    return {'past_events': events}

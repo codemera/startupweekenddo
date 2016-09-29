@@ -1,22 +1,3 @@
 {% for page in page_branch %}
-<div class="past-event">
-  <div class="past-event--col">
-    <a href="{{ page.event.get_absolute_url }}">
-      <b>{{ page.event.title }}</b>
-    </a>
-  </div>
-  <div class="past-event--col">
-    <i class="fa fa-calendar"></i>&nbsp;
-    {{ page.event.start_date|date:"d M" }} - {{ page.event.end_date|date:"d M, Y" }}
-  </div>
-  <div class="past-event--col">
-    <i class="fa fa-map-marker"></i>&nbsp;
-    {{ page.event.location }}
-  </div>
-  <div class="past-event--col">
-    <a href="{{ page.event.get_absolute_url }}" class="btn btn-primary btn-rounded">
-      Ver Más
-    </a>
-  </div>
-</div>
+  {% include "fragments/event.html" with event=page.event %}
 {% endfor %}

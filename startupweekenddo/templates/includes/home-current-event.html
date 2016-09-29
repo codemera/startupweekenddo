@@ -87,7 +87,8 @@
     {% for facilitator in current_event.facilitators %}
       <div class="row">
         <div class="col-sm-3">
-          <img src="{% cropped_thumbnail facilitator 'image_crop' %}"
+          {% thumbnail facilitator.image 300x300 box=facilitator.image_crop as image %}
+          <img src="{{ image.url }}"
             class="img-responsive gap-bottom-sm"
             alt="{{ facilitator.name }}">
         </div>

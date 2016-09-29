@@ -35,13 +35,6 @@
         > h5 {
           color: inherit;
         }
-        .info-row {
-          display: flex;
-          justify-content: center;
-          > div:first-child {
-            margin-right: 1em;
-          }
-        }
       }
       .overlay {
         background: fade-out($brand-primary, .25);

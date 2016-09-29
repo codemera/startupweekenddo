@@ -1,14 +1,48 @@
+//
+// Page Header
+//
 .page-header {
+  background: $brand-primary;
   border: 0;
-  margin-bottom: 0;
-  padding: 0;
-  .breadcrumb {
-    background-color: transparent;
-    margin: 0 0 1em;
-    padding: 0;
+  margin: 0 0 40px;
+  padding: 90px 0;
+  text-align: center;
+  h1 {
+    color: #fff;
+    font-size: 4.25em;
+    margin: 0;
+  }
+  @include media-query(landscape-phones-and-down) {
+    padding: 45px 0;
+    h1 {
+      font-size: 3em;
+    }
   }
 }
 
+//
+// Breadcrumbs
+//
+.breadcrumb {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  a {
+    color: #fff;
+  }
+  > li {
+    &::before {
+      color: #fff !important;
+    }
+    &.active {
+      color: lighten($brand-primary, 22.5%);
+    }
+  }
+}
+
+//
+// Mailchimp Form
+//
 .mailchimp-form {
   &.form-full {
     .form-group,
@@ -18,5 +52,42 @@
     .form-group {
       margin-bottom: .5em;
     }
+  }
+  .required {
+    color: $sw-red;
+  }
+  .extra-fields {
+    display: none;
+  }
+}
+
+//
+// "Startup Weekend" page
+//
+#about {
+  .content-wrap {
+    text-align: center;
+    p {
+      font-size: 1.25em;
+      @extend .text-muted;
+    }
+    img {
+      margin: 1.25em 0;
+    }
+  }
+}
+
+//
+// "Conectate" page
+//
+#conectate {
+  .mailchimp-form {
+    .form-group {
+      margin-bottom: 2em;
+    }
+  }
+  .fb-page,
+  .twitter-timeline {
+    min-height: 500px;
   }
 }

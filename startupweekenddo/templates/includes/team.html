@@ -1,9 +1,10 @@
-{% load cropping %}
+{% load thumbnail cropping %}
 
 <div class="team--container">
 {% for person in team %}
+  {% thumbnail person.image 200x200 box=person.image_crop as image %}
   <div class="team--row-item">
-    <img src="{% cropped_thumbnail person 'image_crop' %}"
+    <img src="{{ image.url }}"
       alt="{{ person.name }}"
       class="img-responsive img-thumbnail gap-bottom-sm"
       {% if person.bio %}

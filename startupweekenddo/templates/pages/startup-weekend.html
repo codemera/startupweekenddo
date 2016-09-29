@@ -1,3 +1,37 @@
 {% extends 'base-section.html' %}
+{% load blog_tags mezzanine_tags %}
 
 {% block body_id %}about{% endblock %}
+
+{% block body %}
+
+{% block page_header %}
+{{ block.super }}
+{% endblock %}
+
+<section class="container content-wrap">
+  {% block main %}
+  {{ block.super }}
+  {% endblock %}
+</section>
+
+<section class="gray-bg">
+  <div class="container">
+    <h2 class="gap-bottom-none">Eventos Pasados</h2>
+    <p class="lead text-muted gap-bottom-sm">¿Quieres conocer sobre los eventos anteriores?</p>
+    {% for event in past_events %}
+      {% include "fragments/event.html" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="container">
+  <h2 class="gap-bottom-sm">Preguntas Frecuentes</h2>
+  {% for faq in faq %}
+  <div class="faq">
+    <h4 class="gap-none">{{ faq.question }}</h4>
+    <div class="text-muted">{{ faq.answer|richtext_filters|safe }}</div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
