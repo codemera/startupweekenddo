@@ -2,7 +2,7 @@ from django.contrib import admin
 from image_cropping import ImageCroppingMixin
 from startupweekenddo.models import (
     Event, Facilitator, Mentor, Sponsor, Judge, Organizer,
-    Collaborator, Schedule, ScheduleItem, Question, HomePageData
+    Collaborator, Schedule, ScheduleItem, Question, QuestionCategory, HomePageData
 )
 from mezzanine.pages.admin import PageAdmin
 
@@ -55,7 +55,7 @@ class ScheduleAdmin(admin.ModelAdmin):
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ['question', 'rendered_answer', 'order']
+    list_display = ['question', 'category', 'rendered_answer', 'order']
     list_editable = ['order']
 
     def rendered_answer(self, obj):
@@ -63,6 +63,11 @@ class QuestionAdmin(admin.ModelAdmin):
 
     rendered_answer.allow_tags = True
     rendered_answer.short_description = 'Answer'
+
+
+class QuestionCategoryAdmin(admin.ModelAdmin):
+    list_display = ['name', 'order']
+    list_editable = ['order']
 
 
 class HomePageDataAdmin(admin.ModelAdmin):
@@ -81,4 +86,5 @@ class HomePageDataAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(Question, QuestionAdmin)
+admin.site.register(QuestionCategory, QuestionCategoryAdmin)
 admin.site.register(HomePageData, HomePageDataAdmin)
