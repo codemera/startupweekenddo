@@ -20,7 +20,9 @@ class Event(Page):
 
     banner_crop = ImageRatioField('banner', '2000x1200')
 
-    logo_crop = ImageRatioField('logo', '400x400')  # TODO: Define these sizes
+    logo_crop = ImageRatioField('logo', '400x400')
+
+    youtube_video_id = models.CharField(max_length=50, blank=True, null=True)
 
     participants = models.PositiveIntegerField(default=0)
 
