@@ -27,6 +27,7 @@ def index(request):
         'current_event': current_event,
         'schedule_days': schedule_days,
         'homepagedata': HomePageData.objects.first(),
+        'latest_events':  Event.objects.published()[:6],
     }
 
     context.update(Event.objects.published().aggregate(participants_count=Sum('participants'),
