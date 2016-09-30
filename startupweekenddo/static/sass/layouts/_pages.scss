@@ -133,7 +133,7 @@
     justify-content: space-between;
     @include media-query(landscape-phones-and-down) {
       .press-list-individual {
-        flex: 0 1 auto;
+        flex: 0 1 100%;
         margin-bottom: 2em;
       }
     }
@@ -147,6 +147,16 @@
     }
     &--primary {
       background: $brand-primary;
+      .flex-row {
+        align-items: baseline;
+      }
+      h3,
+      .fa {
+        color: #fff;
+      }
+      h3 {
+        padding-left: 5%;
+      }
     }
     .logo-text {
       background: #eee;

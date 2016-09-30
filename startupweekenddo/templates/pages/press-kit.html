@@ -47,4 +47,25 @@
     </a>
   </div>
 </section>
+
+<h2 class="gap-bottom-none">Fotografías</h2>
+<section class="press-list-container flex-row">
+</section>
+
+<h2 class="gap-bottom-none">Notas de prensa</h2>
+<section class="press-list-container flex-row">
+  {% for document in press_releases %}
+  <div class="press-list-individual press-list-individual--primary">
+    <a href="{{ MEDIA_URL }}{{ document.press_file }}">
+      <span class="flex-row">
+        <i class="fa fa-lg fa-file"></i>
+        <h3 class="gap-none">{{ document.title }}</h3>
+      </span>
+      <div class="overlay">
+        <span class="fa fa-3x fa-download"></span>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
 {% endblock %}
