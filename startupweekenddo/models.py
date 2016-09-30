@@ -171,6 +171,8 @@ class QuestionCategory(models.Model):
 
     class Meta:
         ordering = ['order', 'id']
+        verbose_name = _('Question Category')
+        verbose_name_plural = _('Question Categories')
 
 
 class Question(models.Model):
@@ -198,6 +200,8 @@ class HomePageData(models.Model):
 
     class Meta:
         ordering = ['-date_added', 'enabled']
+        verbose_name = _('HomePage Information')
+        verbose_name_plural = _('Homepage Information')
 
 
 class PressRelease(models.Model):
