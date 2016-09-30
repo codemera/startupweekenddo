@@ -1,4 +1,4 @@
-{% load swdo_utils cropping thumbnail %}
+{% load swdo_utils cropping thumbnail l10n %}
 
 {% thumbnail current_event.banner 2000x1200 box=current_event.banner_cropping as banner %}
 
@@ -32,11 +32,20 @@
   <div class="overlay"></div>
 </div>
 
+{% if current_event.youtube_video_id %}
 <section id="startupweekend" class="gray-bg">
   <div class="container">
-    <h1>¿Qué es el Startup Weekend?</h1>
+    <h1 class="gap-bottom-xs">¿Qué es {{ current_event.title }}?</h1>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item"
+        src="https://www.youtube.com/embed/{{ current_event.youtube_video_id }}"
+        frameborder="0"
+        allowfullscreen>
+      </iframe>
+    </div>
   </div>
 </section>
+{% endif %}
 
 <section class="container">
   <h1 class="gap-bottom-xs">Programa</h1>
