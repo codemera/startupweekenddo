@@ -1,5 +1,5 @@
 {% extends 'base-section.html' %}
-{% load blog_tags mezzanine_tags %}
+{% load blog_tags mezzanine_tags swdo_utils mailchimp_form %}
 
 {% block body_id %}about{% endblock %}
 
@@ -27,11 +27,43 @@
 
 <section class="container">
   <h2 class="gap-bottom-sm">Preguntas Frecuentes</h2>
-  {% for faq in faq %}
-  <div class="faq">
-    <h4 class="gap-none">{{ faq.question }}</h4>
-    <div class="text-muted">{{ faq.answer|richtext_filters|safe }}</div>
+  {% for cat in faq %}
+  <div class="gap-bottom-md">
+    <h3 class="gap-top-none gap-bottom-xs">{{ cat }}</h3>
+    <div class="faqs--container">
+    {% for faq in faq|get_item:cat %}
+    <div class="faqs--item">
+      <span class="panel-title">
+        <a role="button"
+          data-toggle="collapse"
+          data-parent="#collapsable-group"
+          href="#faq_{{ forloop.parentloop.counter }}_{{ forloop.counter }}">
+          {{ faq.question }}
+        </a>
+      </span>
+      <div id="faq_{{ forloop.parentloop.counter }}_{{ forloop.counter }}"
+        class="panel-collapse collapse"
+        role="tabpanel">
+        <div class="panel-body">
+          <div class="schedule-item">
+            {{ faq.answer|richtext_filters|safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
   </div>
   {% endfor %}
+</section>
+
+<section class="gray-bg">
+  <div class="container">
+    <h2 class="text-center gap-none">Suscríbete a nuestro boletín</h2>
+    <p class="text-center text-muted gap-bottom-sm">
+      Regístrate para recibir periódicamente nuestro boletín de noticias y próximos eventos.
+    </p>
+    {% mailchimp_form form_class='form-full' labels=True dropdowns=True %}
+  </div>
 </section>
 {% endblock %}

@@ -50,7 +50,7 @@
       width: 100%;
     }
     .form-group {
-      margin-bottom: .5em;
+      margin-bottom: 2em;
     }
   }
   .required {
@@ -58,6 +58,32 @@
   }
   .extra-fields {
     display: none;
+  }
+}
+
+//
+// Frequently Asked Questions (FAQs)
+// Used in `Startup Weekend` page
+//
+.faqs {
+  &--container {
+    font-weight: bold;
+  }
+  &--item {
+    border-bottom: 1px solid #f7f7f7;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    .panel-title {
+      color: $gray-light;
+    }
+    .panel-body {
+      color: $gray-dark;
+      font-weight: normal;
+      padding: 0;
+      p {
+        margin: .5em 0;
+      }
+    }
   }
 }
 
@@ -75,17 +101,23 @@
       margin: 1.25em 0;
     }
   }
+  @include media-query(desktops-and-up) {
+    .mailchimp-form {
+      .form-group:nth-child(1),
+      .form-group:nth-child(2) {
+        width: 50%;
+      }
+      .form-group:nth-child(1) {
+        padding-right: 1%;
+      }
+    }
+  }
 }
 
 //
 // "Conectate" page
 //
 #conectate {
-  .mailchimp-form {
-    .form-group {
-      margin-bottom: 2em;
-    }
-  }
   .fb-page,
   .twitter-timeline {
     min-height: 500px;
@@ -97,9 +129,9 @@
 //
 #press-kit {
   .press-list-container {
+    flex-wrap: wrap;
     justify-content: space-between;
     @include media-query(landscape-phones-and-down) {
-      flex-wrap: wrap;
       .press-list-individual {
         flex: 0 1 auto;
         margin-bottom: 2em;
