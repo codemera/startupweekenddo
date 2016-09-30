@@ -115,8 +115,9 @@ LANGUAGES = (
     ('en', _('English')),
 )
 
-USE_L10N = True
 USE_I18N = True
+USE_L10N = True
+USE_MODELTRANSLATION = False
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
@@ -128,9 +129,6 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = False
 
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
@@ -197,7 +195,7 @@ MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 # Package/module name to import the root urlpatterns from for the project.
 ROOT_URLCONF = "%s.urls" % PROJECT_APP
 
-LOCALE_PATHS = [os.path.join(PROJECT_ROOT, "startupweekenddo", "locale")]
+# LOCALE_PATHS = (os.path.join(PROJECT_ROOT, 'locale'),)
 
 TEMPLATES = [
     {
