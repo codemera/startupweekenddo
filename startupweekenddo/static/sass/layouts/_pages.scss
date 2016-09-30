@@ -139,9 +139,13 @@
     }
   }
   .press-list-individual {
-    padding: 25px;
     flex: 0 1 31%;
     position: relative;
+    margin-bottom: 2em;
+    &--gray,
+    &--primary {
+      padding: 25px;
+    }
     &--gray {
       background: #f7f7f7;
     }

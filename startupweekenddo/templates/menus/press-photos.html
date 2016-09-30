@@ -1,0 +1,5 @@
+{% for page in page_branch %}
+  {% for photo in page.gallery.images.all %}
+    {% include "fragments/press-photo.html" %}
+  {% endfor %}
+{% endfor %}
