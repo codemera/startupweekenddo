@@ -1,0 +1,266 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-30 13:26-0400\n"
+"PO-Revision-Date: 2016-09-30 13:33-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: startupweekenddo/models.py:12
+msgid "Start Date"
+msgstr "Fecha de Comienzo"
+
+#: startupweekenddo/models.py:13
+msgid "End Date"
+msgstr "Fecha de Finalización"
+
+# Ubicación
+#: startupweekenddo/models.py:14
+msgid "Location"
+msgstr "Ubicación"
+
+#: startupweekenddo/models.py:15
+msgid "City"
+msgstr "Ciudad"
+
+#: startupweekenddo/models.py:16
+msgid "Registration Link"
+msgstr "Link de Registro"
+
+#: startupweekenddo/models.py:27
+msgid "Participants"
+msgstr "Participantes"
+
+#: startupweekenddo/models.py:63
+msgid "Event"
+msgstr "Evento"
+
+#: startupweekenddo/models.py:64
+msgid "Events"
+msgstr "Eventos"
+
+#: startupweekenddo/models.py:73
+msgid "Diamond"
+msgstr "Diamante"
+
+#: startupweekenddo/models.py:74
+msgid "Platinum"
+msgstr "Platino"
+
+#: startupweekenddo/models.py:75
+msgid "Silver"
+msgstr "Plata"
+
+#: startupweekenddo/models.py:76
+msgid "Bronze"
+msgstr "Bronce"
+
+#: startupweekenddo/models.py:77
+msgid "Media Partner"
+msgstr ""
+
+#: startupweekenddo/models.py:82 startupweekenddo/models.py:101
+#: startupweekenddo/models.py:198
+msgid "Name"
+msgstr "Nombre"
+
+#: startupweekenddo/models.py:83 startupweekenddo/models.py:102
+msgid "Picture"
+msgstr "Foto"
+
+#: startupweekenddo/models.py:84
+#, fuzzy
+#| msgid "Question Category"
+msgid "Category"
+msgstr "Categoria de Preguntas"
+
+#: startupweekenddo/models.py:96
+msgid "Sponsor"
+msgstr "Patrocinador"
+
+#: startupweekenddo/models.py:97
+msgid "Sponsors"
+msgstr "Patrocinadores"
+
+#: startupweekenddo/models.py:103
+msgid "Visible"
+msgstr "Visible"
+
+#: startupweekenddo/models.py:113
+msgid "Person"
+msgstr "Persona"
+
+#: startupweekenddo/models.py:114
+msgid "People"
+msgstr "Gente"
+
+#: startupweekenddo/models.py:125
+msgid "Facilitator"
+msgstr "Facilitador"
+
+#: startupweekenddo/models.py:126
+msgid "Facilitators"
+msgstr "Facilitadores"
+
+#: startupweekenddo/models.py:137
+msgid "Mentor"
+msgstr "Mentor"
+
+#: startupweekenddo/models.py:138
+msgid "Mentors"
+msgstr "Mentores"
+
+#: startupweekenddo/models.py:149
+msgid "Judge"
+msgstr "Juez"
+
+#: startupweekenddo/models.py:150
+msgid "Judges"
+msgstr "Jueces"
+
+#: startupweekenddo/models.py:154 startupweekenddo/models.py:199
+#: startupweekenddo/models.py:215
+msgid "Order"
+msgstr "Orden"
+
+#: startupweekenddo/models.py:161
+msgid "Organizer"
+msgstr "Organizador"
+
+#: startupweekenddo/models.py:162
+msgid "Organizers"
+msgstr "Organizadore"
+
+#: startupweekenddo/models.py:170
+msgid "Collaborator"
+msgstr "Colaborador"
+
+#: startupweekenddo/models.py:171
+msgid "Collaborators"
+msgstr "Colaboradores"
+
+#: startupweekenddo/models.py:178
+msgid "Schedule"
+msgstr "Horario"
+
+#: startupweekenddo/models.py:179
+msgid "Schedules"
+msgstr "Horarios"
+
+#: startupweekenddo/models.py:184
+msgid "Time"
+msgstr "Hora"
+
+#: startupweekenddo/models.py:185 startupweekenddo/models.py:242
+msgid "Title"
+msgstr "Título"
+
+#: startupweekenddo/models.py:186
+msgid "Description"
+msgstr "Descripción"
+
+#: startupweekenddo/models.py:193
+msgid "Schedule Item"
+msgstr "Punto de Agenda"
+
+#: startupweekenddo/models.py:194
+msgid "Schedule Items"
+msgstr "Puntos de Agenda"
+
+#: startupweekenddo/models.py:206
+msgid "Question Category"
+msgstr "Categoria de Preguntas"
+
+# Categorias de Preguntas
+#: startupweekenddo/models.py:207
+msgid "Question Categories"
+msgstr "Categorias de Preguntas"
+
+#: startupweekenddo/models.py:212
+#, fuzzy
+msgid "Question"
+msgstr "Pregunta"
+
+#: startupweekenddo/models.py:213
+msgid "Answer"
+msgstr "Respuesta"
+
+#: startupweekenddo/models.py:222
+msgid "Frequent Question"
+msgstr "Pregunta Frecuente"
+
+#: startupweekenddo/models.py:223
+msgid "Frequent Questions"
+msgstr "Preguntas Frecuentes"
+
+#: startupweekenddo/models.py:227
+msgid "Header"
+msgstr "Encabezado"
+
+#: startupweekenddo/models.py:228
+msgid "About"
+msgstr "Acerca de"
+
+#: startupweekenddo/models.py:230
+msgid "Video Description"
+msgstr "Descripción de Video"
+
+#: startupweekenddo/models.py:232
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: startupweekenddo/models.py:233 startupweekenddo/models.py:244
+msgid "Date Added"
+msgstr "Fecha Agregado"
+
+#: startupweekenddo/models.py:237
+msgid "HomePage Information"
+msgstr "Información de Homepage"
+
+#: startupweekenddo/models.py:238
+msgid "Homepage Information"
+msgstr "Informaciones de Homepage"
+
+#: startupweekenddo/models.py:243
+msgid "Press File"
+msgstr "Archivo de Prensa"
+
+#: startupweekenddo/models.py:245
+msgid "Published?"
+msgstr "Publicado?"
+
+#: startupweekenddo/models.py:249
+msgid "Press Release"
+msgstr ""
+
+#: startupweekenddo/models.py:250
+msgid "Press Releases"
+msgstr ""
+
+#: startupweekenddo/settings.py:46
+msgid "Top navigation bar"
+msgstr ""
+
+#: startupweekenddo/settings.py:47
+msgid "Footer"
+msgstr ""
+
+#: startupweekenddo/settings.py:114
+msgid "Spanish"
+msgstr "Español"
+
+#: startupweekenddo/settings.py:115
+msgid "English"
+msgstr "Inglés"

@@ -11,8 +11,8 @@ from mezzanine.pages.models import Page
 class Event(Page):
     start_date = models.DateField(verbose_name=_('Start Date'), blank=False, null=False)
     end_date = models.DateField(verbose_name=_('End Date'), blank=True, null=True)
-    location = models.CharField(max_length=100, blank=True, null=True)
-    city = models.CharField(max_length=100, blank=False, null=False)
+    location = models.CharField(_('Location'), max_length=100, blank=True, null=True)
+    city = models.CharField(_('City'), max_length=100, blank=False, null=False)
     registration_uri = models.URLField(verbose_name=_('Registration Link'))
 
     banner = ImageCropField(upload_to='event/banner/', verbose_name='Banner', blank=True, null=True)
@@ -24,7 +24,7 @@ class Event(Page):
 
     youtube_video_id = models.CharField(max_length=50, blank=True, null=True)
 
-    participants = models.PositiveIntegerField(default=0)
+    participants = models.PositiveIntegerField(_('Participants'), default=0)
 
     @property
     def sponsors_by_category(self):
@@ -60,6 +60,8 @@ class Event(Page):
 
     class Meta:
         ordering = ["-start_date", "title"]
+        verbose_name = _('Event')
+        verbose_name_plural = _('Events')
 
 SPONSOR_DIAMOND = 1
 SPONSOR_PLATINUM = 2
@@ -77,9 +79,9 @@ SPONSOR_CATEGORIES = (
 
 
 class Sponsor(models.Model):
-    name = models.CharField(max_length=50)
-    image = ImageCropField(upload_to='sponsors/')
-    category = models.IntegerField(choices=SPONSOR_CATEGORIES, null=False, blank=False)
+    name = models.CharField(_('Name'), max_length=50)
+    image = ImageCropField(_('Picture'), upload_to='sponsors/')
+    category = models.IntegerField(_('Category'), choices=SPONSOR_CATEGORIES, null=False, blank=False)
     event = models.ForeignKey('Event', null=False, related_name="sponsors")
     url = models.URLField(blank=True, null=True)
 
@@ -91,12 +93,14 @@ class Sponsor(models.Model):
     class Meta:
         ordering = ['event', 'category', 'name']
         unique_together = [('event', 'name')]
+        verbose_name = _('Sponsor')
+        verbose_name_plural = _('Sponsors')
 
 
 class Person(models.Model):
-    name = models.CharField(max_length=50)
-    image = ImageCropField(upload_to='person/')
-    visible = models.BooleanField(default=True)
+    name = models.CharField(_('Name'), max_length=50)
+    image = ImageCropField(_('Picture'), upload_to='person/')
+    visible = models.BooleanField(_('Visible'), default=True)
     event = models.ForeignKey('Event', null=False)
 
     image_crop = ImageRatioField('image', '300x300')  # TODO: Define these sizes
@@ -106,6 +110,8 @@ class Person(models.Model):
 
     class Meta:
         ordering = ['event', 'name']
+        verbose_name = _('Person')
+        verbose_name_plural = _('People')
 
 
 class Facilitator(Person):
@@ -115,6 +121,10 @@ class Facilitator(Person):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Facilitator')
+        verbose_name_plural = _('Facilitators')
+
 
 class Mentor(Person):
     bio = models.TextField(max_length=500)
@@ -123,6 +133,10 @@ class Mentor(Person):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Mentor')
+        verbose_name_plural = _('Mentors')
+
 
 class Judge(Person):
     bio = models.TextField(max_length=500)
@@ -130,6 +144,10 @@ class Judge(Person):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = _('Judge')
+        verbose_name_plural = _('Judges')
 
 
 class Organizer(Person):
@@ -140,31 +158,45 @@ class Organizer(Person):
 
     class Meta:
         ordering = ['event', 'order']
+        verbose_name = _('Organizer')
+        verbose_name_plural = _('Organizers')
 
 
 class Collaborator(Person):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = _('Collaborator')
+        verbose_name_plural = _('Collaborators')
+
 
 class Schedule(models.Model):
     event = models.OneToOneField('Event')
 
+    class Meta:
+        verbose_name = _('Schedule')
+        verbose_name_plural = _('Schedules')
+
 
 class ScheduleItem(models.Model):
     schedule = models.ForeignKey('Schedule', related_name='items')
-    time = models.DateTimeField(null=False, blank=False)
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500, blank=True, null=True)
+    time = models.DateTimeField(_('Time'), null=False, blank=False)
+    title = models.CharField(_('Title'), max_length=100)
+    description = models.CharField(_('Description'), max_length=500, blank=True, null=True)
 
     def __str__(self):
         return "{event} [{time}] {desc}".format(event=self.schedule.event.title,
                                                 time=self.time, desc=self.description)
 
+    class Meta:
+        verbose_name = _('Schedule Item')
+        verbose_name_plural = _('Schedule Items')
+
 
 class QuestionCategory(models.Model):
-    name = models.CharField(unique=True, max_length=200)
-    order = models.PositiveIntegerField(default=0)
+    name = models.CharField(_('Name'), unique=True, max_length=200)
+    order = models.PositiveIntegerField(_('Order'), default=0)
 
     def __str__(self):
         return self.name
@@ -177,26 +209,28 @@ class QuestionCategory(models.Model):
 
 class Question(models.Model):
     category = models.ForeignKey('QuestionCategory', related_name='questions', null=True, blank=True)
-    question = models.CharField(unique=True, max_length=200)
-    answer = RichTextField(blank=False, null=False)
+    question = models.CharField(_('Question'), unique=True, max_length=200)
+    answer = RichTextField(_('Answer'), blank=False, null=False)
 
-    order = models.PositiveIntegerField(default=0)
+    order = models.PositiveIntegerField(_('Order'), default=0)
 
     def __str__(self):
         return "{q}: {a}".format(q=self.question, a=self.answer)
 
     class Meta:
         ordering = ['category__order', 'order', 'id']
+        verbose_name = _('Frequent Question')
+        verbose_name_plural = _('Frequent Questions')
 
 
 class HomePageData(models.Model):
-    header = RichTextField(blank=False, null=False)
-    about = RichTextField(blank=False, null=False)
+    header = RichTextField(_('Header'), blank=False, null=False)
+    about = RichTextField(_('About'), blank=False, null=False)
     embed_link_id = models.CharField(max_length=50, null=True, blank=True)
-    video_description = RichTextField(blank=False, null=False)
+    video_description = RichTextField(_('Video Description'), blank=False, null=False)
 
-    enabled = models.BooleanField(default=True)
-    date_added = models.DateTimeField(auto_now_add=True)
+    enabled = models.BooleanField(_('Enabled'), default=True)
+    date_added = models.DateTimeField(_('Date Added'), auto_now_add=True)
 
     class Meta:
         ordering = ['-date_added', 'enabled']
@@ -205,10 +239,12 @@ class HomePageData(models.Model):
 
 
 class PressRelease(models.Model):
-    title = models.CharField(max_length=100, unique=True)
-    press_file = models.FileField(upload_to='press_releases/')
-    date_added = models.DateTimeField(auto_now_add=True)
-    published = models.BooleanField(default=True)
+    title = models.CharField(_('Title'), max_length=100, unique=True)
+    press_file = models.FileField(_('Press File'), upload_to='press_releases/')
+    date_added = models.DateTimeField(_('Date Added'), auto_now_add=True)
+    published = models.BooleanField(_('Published?'), default=True)
 
     class Meta:
         ordering = ['-date_added']
+        verbose_name = _('Press Release')
+        verbose_name_plural = _('Press Releases')
