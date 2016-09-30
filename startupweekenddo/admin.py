@@ -2,7 +2,8 @@ from django.contrib import admin
 from image_cropping import ImageCroppingMixin
 from startupweekenddo.models import (
     Event, Facilitator, Mentor, Sponsor, Judge, Organizer,
-    Collaborator, Schedule, ScheduleItem, Question, QuestionCategory, HomePageData
+    Collaborator, Schedule, ScheduleItem, Question, QuestionCategory,
+    HomePageData, PressRelease
 )
 from mezzanine.pages.admin import PageAdmin
 
@@ -83,8 +84,15 @@ class HomePageDataAdmin(admin.ModelAdmin):
     rendered_header.short_description = 'Header'
 
 
+class PressReleaseAdmin(admin.ModelAdmin):
+    list_display = ['title', 'date_added', 'published']
+    readonly_fields = ['date_added']
+    list_editable = ['published']
+
+
 admin.site.register(Event, EventAdmin)
 admin.site.register(Schedule, ScheduleAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(QuestionCategory, QuestionCategoryAdmin)
 admin.site.register(HomePageData, HomePageDataAdmin)
+admin.site.register(PressRelease, PressReleaseAdmin)

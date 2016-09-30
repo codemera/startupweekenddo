@@ -198,3 +198,13 @@ class HomePageData(models.Model):
 
     class Meta:
         ordering = ['-date_added', 'enabled']
+
+
+class PressRelease(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    press_file = models.FileField(upload_to='press_releases/')
+    date_added = models.DateTimeField(auto_now_add=True)
+    published = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-date_added']
