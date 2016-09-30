@@ -1,4 +1,4 @@
-{% load blog_tags mailchimp_form %}
+{% load blog_tags mailchimp_form swdo_utils %}
 
 <aside class="sidebar sidebar-blog">
   <div class="sidebar-section recent-posts">
@@ -32,27 +32,6 @@
     <h4 class="gap-top-none">
       Síguenos
     </h4>
-    <ul class="list-inline social-links">
-      <li>
-        <a href="https://www.facebook.com/SantoDomingoStartupWeekend" target="_blank">
-          <i class="fa fa-lg fa-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com/swsantodomingo" target="_blank">
-          <i class="fa fa-lg fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.youtube.com/user/startupweekenddo" target="_blank">
-          <i class="fa fa-lg fa-youtube-play"></i>
-        </a>
-      </li>
-      <li>
-        <a href="https://www.instagram.com/swsantodomingo/" target="_blank">
-          <i class="fa fa-lg fa-instagram"></i>
-        </a>
-      </li>
-    </ul>
+    {% social_links %}
   </div>
 </aside>
