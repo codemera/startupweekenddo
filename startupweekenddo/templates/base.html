@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load pages_tags mezzanine_tags i18n %}
+{% load pages_tags mezzanine_tags %}
 <html>
 <head>
 
@@ -21,15 +21,12 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,400i,700,700i" rel="stylesheet">
 {# {% compress css %} #}
 <link href="{{ STATIC_URL }}dist/css/main.css" rel="stylesheet">
-{% block extra_css %}{% endblock %}
 {# {% endcompress %} #}
 
 <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
-
-{% block extra_head %}{% endblock %}
 
 {% block google_analytics %}
 <!-- Google Analytics -->
@@ -63,9 +60,9 @@
 {% page_menu "menus/footer.html" %}
 
 <script src="{{ STATIC_URL }}components/jquery/dist/jquery.min.js"></script>
-<!-- <script src="{{ STATIC_URL }}components/zenscroll/zenscroll-min.js"></script> -->
 <script src="{{ STATIC_URL }}components/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
 <script src="{{ STATIC_URL }}dist/js/scripts.min.js"></script>
+<!--<script src="{{ STATIC_URL }}components/zenscroll/zenscroll-min.js"></script>-->
 
 <script>
 $(function () {
