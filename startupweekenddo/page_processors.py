@@ -1,5 +1,5 @@
 from mezzanine.pages.page_processors import processor_for
-from startupweekenddo.models import QuestionCategory, Event
+from startupweekenddo.models import QuestionCategory, Event, PressRelease
 from collections import OrderedDict
 
 
@@ -19,3 +19,10 @@ def add_events(request, page):
     events = Event.objects.published()[:3]
 
     return {'past_events': events}
+
+
+@processor_for('press-kit')
+def add_press_releases(request, page):
+    releases = PressRelease.objects.filter(published=True)
+
+    return {'press_releases': releases}
