@@ -80,11 +80,6 @@ PAGE_MENU_TEMPLATES = (
 #
 BLOG_USE_FEATURED_IMAGE = True
 
-# If True, the django-modeltranslation will be added to the
-# INSTALLED_APPS setting.
-USE_MODELTRANSLATION = False
-
-
 ########################
 # MAIN DJANGO SETTINGS #
 ########################
@@ -111,12 +106,13 @@ LANGUAGE_CODE = "es"
 
 # Supported languages
 LANGUAGES = (
-    ('es', _('Spanish')),
-    ('en', _('English')),
+    ('en_US', _('English')),
+    ('es_ES', _('Spanish')),
 )
 
 USE_I18N = True
-USE_L10N = True
+USE_L10N = False
+USE_MODELTRANSLATION = False
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
 # are displayed for error pages. Should always be set to ``False`` in
