@@ -11,7 +11,8 @@ var autoprefixer = require('gulp-autoprefixer');
 config = {
   sassPath: 'startupweekenddo/static/sass',
   jsPath: 'startupweekenddo/static/js',
-  bowerDir: 'startupweekenddo/static/components'
+  bowerDir: 'startupweekenddo/static/components',
+  distPath: 'dist/'
 }
 
 gulp.task('styles', function() {
@@ -28,7 +29,7 @@ gulp.task('styles', function() {
         .pipe(autoprefixer({
           browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
         }))
-        .pipe(gulp.dest('startupweekenddo/static/dist/css/'))
+        .pipe(gulp.dest(config.distPath + 'css/'))
         .pipe(livereload());
 });
 
@@ -43,16 +44,16 @@ gulp.task('scss-lint', function() {
 gulp.task('scripts', function() {
     return gulp.src(config.jsPath + '/**/*.js')
         .pipe(concat('scripts.js'))
-        .pipe(gulp.dest('startupweekenddo/static/dist/js/'))
+        .pipe(gulp.dest(config.distPath + 'js/'))
         .pipe(rename('scripts.min.js'))
         .pipe(uglify())
-        .pipe(gulp.dest('startupweekenddo/static/dist/js/'));
+        .pipe(gulp.dest(config.distPath + 'js/'));
 });
 
 // Compile Font Awesome
 gulp.task('icons', function() {
   return gulp.src(config.bowerDir + '/font-awesome/fonts/**.**')
-        .pipe(gulp.dest('startupweekenddo/static/dist/fonts'));
+        .pipe(gulp.dest(config.distPath + 'fonts/'));
 });
 
 // Watch task
