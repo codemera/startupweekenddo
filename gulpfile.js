@@ -9,10 +9,10 @@ var scsslint = require('gulp-scss-lint');
 var autoprefixer = require('gulp-autoprefixer');
 
 config = {
-  sassPath: 'startupweekenddo/static/sass',
-  jsPath: 'startupweekenddo/static/js',
-  bowerDir: 'startupweekenddo/static/components',
-  distPath: 'dist/'
+  sassPath: 'static/sass',
+  jsPath: 'static/js',
+  bowerDir: 'static/components',
+  distPath: 'static/dist/'
 }
 
 gulp.task('styles', function() {
