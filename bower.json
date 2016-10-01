@@ -17,8 +17,6 @@
     "font-awesome": "fontawesome#~4.6.3",
     "jquery": "^3.1.0",
     "modular-scale": "~2.1.1",
-    "mathsass": "~0.9.5",
-    "smoothscroll": "^0.3.3",
-    "zenscroll": "^3.2.2"
+    "mathsass": "~0.9.5"
   }
 }
