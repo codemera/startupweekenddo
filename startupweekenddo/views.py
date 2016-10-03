@@ -2,10 +2,11 @@ from startupweekenddo.models import Event, HomePageData
 from django.db.models import Count, Sum
 from django.template.response import TemplateResponse
 from collections import OrderedDict
+from datetime import datetime
 
 
 def index(request):
-    current_event = Event.objects.published().first()
+    current_event = Event.objects.published().filter(start_date__gt=datetime.now()).first()
     schedule_days = OrderedDict()
     try:
         if current_event:
