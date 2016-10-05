@@ -1,5 +1,13 @@
 .sidebar {
   &-section {
-    @extend .gap-bottom-md;
+    @extend .gap-bottom-sm;
+  }
+  .flex-header {
+    h5 {
+      color: $gray-light;
+    }
+    .fa {
+      color: $brand-primary;
+    }
   }
 }
