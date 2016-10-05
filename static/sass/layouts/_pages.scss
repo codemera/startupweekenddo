@@ -125,6 +125,15 @@
   .twitter-timeline {
     min-height: 500px;
   }
+  .instagram-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    > a {
+      flex: 0 1 23%;
+      margin-bottom: .75em;
+    }
+  }
 }
 
 //
