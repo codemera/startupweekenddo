@@ -51,17 +51,10 @@
 
 <h2 class="gap-bottom-none">Fotografías</h2>
 <section class="press-list-container flex-row">
-  {% if page.gallery %}
-  test
-  {% endif %}
-  {% with page.gallery.images.all as images %}
-  {% for image in images %}
-  test
-  {% endfor %}
-  {% endwith %}
   {% page_menu page "menus/press-photos.html" %}
 </section>
 
+{% if press_releases %}
 <h2 class="gap-bottom-none">Notas de prensa</h2>
 <section class="press-list-container flex-row">
   {% for document in press_releases %}
@@ -78,4 +71,5 @@
   </div>
   {% endfor %}
 </section>
+{% endif %}
 {% endblock %}
