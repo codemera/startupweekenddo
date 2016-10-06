@@ -54,6 +54,11 @@
         }
       }
     }
+    @include media-query(phones) {
+      .jumbotron-content > .btn {
+        display: block;
+      }
+    }
   }
   //
   // Recent Blog Posts
