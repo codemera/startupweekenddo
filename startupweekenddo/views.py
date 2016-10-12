@@ -1,6 +1,7 @@
 from startupweekenddo.models import Event, HomePageData
 from django.db.models import Count, Sum
 from django.template.response import TemplateResponse
+from startupweekenddo.utils import localized_date
 from collections import OrderedDict
 from datetime import datetime
 
@@ -12,7 +13,7 @@ def index(request):
         if current_event:
             items = current_event.schedule.items.all()
             for item in items:
-                date = item.time.date()
+                date = localized_date(item.time).date()
                 if date not in schedule_days:
                     schedule_days[date] = [item]
                 else:

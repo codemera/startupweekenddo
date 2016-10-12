@@ -1,4 +1,4 @@
-{% load swdo_utils cropping thumbnail %}
+{% load swdo_utils cropping thumbnail tz %}
 
 {% thumbnail current_event.banner 2000x1200 box=current_event.banner_cropping as banner %}
 
@@ -59,6 +59,7 @@
     </div>
 
     {% for day in schedule_days %}
+    {% localtime on %}
     <div class="panel panel-default">
       <div class="panel-heading" role="tab">
         <h4 class="panel-title">
@@ -86,6 +87,7 @@
         </div>
       </div>
     </div>
+    {% endlocaltime %}
     {% endfor %}
   </div>
 </section>
