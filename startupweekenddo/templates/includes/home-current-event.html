@@ -92,6 +92,7 @@
   </div>
 </section>
 
+{% if current_event.facilitators %}
 <section class="gray-bg">
   <div class="container">
     <h1 class="gap-bottom-xs">Facilitador</h1>
@@ -111,27 +112,27 @@
     {% endfor %}
   </div>
 </section>
+{% endif %}
 
+{% if current_event.mentors %}
 <section class="dark-bg">
   <div class="container">
     <h1 class="gap-none">Mentores</h1>
-    <p class="gap-top-none">
-      Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
-    </p>
     {% include "includes/team.html" with team=current_event.mentors %}
   </div>
 </section>
+{% endif %}
 
+{% if current_event.judges %}
 <section class="dark-gray-bg">
   <div class="container">
     <h1 class="gap-none">Jueces</h1>
-    <p class="gap-top-none">
-      Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
-    </p>
     {% include "includes/team.html" with team=current_event.judges %}
   </div>
 </section>
+{% endif %}
 
+{% if current_event.organizers %}
 <section class="gray-bg">
   <div class="container">
     <h1 class="gap-none">Organizadores</h1>
@@ -141,10 +142,13 @@
     {% include "includes/team.html" with team=current_event.organizers %}
   </div>
 </section>
+{% endif %}
 
+{% if current_event.sponsors %}
 <section class="container">
-  <h1 class="gap-bottom-xs">Sponsors</h1>
+  <h1 class="gap-bottom-xs">Patrocinadores</h1>
   <div class="flex-row">
     {% include "includes/sponsors.html" with event=current_event %}
   </div>
 </section>
+{% endif %}

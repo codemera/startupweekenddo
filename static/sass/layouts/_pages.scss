@@ -7,8 +7,11 @@
   margin: 0 0 40px;
   padding: 90px 0;
   text-align: center;
-  h1 {
+  h1,
+  h3 {
     color: #fff;
+  }
+  h1 {
     font-size: 4.25em;
     margin: 0;
   }
@@ -121,6 +124,15 @@
   .fb-page,
   .twitter-timeline {
     min-height: 500px;
+  }
+  .instagram-feed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    > a {
+      flex: 0 1 23%;
+      margin-bottom: .75em;
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load mezzanine_tags keyword_tags pages_tags %}
+{% load mezzanine_tags keyword_tags pages_tags i18n %}
 
 {% block title %}{{ page.meta_title }}{% endblock %}
 
@@ -21,10 +21,27 @@
   <div class="container">
     <ul class="breadcrumb">
     {% spaceless %}
-    {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
+    {% block breadcrumb_menu %}{% page_menu "menus/breadcrumb.html" %}{% endblock %}
     {% endspaceless %}
     </ul>
     <h1 class="gap-top-none gap-bottom-xs">{{ page.title }}</h1>
+    {% if tag or category or year or month or author %}
+    {% block blog_post_list_filterinfo %}
+    <h3 class="gap-none">
+    {% if tag %}
+        {% trans "Viewing posts tagged" %} {{ tag }}
+    {% else %}{% if category %}
+        {% trans "Viewing posts for the category" %} {{ category }}
+    {% else %}{% if year or month %}
+        {% trans "Viewing posts from" %} {% if month %}{{ month }}, {% endif %}
+        {{ year }}
+    {% else %}{% if author %}
+        {% trans "Viewing posts from" %}
+        {{ author.get_full_name|default:author.username }}
+    {% endif %}{% endif %}{% endif %}{% endif %}
+    {% endblock %}
+    </h3>
+    {% endif %}
   </div>
 </header>
 {% endblock %}
