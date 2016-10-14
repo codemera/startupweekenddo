@@ -71,6 +71,13 @@
     </section>
     {% endif %}
 
+    {% if page.event.collaborators %}
+    <section>
+      <h1 class="gap-bottom-xs">Colaboradores</h1>
+      {% include "includes/team.html" with team=page.event.collaborators %}
+    </section>
+    {% endif %}
+
     {% if page.event.sponsors %}
     <section>
       <h1 class="gap-bottom-xs">Patrocinadores</h1>
