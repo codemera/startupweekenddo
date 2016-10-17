@@ -50,6 +50,13 @@
   </div>
   <div class="col-sm-9">
 
+    {% if page.event.facilitators %}
+    <section>
+      <h1 class="gap-top-none gap-bottom-xs">Facilitador</h1>
+      {% include "includes/team.html" with team=page.event.facilitators %}
+    </section>
+    {% endif %}
+
     {% if page.event.mentors %}
     <section>
       <h1 class="gap-top-none gap-bottom-xs">Mentores</h1>
