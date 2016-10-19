@@ -23,14 +23,28 @@
   padding: 15px 20px;
   border-left: 9px solid $brand-primary;
   @extend .gap-bottom-sm;
-  @include media-query(landscape-phones-and-down) {
+
+  // Column widths vary on screen size
+  @include media-query(desktops-and-up) {
+    &--col {
+      &:nth-child(1) { flex: 0 1 28%; }
+      &:nth-child(2) { flex: 0 1 18%; }
+      &:nth-child(3) { flex: 0 1 40%; }
+      &:nth-child(4) { flex: 0 1 10%; }
+    }
+  }
+  @include media-query(tablets-and-down) {
     flex-wrap: wrap;
     &--col {
-      flex: 0 1 100%;
-      &:not(:last-child) {
-        margin-bottom: 1em;
-      }
+      &:nth-child(1) { flex: 0 1 100%; }
+      &:nth-child(2) { flex: 0 1 48%; }
+      &:nth-child(3) { flex: 0 1 48%; }
+      &:nth-child(4) { flex: 0 1 100%; }
+      &:not(:last-child) { margin-bottom: 1em; }
     }
+  }
+  @include media-query(landscape-phones-and-down) {
+    &--col { flex: 0 1 100% !important; }
   }
 }
 
