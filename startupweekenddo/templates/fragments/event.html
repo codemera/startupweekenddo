@@ -9,8 +9,10 @@
     {{ event.start_date|date:"d M" }} - {{ event.end_date|date:"d M, Y" }}
   </div>
   <div class="past-event--col">
+    {% if event.location %}
     <i class="fa fa-map-marker"></i>&nbsp;
     {{ event.location }}
+    {% endif %}
   </div>
   <div class="past-event--col">
     <a href="{{ event.get_absolute_url }}" class="btn btn-primary btn-rounded">

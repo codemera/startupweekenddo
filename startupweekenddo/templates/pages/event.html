@@ -19,10 +19,12 @@
         <i class="fa fa-calendar"></i>&nbsp;
         {{ page.event.start_date|date:"d M" }} - {{ page.event.end_date|date:"d M, Y" }}
       </div>
+      {% if page.event.location %}
       <div>
         <i class="fa fa-map-marker"></i>&nbsp;
         {{ page.event.location }}
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="overlay"></div>
@@ -44,10 +46,12 @@
         <i class="fa fa-calendar"></i>&nbsp;
         {{ page.event.start_date|date:"d M" }} - {{ page.event.end_date|date:"d M, Y" }}
       </div>
+      {% if page.event.location %}
       <div>
         <i class="fa fa-map-marker"></i>&nbsp;
         {{ page.event.location }}
       </div>
+      {% endif %}
     </div>
   </div>
   <div class="col-sm-9">

@@ -14,10 +14,12 @@
         <i class="fa fa-calendar"></i>&nbsp;
         {{ current_event.start_date|date:"d M" }} - {{ current_event.end_date|date:"d M, Y" }}
       </div>
+      {% if current_event.location %}
       <div>
         <i class="fa fa-map-marker"></i>&nbsp;
         {{ current_event.location }}
       </div>
+      {% endif %}
     </div>
     <a href="{{ current_event.registration_uri }}"
       class="btn btn-white btn-rounded">
@@ -141,7 +143,7 @@
     </p>
     {% include "includes/team.html" with team=current_event.organizers %}
   </div>
-  
+
   <div class="container">
     <h1 class="gap-bottom-xs gap-top-xs">Colaboradores</h1>
     {% include "includes/team.html" with team=current_event.collaborators %}
