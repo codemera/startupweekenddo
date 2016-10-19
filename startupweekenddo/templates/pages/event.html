@@ -32,11 +32,13 @@
 {% block main %}
 <div class="row">
   <div class="col-sm-3">
-    {% thumbnail page.event.logo 200x200 as logo %}
     <div class="gap-bottom-sm">
+      {% if page.event.logo %}
+      {% thumbnail page.event.logo 200x200 as logo %}
       <img src="{{ logo.url }}"
         alt="{{ page.event.title }}"
         class="gap-bottom-xs">
+      {% endif %}
       <h3>{{ page.event.title }}</h3>
       <div>
         <i class="fa fa-calendar"></i>&nbsp;
