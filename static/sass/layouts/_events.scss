@@ -59,10 +59,12 @@
   &--row {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     @extend .gap-bottom-md;
     &-item {
-      flex: 0 1 18%;
-      margin-right: 2%;
+      max-width: 200px;
+      margin: 0 2em 2em 0;
+      overflow: hidden;
     }
   }
   @include media-query(landscape-phones-and-down) {
