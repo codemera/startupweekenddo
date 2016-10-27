@@ -10,7 +10,15 @@
       {% if person.bio %}
       data-toggle="tooltip" data-placement="bottom" title="{{ person.bio }}"
       {% endif %}>
-    <h5 class="gap-none">{{ person.name }}</h5>
+    <h5 class="gap-none">
+      {% if person.twitter %}
+      <a href="{{ person.twitter|twitter_url }}" target="_blank">
+        {{ person.name }}
+      </a>
+      {% else %}
+      {{ person.name }}
+      {% endif %}
+    </h5>
   </div>
 {% endfor %}
 </div>
