@@ -16,13 +16,14 @@
 
 <!-- OpenGraph Metadata -->
 {% block og_data %}
+<meta property="og:type" content="website">
 <meta property="og:url" content="http://startupweekend.do">
 <meta property="og:title" content="Startup Weekend DO">
 <meta property="og:description"
   content="Startup Weekend es un evento global orientado a desarrollar la cultura emprendedora,
     con una red de líderes enfocados en inspirar, educar y empoderar a las personas. No talk,
     just action.">
-<meta property="og:image" content="{{ STATIC_URL }}images/fb-share-img.png">
+<meta property="og:image" content="http://startupweekend.do{{ STATIC_URL }}images/fb-share-img.png">
 {% endblock %}
 
 <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}images/favicons/apple-touch-icon.png">
