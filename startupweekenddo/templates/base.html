@@ -3,12 +3,28 @@
 <html>
 <head>
 
+<title>{% block full_title %}{% block title %}{% endblock %} - Startup Weekend DO{% endblock %}</title>
+
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width">
 <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 <meta name="description" content="{% block meta_description %}{% endblock %}">
 
-<title>{% block full_title %}{% block title %}{% endblock %} - Startup Weekend DO{% endblock %}</title>
+<!-- Twitter Cards Metadata -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@swsantodomingo">
+
+<!-- OpenGraph Metadata -->
+{% block og_data %}
+<meta property="og:url" content="http://startupweekend.do">
+<meta property="og:title" content="Startup Weekend DO">
+<meta property="og:description"
+  content="Startup Weekend es un evento global orientado a desarrollar la cultura emprendedora,
+    con una red de líderes enfocados en inspirar, educar y empoderar a las personas. No talk,
+    just action.">
+<meta property="og:image" content="{{ STATIC_URL }}images/fb-share-img.png">
+{% endblock %}
+
 <link rel="apple-touch-icon" sizes="180x180" href="{{ STATIC_URL }}images/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/favicons/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="{{ STATIC_URL }}images/favicons/favicon-16x16.png" sizes="16x16">
