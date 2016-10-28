@@ -102,12 +102,22 @@
       <div class="row">
         <div class="col-sm-3">
           {% thumbnail facilitator.image 300x300 box=facilitator.image_crop as image %}
-          <img src="{{ image.url }}"
-            class="img-responsive gap-bottom-sm"
-            alt="{{ facilitator.name }}">
+          <a href="{{ facilitator.twitter|twitter_url }}">
+            <img src="{{ image.url }}"
+              class="img-responsive gap-bottom-sm"
+              alt="{{ facilitator.name }}">
+          </a>
         </div>
         <div class="col-sm-9">
-          <h2 class="gap-top-none">{{ facilitator.name }}</h2>
+          <h2 class="gap-top-none">
+            {% if facilitator.twitter %}
+            <a href="{{ facilitator.twitter|twitter_url }}" target="_blank">
+              {{ facilitator.name }}
+            </a>
+            {% else %}
+            {{ facilitator.name }}
+            {% endif %}
+          </h2>
           {{ facilitator.bio }}
         </div>
       </div>

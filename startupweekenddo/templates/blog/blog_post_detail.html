@@ -5,6 +5,18 @@
 {% block title %}{{ blog_post.meta_title }}{% endblock %}
 {% block body_id %}blog{% endblock %}
 
+{% block og_data %}
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://startupweekend.do{{ blog_post.get_absolute_url }}">
+<meta property="og:title" content="{{ blog_post.title }}">
+<meta property="og:description" content="{{ blog_post.description }}">
+{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}
+<meta property="og:image" content="http://startupweekend.do{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 1200 0 %}">
+{% else %}
+<meta property="og:image" content="http://startupweekend.do{{ STATIC_URL }}images/fb-share-img.png">
+{% endif %}
+{% endblock %}
+
 {% block body %}
 <article class="container content-wrap">
   <div class="row">

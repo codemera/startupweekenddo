@@ -15,6 +15,14 @@
 {{ page.description }}
 {% endmetablock %}{% endblock %}
 
+{% block og_data %}
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://startupweekend.do{{ page.get_absolute_url }}">
+<meta property="og:title" content="{{ page.meta_title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:image" content="http://startupweekend.do{{ STATIC_URL }}images/fb-share-img.png">
+{% endblock %}
+
 {% block body %}
 {% block page_header %}
 <header class="page-header">

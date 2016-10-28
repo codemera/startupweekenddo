@@ -15,3 +15,8 @@ def social_links(context, extra_class=None):
         'extra_class': extra_class,
     }
     return template.loader.get_template(template_name).render(template.Context(context))
+
+
+@register.filter
+def twitter_url(string):
+    return 'https://twitter.com/' + string
