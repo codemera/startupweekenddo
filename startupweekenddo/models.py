@@ -14,6 +14,7 @@ class Event(Page):
     location = models.CharField(_('Location'), max_length=100, blank=True, null=True)
     city = models.CharField(_('City'), max_length=100, blank=False, null=False)
     registration_uri = models.URLField(verbose_name=_('Registration Link'))
+    about = RichTextField(_('About'), blank=True, null=True)
 
     banner = ImageCropField(upload_to='event/banner/', verbose_name='Banner', blank=True, null=True)
     logo = ImageCropField(upload_to='event/logo/', verbose_name='Logo', blank=True, null=True)

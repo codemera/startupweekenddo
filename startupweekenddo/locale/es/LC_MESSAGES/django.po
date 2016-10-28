@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-30 13:43-0400\n"
+"POT-Creation-Date: 2016-10-28 17:39-0400\n"
 "PO-Revision-Date: 2016-09-30 13:33-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,213 +39,213 @@ msgstr "Ciudad"
 msgid "Registration Link"
 msgstr "Link de Registro"
 
-#: startupweekenddo/models.py:27
+#: startupweekenddo/models.py:17 startupweekenddo/models.py:229
+msgid "About"
+msgstr "Acerca de"
+
+#: startupweekenddo/models.py:28
 msgid "Participants"
 msgstr "Participantes"
 
-#: startupweekenddo/models.py:63
+#: startupweekenddo/models.py:64
 msgid "Event"
 msgstr "Evento"
 
-#: startupweekenddo/models.py:64
+#: startupweekenddo/models.py:65
 msgid "Events"
 msgstr "Eventos"
 
-#: startupweekenddo/models.py:73
+#: startupweekenddo/models.py:74
 msgid "Diamond"
 msgstr "Diamante"
 
-#: startupweekenddo/models.py:74
+#: startupweekenddo/models.py:75
 msgid "Platinum"
 msgstr "Platino"
 
-#: startupweekenddo/models.py:75
+#: startupweekenddo/models.py:76
 msgid "Silver"
 msgstr "Plata"
 
-#: startupweekenddo/models.py:76
+#: startupweekenddo/models.py:77
 msgid "Bronze"
 msgstr "Bronce"
 
-#: startupweekenddo/models.py:77
+#: startupweekenddo/models.py:78
 msgid "Media Partner"
 msgstr ""
 
-#: startupweekenddo/models.py:82 startupweekenddo/models.py:101
-#: startupweekenddo/models.py:198
+#: startupweekenddo/models.py:83 startupweekenddo/models.py:102
+#: startupweekenddo/models.py:199
 msgid "Name"
 msgstr "Nombre"
 
-#: startupweekenddo/models.py:83 startupweekenddo/models.py:102
+#: startupweekenddo/models.py:84 startupweekenddo/models.py:103
 msgid "Picture"
 msgstr "Foto"
 
-#: startupweekenddo/models.py:84
+#: startupweekenddo/models.py:85
 #, fuzzy
 #| msgid "Question Category"
 msgid "Category"
 msgstr "Categoria de Preguntas"
 
-#: startupweekenddo/models.py:96
+#: startupweekenddo/models.py:97
 msgid "Sponsor"
 msgstr "Patrocinador"
 
-#: startupweekenddo/models.py:97
+#: startupweekenddo/models.py:98
 msgid "Sponsors"
 msgstr "Patrocinadores"
 
-#: startupweekenddo/models.py:103
+#: startupweekenddo/models.py:104
 msgid "Visible"
 msgstr "Visible"
 
-#: startupweekenddo/models.py:113
+#: startupweekenddo/models.py:114
 msgid "Person"
 msgstr "Persona"
 
-#: startupweekenddo/models.py:114
+#: startupweekenddo/models.py:115
 msgid "People"
 msgstr "Gente"
 
-#: startupweekenddo/models.py:125
+#: startupweekenddo/models.py:126
 msgid "Facilitator"
 msgstr "Facilitador"
 
-#: startupweekenddo/models.py:126
+#: startupweekenddo/models.py:127
 msgid "Facilitators"
 msgstr "Facilitadores"
 
-#: startupweekenddo/models.py:137
+#: startupweekenddo/models.py:138
 msgid "Mentor"
 msgstr "Mentor"
 
-#: startupweekenddo/models.py:138
+#: startupweekenddo/models.py:139
 msgid "Mentors"
 msgstr "Mentores"
 
-#: startupweekenddo/models.py:149
+#: startupweekenddo/models.py:150
 msgid "Judge"
 msgstr "Juez"
 
-#: startupweekenddo/models.py:150
+#: startupweekenddo/models.py:151
 msgid "Judges"
 msgstr "Jueces"
 
-#: startupweekenddo/models.py:154 startupweekenddo/models.py:199
-#: startupweekenddo/models.py:215
+#: startupweekenddo/models.py:155 startupweekenddo/models.py:200
+#: startupweekenddo/models.py:216
 msgid "Order"
 msgstr "Orden"
 
-#: startupweekenddo/models.py:161
+#: startupweekenddo/models.py:162
 msgid "Organizer"
 msgstr "Organizador"
 
-#: startupweekenddo/models.py:162
+#: startupweekenddo/models.py:163
 msgid "Organizers"
 msgstr "Organizadore"
 
-#: startupweekenddo/models.py:170
+#: startupweekenddo/models.py:171
 msgid "Collaborator"
 msgstr "Colaborador"
 
-#: startupweekenddo/models.py:171
+#: startupweekenddo/models.py:172
 msgid "Collaborators"
 msgstr "Colaboradores"
 
-#: startupweekenddo/models.py:178
+#: startupweekenddo/models.py:179
 msgid "Schedule"
 msgstr "Horario"
 
-#: startupweekenddo/models.py:179
+#: startupweekenddo/models.py:180
 msgid "Schedules"
 msgstr "Horarios"
 
-#: startupweekenddo/models.py:184
+#: startupweekenddo/models.py:185
 msgid "Time"
 msgstr "Hora"
 
-#: startupweekenddo/models.py:185 startupweekenddo/models.py:242
+#: startupweekenddo/models.py:186 startupweekenddo/models.py:243
 msgid "Title"
 msgstr "Título"
 
-#: startupweekenddo/models.py:186
+#: startupweekenddo/models.py:187
 msgid "Description"
 msgstr "Descripción"
 
-#: startupweekenddo/models.py:193
+#: startupweekenddo/models.py:194
 msgid "Schedule Item"
 msgstr "Punto de Agenda"
 
-#: startupweekenddo/models.py:194
+#: startupweekenddo/models.py:195
 msgid "Schedule Items"
 msgstr "Puntos de Agenda"
 
-#: startupweekenddo/models.py:206
+#: startupweekenddo/models.py:207
 msgid "Question Category"
 msgstr "Categoria de Preguntas"
 
 # Categorias de Preguntas
-#: startupweekenddo/models.py:207
+#: startupweekenddo/models.py:208
 msgid "Question Categories"
 msgstr "Categorias de Preguntas"
 
-#: startupweekenddo/models.py:212
+#: startupweekenddo/models.py:213
 #, fuzzy
 msgid "Question"
 msgstr "Pregunta"
 
-#: startupweekenddo/models.py:213
+#: startupweekenddo/models.py:214
 msgid "Answer"
 msgstr "Respuesta"
 
-#: startupweekenddo/models.py:222
+#: startupweekenddo/models.py:223
 msgid "Frequent Question"
 msgstr "Pregunta Frecuente"
 
-#: startupweekenddo/models.py:223
+#: startupweekenddo/models.py:224
 msgid "Frequent Questions"
 msgstr "Preguntas Frecuentes"
 
-#: startupweekenddo/models.py:227
+#: startupweekenddo/models.py:228
 msgid "Header"
 msgstr "Encabezado"
 
-#: startupweekenddo/models.py:228
-msgid "About"
-msgstr "Acerca de"
-
-#: startupweekenddo/models.py:230
+#: startupweekenddo/models.py:231
 msgid "Video Description"
 msgstr "Descripción de Video"
 
-#: startupweekenddo/models.py:232
+#: startupweekenddo/models.py:233
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: startupweekenddo/models.py:233 startupweekenddo/models.py:244
+#: startupweekenddo/models.py:234 startupweekenddo/models.py:245
 msgid "Date Added"
 msgstr "Fecha Agregado"
 
-#: startupweekenddo/models.py:237
+#: startupweekenddo/models.py:238
 msgid "HomePage Information"
 msgstr "Información de Homepage"
 
-#: startupweekenddo/models.py:238
+#: startupweekenddo/models.py:239
 msgid "Homepage Information"
 msgstr "Informaciones de Homepage"
 
-#: startupweekenddo/models.py:243
+#: startupweekenddo/models.py:244
 msgid "Press File"
 msgstr "Archivo de Prensa"
 
-#: startupweekenddo/models.py:245
+#: startupweekenddo/models.py:246
 msgid "Published?"
 msgstr "Publicado?"
 
-#: startupweekenddo/models.py:249
+#: startupweekenddo/models.py:250
 msgid "Press Release"
 msgstr ""
 
-#: startupweekenddo/models.py:250
+#: startupweekenddo/models.py:251
 msgid "Press Releases"
 msgstr ""
 
@@ -257,10 +257,42 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: startupweekenddo/settings.py:114
+#: startupweekenddo/settings.py:109
+msgid "English"
+msgstr "Inglés"
+
+#: startupweekenddo/settings.py:110
 msgid "Spanish"
 msgstr "Español"
 
-#: startupweekenddo/settings.py:115
-msgid "English"
-msgstr "Inglés"
+#: startupweekenddo/templates/base-section.html:32
+msgid "Viewing posts tagged"
+msgstr ""
+
+#: startupweekenddo/templates/base-section.html:34
+msgid "Viewing posts for the category"
+msgstr ""
+
+#: startupweekenddo/templates/base-section.html:36
+#: startupweekenddo/templates/base-section.html:39
+msgid "Viewing posts from"
+msgstr ""
+
+#: startupweekenddo/templates/blog/blog_post_list.html:12
+msgid "Tag:"
+msgstr ""
+
+#: startupweekenddo/templates/blog/blog_post_list.html:14
+#, fuzzy
+#| msgid "Question Category"
+msgid "Category:"
+msgstr "Categoria de Preguntas"
+
+#: startupweekenddo/templates/blog/blog_post_list.html:18
+msgid "Author:"
+msgstr ""
+
+#: startupweekenddo/templates/menus/breadcrumb.html:4
+#: startupweekenddo/templates/menus/breadcrumb.html:10
+msgid "Home"
+msgstr ""
