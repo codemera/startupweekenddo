@@ -1,4 +1,4 @@
-{% load swdo_utils cropping thumbnail tz %}
+{% load mezzanine_tags swdo_utils cropping thumbnail tz %}
 
 {% thumbnail current_event.banner 2000x1200 box=current_event.banner_cropping as banner %}
 
@@ -45,6 +45,7 @@
         allowfullscreen>
       </iframe>
     </div>
+    {{ current_event.about|richtext_filters|safe }}
   </div>
 </section>
 {% endif %}
