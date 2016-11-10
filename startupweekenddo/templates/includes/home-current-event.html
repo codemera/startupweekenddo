@@ -1,4 +1,4 @@
-{% load swdo_utils cropping thumbnail tz %}
+{% load mezzanine_tags swdo_utils cropping thumbnail tz %}
 
 {% thumbnail current_event.banner 2000x1200 box=current_event.banner_cropping as banner %}
 
@@ -45,6 +45,7 @@
         allowfullscreen>
       </iframe>
     </div>
+    {{ current_event.about|richtext_filters|safe }}
   </div>
 </section>
 {% endif %}
@@ -129,7 +130,7 @@
 {% if current_event.mentors %}
 <section class="dark-bg">
   <div class="container">
-    <h1 class="gap-bottom-xs gap-top-none">Mentores</h1>
+    <h1 class="gap-bottom-xs gap-top-none">Coaches</h1>
     {% include "includes/team.html" with team=current_event.mentors %}
   </div>
 </section>

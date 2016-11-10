@@ -81,11 +81,8 @@
 <script src="{{ STATIC_URL }}components/instafeed.js/instafeed.min.js"></script>
 <script src="{{ STATIC_URL }}dist/js/scripts.min.js"></script>
 
-<script>
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip();
-});
-</script>
+{% block footer_scripts %}
+{% endblock %}
 
 </body>
 </html>
