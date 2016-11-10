@@ -31,7 +31,7 @@ class Event(Page):
     def sponsors_by_category(self):
         sponsors = sorted(self.sponsors.all(), key=lambda x: x.category)
         cats = dict(SPONSOR_CATEGORIES)
-        result = OrderedDict((cat, []) for cat in cats.values())
+        result = OrderedDict((cat_name, []) for cat_id, cat_name in SPONSOR_CATEGORIES)
         for cat, spons in groupby(sponsors, key=lambda x: x.category):
             result[cats.get(cat)].extend(spons)
         return result
@@ -66,6 +66,7 @@ class Event(Page):
 
 SPONSOR_DIAMOND = 1
 SPONSOR_PLATINUM = 2
+SPONSOR_GOLD = 0
 SPONSOR_SILVER = 3
 SPONSOR_BRONZE = 4
 SPONSOR_MEDIA_PARTNER = 5
@@ -73,6 +74,7 @@ SPONSOR_MEDIA_PARTNER = 5
 SPONSOR_CATEGORIES = (
     (SPONSOR_DIAMOND, _('Diamond')),
     (SPONSOR_PLATINUM, _('Platinum')),
+    (SPONSOR_GOLD, _('Gold')),
     (SPONSOR_SILVER, _('Silver')),
     (SPONSOR_BRONZE, _('Bronze')),
     (SPONSOR_MEDIA_PARTNER, _('Media Partner')),
