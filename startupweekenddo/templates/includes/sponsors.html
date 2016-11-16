@@ -2,6 +2,7 @@
 
 <div class="sponsors">
 {% for category in event.sponsors_by_category %}
+{% if event.sponsors_by_category|get_item:category %}
 <div class="sponsors--container">
   <h5 class="gap-none">{{ category }}</h5>
   <div class="sponsors--row">
@@ -15,5 +16,6 @@
   {% endfor %}
   </div>
 </div>
+{% endif %}
 {% endfor %}
 </div>
