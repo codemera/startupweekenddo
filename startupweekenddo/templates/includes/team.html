@@ -2,7 +2,7 @@
 
 <div class="team--container">
 {% for person in team %}
-  {% thumbnail person.image 200x200 box=person.image_crop as image %}
+  {% thumbnail person.image 225x225 box=person.image_crop as image %}
   <div class="team--row-item">
     <img src="{{ image.url }}"
       alt="{{ person.name }}"
