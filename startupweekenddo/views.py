@@ -1,13 +1,15 @@
 from startupweekenddo.models import Event, HomePageData
 from django.db.models import Count, Sum
+from django.db.models import Q
 from django.template.response import TemplateResponse
 from startupweekenddo.utils import localized_date
 from collections import OrderedDict
-from datetime import datetime
 
 
 def index(request):
-    current_event = Event.objects.published().filter(start_date__gt=datetime.now()).first()
+    today = localized_date()
+    query = Q(start_date__gte=today) | Q(start_date__lte=today, end_date__gte=today)
+    current_event = Event.objects.published().filter(query).first()
     schedule_days = OrderedDict()
     try:
         if current_event:
