@@ -40,6 +40,7 @@ urlpatterns += [
     # one out.
 
     url("^$", views.index, name="home"),
+    url("^eventos/$", views.EventListView.as_view(), name="events_index"),
 
     # HOMEPAGE AS AN EDITABLE PAGE IN THE PAGE TREE
     # ---------------------------------------------

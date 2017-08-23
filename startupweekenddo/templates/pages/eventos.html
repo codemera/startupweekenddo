@@ -4,5 +4,40 @@
 {% block body_id %}past-events{% endblock %}
 
 {% block main %}
-{% page_menu page "menus/events.html" %}
+
+<ul class="nav nav-pills gap-top-none gap-bottom-sm" id="events_tabs">
+  <li role="presentation" class="active">
+    <a href="#active_events" aria-controls="active_events" role="tab" data-toggle="pill">
+      Próximos Eventos
+    </a>
+  </li>
+  <li role="presentation">
+    <a href="#past_events" aria-controls="past_events" role="tab" data-toggle="pill">
+      Eventos Pasados
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="active_events">
+    {% for event in active_events %}
+    {% include "fragments/event.html" %}
+    {% endfor %}
+  </div>
+  <div role="tabpanel" class="tab-pane" id="past_events">
+    {% for event in past_events %}
+    {% include "fragments/event.html" %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer_scripts %}
+<script>
+$('#events_tabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+});
+</script>
 {% endblock %}

@@ -3,6 +3,7 @@ from django.db.models import Count, Sum
 from django.db.models import Q
 from django.template.response import TemplateResponse
 from startupweekenddo.utils import localized_date
+from django.views.generic import ListView
 from collections import OrderedDict
 
 
@@ -38,3 +39,23 @@ def index(request):
                                                        cities_count=Count("city")))
 
     return TemplateResponse(request, "index.html", context)
+
+
+class EventListView(ListView):
+    template_name = "pages/eventos.html"
+    model = Event
+
+    def get_context_data(self, *args, **kwargs):
+        today = localized_date()
+        query_active_events = Q(start_date__gte=today) | Q(start_date__lte=today, end_date__gte=today)
+        active_events = Event.objects.published().filter(query_active_events)
+
+        query_past_events = Q(start_date__lte=today, end_date__lte=today)
+        past_events = Event.objects.published().filter(query_past_events)
+
+        context = {
+            'active_events': active_events,
+            'past_events':  past_events,
+        }
+
+        return context
