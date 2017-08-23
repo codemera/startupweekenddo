@@ -32,7 +32,7 @@ Installation
 
     or
 
-        pip install -r deploy/local.py  # If local
+        pip install -r deploy/local.txt  # If local
 
 4. Copy the local_settings template to the proper location and modify to suit
    your environment. Remove debug toolbar for local repos.
