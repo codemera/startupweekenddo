@@ -170,3 +170,27 @@
   </div>
 </section>
 {% endif %}
+
+<hr>
+
+<section class="container">
+  <div class="flex-header">
+    <h1><b>Otros Eventos</b></h1>
+    <a href="/eventos/"><b>Ver más eventos &raquo;</b></a>
+  </div>
+  <div class="calendar--container">
+    {% for event in latest_events %}
+    <div class="calendar--event">
+      <div class="calendar--event-info">
+        <div class="calendar--event-date">{{ event.start_date|date:"d M, Y" }}</div>
+        <div class="calendar--event-title">
+          <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+        </div>
+      </div>
+      <div class="calendar--btn">
+        <a href="{{ event.get_absolute_url }}" class="btn btn-primary btn-rounded">Ver Más</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
