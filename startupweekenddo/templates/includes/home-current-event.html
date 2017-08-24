@@ -180,6 +180,7 @@
   </div>
   <div class="calendar--container">
     {% for event in latest_events %}
+    {% if event != current_event %}
     <div class="calendar--event">
       <div class="calendar--event-info">
         <div class="calendar--event-date">{{ event.start_date|date:"d M, Y" }}</div>
@@ -191,6 +192,7 @@
         <a href="{{ event.get_absolute_url }}" class="btn btn-primary btn-rounded">Ver Más</a>
       </div>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
 </section>
