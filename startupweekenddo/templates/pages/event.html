@@ -56,6 +56,22 @@
   </div>
   <div class="col-sm-9">
 
+    {% if page.event.is_active %}
+    <section>
+        <h1 class="gap-bottom-xs">¿Qué es {{ page.event.title }}?</h1>
+        {% if page.event.youtube_video_id %}
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item"
+            src="https://www.youtube.com/embed/{{ page.event.youtube_video_id }}"
+            frameborder="0"
+            allowfullscreen>
+          </iframe>
+        </div>
+        {% endif %}
+        {{ page.event.about|richtext_filters|safe }}
+    </section>
+    {% endif %}
+
     {% if page.event.facilitators %}
     <section>
       <h1 class="gap-top-none gap-bottom-xs">Facilitador</h1>

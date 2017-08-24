@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from itertools import groupby
+from datetime import date
 
 from django.db import models
 from django.utils.translation import ugettext as _
@@ -55,6 +56,10 @@ class Event(Page):
     @property
     def collaborators(self):
         return Collaborator.objects.filter(event=self)
+
+    @property
+    def is_active(self):
+        return self.start_date >= date.today() or (self.start_date <= date.today() and self.end_date >= date.today())
 
     def __str__(self):
         return self.title
