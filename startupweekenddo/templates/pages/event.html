@@ -26,6 +26,17 @@
       </div>
       {% endif %}
     </div>
+    {% if page.event.is_active %}
+    <a href="{{ current_event.registration_uri }}"
+      class="btn btn-white btn-rounded">
+      Inscríbete
+    </a>
+    &nbsp;
+    <a href="#startupweekend"
+      class="btn btn-outline btn-rounded">
+      Más Información
+    </a>
+    {% endif %}
   </div>
   <div class="overlay"></div>
 </header>

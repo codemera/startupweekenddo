@@ -108,7 +108,7 @@
       background-position: center center !important;
       position: relative;
       h1,
-      a {
+      a:not(.btn) {
         color: #fff;
       }
       .breadcrumb > .active {
