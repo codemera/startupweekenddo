@@ -10,7 +10,7 @@ from collections import OrderedDict
 def index(request):
     today = localized_date()
     query = Q(start_date__gte=today) | Q(start_date__lte=today, end_date__gte=today)
-    current_event = Event.objects.published().filter(query).first()
+    current_event = Event.objects.published().filter(query).order_by('start_date').first()
     schedule_days = OrderedDict()
     try:
         if current_event:
