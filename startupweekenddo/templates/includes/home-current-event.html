@@ -34,165 +34,167 @@
   <div class="overlay"></div>
 </div>
 
-{% if current_event.youtube_video_id %}
-<section id="startupweekend" class="content-wrap gray-bg">
-  <div class="container">
-    <h1 class="gap-bottom-xs">¿Qué es {{ current_event.title }}?</h1>
-    <div class="embed-responsive embed-responsive-16by9">
-      <iframe class="embed-responsive-item"
-        src="https://www.youtube.com/embed/{{ current_event.youtube_video_id }}"
-        frameborder="0"
-        allowfullscreen>
-      </iframe>
-    </div>
-    {{ current_event.about|richtext_filters|safe }}
-  </div>
-</section>
-{% endif %}
-
-<section class="container">
-  <h1 class="gap-bottom-xs">Programa</h1>
-  <div class="panel-group" id="event_schedule" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h4 class="panel-title">
-          Programa del evento
-        </h4>
+<section id="startupweekend">
+  {% if current_event.youtube_video_id %}
+  <section class="content-wrap gray-bg">
+    <div class="container">
+      <h1 class="gap-bottom-xs">¿Qué es {{ current_event.title }}?</h1>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item"
+          src="https://www.youtube.com/embed/{{ current_event.youtube_video_id }}"
+          frameborder="0"
+          allowfullscreen>
+        </iframe>
       </div>
+      {{ current_event.about|richtext_filters|safe }}
     </div>
+  </section>
+  {% endif %}
 
-    {% for day in schedule_days %}
-    {% localtime on %}
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab">
-        <h4 class="panel-title">
-          <a role="button"
-            data-toggle="collapse"
-            data-parent="#event_schedule"
-            href="#schedule_day_{{ forloop.counter }}">
-            {{ day|date:"D d M" }}
-            <span class="pull-right">
-              <i class="fa fa-plus"></i>
-            </span>
-          </a>
-        </h4>
-      </div>
-      <div id="schedule_day_{{ forloop.counter }}"
-        class="panel-collapse collapse in"
-        role="tabpanel">
-        <div class="panel-body">
-          {% for item in schedule_days|get_item:day %}
-          <div class="schedule-item">
-            <b>{{ item.time|date:"g:i A" }}</b>
-            <span>{{ item.title }}</span>
-          </div>
-          {% endfor %}
+  <section class="container">
+    <h1 class="gap-bottom-xs">Programa</h1>
+    <div class="panel-group" id="event_schedule" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            Programa del evento
+          </h4>
         </div>
       </div>
-    </div>
-    {% endlocaltime %}
-    {% endfor %}
-  </div>
-</section>
 
-{% if current_event.facilitators %}
-<section class="gray-bg">
-  <div class="container">
-    <h1 class="gap-bottom-xs">Facilitador</h1>
-    {% for facilitator in current_event.facilitators %}
-      <div class="row">
-        <div class="col-sm-3">
-          {% thumbnail facilitator.image 300x300 box=facilitator.image_crop as image %}
-          <a href="{{ facilitator.twitter|twitter_url }}">
-            <img src="{{ image.url }}"
-              class="img-responsive gap-bottom-sm"
-              alt="{{ facilitator.name }}">
-          </a>
-        </div>
-        <div class="col-sm-9">
-          <h2 class="gap-top-none">
-            {% if facilitator.twitter %}
-            <a href="{{ facilitator.twitter|twitter_url }}" target="_blank">
-              {{ facilitator.name }}
+      {% for day in schedule_days %}
+      {% localtime on %}
+      <div class="panel panel-default">
+        <div class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <a role="button"
+              data-toggle="collapse"
+              data-parent="#event_schedule"
+              href="#schedule_day_{{ forloop.counter }}">
+              {{ day|date:"D d M" }}
+              <span class="pull-right">
+                <i class="fa fa-plus"></i>
+              </span>
             </a>
-            {% else %}
-            {{ facilitator.name }}
-            {% endif %}
-          </h2>
-          {{ facilitator.bio }}
+          </h4>
+        </div>
+        <div id="schedule_day_{{ forloop.counter }}"
+          class="panel-collapse collapse in"
+          role="tabpanel">
+          <div class="panel-body">
+            {% for item in schedule_days|get_item:day %}
+            <div class="schedule-item">
+              <b>{{ item.time|date:"g:i A" }}</b>
+              <span>{{ item.title }}</span>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
-
-{% if current_event.mentors %}
-<section class="dark-bg">
-  <div class="container">
-    <h1 class="gap-bottom-xs gap-top-none">Coaches</h1>
-    {% include "includes/team.html" with team=current_event.mentors %}
-  </div>
-</section>
-{% endif %}
-
-{% if current_event.judges %}
-<section class="dark-gray-bg">
-  <div class="container">
-    <h1 class="gap-bottom-xs gap-top-none">Jueces</h1>
-    {% include "includes/team.html" with team=current_event.judges %}
-  </div>
-</section>
-{% endif %}
-
-{% if current_event.organizers %}
-<section class="gray-bg">
-  <div class="container">
-    <h1 class="gap-none">Organizadores</h1>
-    <p class="gap-top-none">
-      {{ current_event.title }} llega a ti por la labor de las siguientes personas
-    </p>
-    {% include "includes/team.html" with team=current_event.organizers %}
-  </div>
-
-  <div class="container">
-    <h1 class="gap-bottom-xs gap-top-xs">Colaboradores</h1>
-    {% include "includes/team.html" with team=current_event.collaborators %}
-  </div>
-</section>
-{% endif %}
-
-{% if current_event.sponsors %}
-<section class="container">
-  <h1 class="gap-bottom-xs">Patrocinadores</h1>
-  <div class="flex-row">
-    {% include "includes/sponsors.html" with event=current_event %}
-  </div>
-</section>
-{% endif %}
-
-<hr>
-
-<section class="container">
-  <div class="flex-header">
-    <h1><b>Otros Eventos</b></h1>
-    <a href="/eventos/"><b>Ver más eventos &raquo;</b></a>
-  </div>
-  <div class="calendar--container">
-    {% for event in latest_events %}
-    {% if event != current_event %}
-    <div class="calendar--event">
-      <div class="calendar--event-info">
-        <div class="calendar--event-date">{{ event.start_date|date:"d M, Y" }}</div>
-        <div class="calendar--event-title">
-          <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
-        </div>
-      </div>
-      <div class="calendar--btn">
-        <a href="{{ event.get_absolute_url }}" class="btn btn-primary btn-rounded">Ver Más</a>
-      </div>
+      {% endlocaltime %}
+      {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
-  </div>
+  </section>
+
+  {% if current_event.facilitators %}
+  <section class="gray-bg">
+    <div class="container">
+      <h1 class="gap-bottom-xs">Facilitador</h1>
+      {% for facilitator in current_event.facilitators %}
+        <div class="row">
+          <div class="col-sm-3">
+            {% thumbnail facilitator.image 300x300 box=facilitator.image_crop as image %}
+            <a href="{{ facilitator.twitter|twitter_url }}">
+              <img src="{{ image.url }}"
+                class="img-responsive gap-bottom-sm"
+                alt="{{ facilitator.name }}">
+            </a>
+          </div>
+          <div class="col-sm-9">
+            <h2 class="gap-top-none">
+              {% if facilitator.twitter %}
+              <a href="{{ facilitator.twitter|twitter_url }}" target="_blank">
+                {{ facilitator.name }}
+              </a>
+              {% else %}
+              {{ facilitator.name }}
+              {% endif %}
+            </h2>
+            {{ facilitator.bio }}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if current_event.mentors %}
+  <section class="dark-bg">
+    <div class="container">
+      <h1 class="gap-bottom-xs gap-top-none">Coaches</h1>
+      {% include "includes/team.html" with team=current_event.mentors %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if current_event.judges %}
+  <section class="dark-gray-bg">
+    <div class="container">
+      <h1 class="gap-bottom-xs gap-top-none">Jueces</h1>
+      {% include "includes/team.html" with team=current_event.judges %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if current_event.organizers %}
+  <section class="gray-bg">
+    <div class="container">
+      <h1 class="gap-none">Organizadores</h1>
+      <p class="gap-top-none">
+        {{ current_event.title }} llega a ti por la labor de las siguientes personas
+      </p>
+      {% include "includes/team.html" with team=current_event.organizers %}
+    </div>
+
+    <div class="container">
+      <h1 class="gap-bottom-xs gap-top-xs">Colaboradores</h1>
+      {% include "includes/team.html" with team=current_event.collaborators %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if current_event.sponsors %}
+  <section class="container">
+    <h1 class="gap-bottom-xs">Patrocinadores</h1>
+    <div class="flex-row">
+      {% include "includes/sponsors.html" with event=current_event %}
+    </div>
+  </section>
+  {% endif %}
+
+  <hr>
+
+  <section class="container">
+    <div class="flex-header">
+      <h1><b>Otros Eventos</b></h1>
+      <a href="/eventos/"><b>Ver más eventos &raquo;</b></a>
+    </div>
+    <div class="calendar--container">
+      {% for event in latest_events %}
+      {% if event != current_event %}
+      <div class="calendar--event">
+        <div class="calendar--event-info">
+          <div class="calendar--event-date">{{ event.start_date|date:"d M, Y" }}</div>
+          <div class="calendar--event-title">
+            <a href="{{ event.get_absolute_url }}">{{ event.title }}</a>
+          </div>
+        </div>
+        <div class="calendar--btn">
+          <a href="{{ event.get_absolute_url }}" class="btn btn-primary btn-rounded">Ver Más</a>
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </section>
 </section>
