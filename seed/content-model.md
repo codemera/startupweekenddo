@@ -126,13 +126,13 @@ its `media/` folder:
 | Blog | `blog_blogpost`, `blog_blogcategory` | `media/uploads/` (featured images) |
 | Page text and inline images | `pages_richtextpage` | `media/uploads/` (e.g. `metodologia.png`) |
 
-To export from the old server:
+The old server appears to be gone, so this data can't be exported. What's left
+of it is in the Wayback Machine's snapshots of `startupweekend.do`
+(`https://web.archive.org/web/*/startupweekend.do/*`). If a copy of the
+database or `media/` ever turns up, export it with:
 
 ```sh
 ./manage.py dumpdata startupweekenddo pages blog galleries \
   --natural-foreign --indent 2 > swdo-dump.json
 tar czf swdo-media.tgz media/
 ```
-
-If the server is gone, the Wayback Machine has snapshots of `startupweekend.do`
-(`https://web.archive.org/web/*/startupweekend.do/*`).

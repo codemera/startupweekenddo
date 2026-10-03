@@ -64,8 +64,24 @@ production database and `media/` folder, not in this repo:
 - press photos and press-release files
 - `metodologia.png`, the methodology graphic on the Startup Weekend page
 
-`content-model.md` lists the tables and folders to export and the commands to
-do it. If the old server is gone, use the Wayback Machine.
+The old server appears to be gone, which makes the Wayback Machine the only
+source left: browse `https://web.archive.org/web/*/startupweekend.do/*` for the
+`/eventos/<slug>/`, `/blog/` and `/startup-weekend/` pages. Expect text and
+small images; full-size uploads are often missing from the archive. Past
+organizers and sponsors may still have photos and logos.
+
+## Building on Lovable
+
+The new site will be built and hosted on Lovable. To use this seed there:
+
+- Start the Lovable prompt with `content-model.md` and `site.yml`: they
+  describe the pages, content types, rules, brand and integrations.
+- Put the images in the project's `public/` folder and map `brand.colors` and
+  `brand.fonts` into the Tailwind theme.
+- Events, sponsors, people, schedules and FAQ fit as database tables (Lovable's
+  Supabase integration) or, for a start, as static data files.
+- The newsletter can stay a plain form that POSTs to `newsletter.form_action`.
+- Keep the old URLs (`/eventos/<slug>/` and the rest) as routes or redirects.
 
 The only pages in the old seed data were placeholders ("Content goes here",
 lorem ipsum), apart from the Startup Weekend page, so nothing else was worth
