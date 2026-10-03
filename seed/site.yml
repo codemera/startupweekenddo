@@ -1,0 +1,84 @@
+# Site configuration recovered from the old Django/Mezzanine site (commit 58b8811).
+
+identity:
+  name: Startup Weekend República Dominicana
+  short_name: Startup Weekend Santo Domingo
+  domain: startupweekend.do
+  language: es
+  timezone: America/Santo_Domingo   # all event dates/times are local to this zone
+
+brand:
+  colors:
+    primary: "#49bab7"     # teal; also theme-color for browsers
+    blue_dark: "#0f1f40"
+    red: "#e9212d"
+  fonts:
+    headings: Montserrat   # weights 400, 700 (Google Fonts)
+    body: Open Sans        # 400, 400i, 700, 700i (Google Fonts)
+
+social:
+  facebook: https://www.facebook.com/SantoDomingoStartupWeekend
+  twitter: https://twitter.com/swsantodomingo      # handle @SWSantoDomingo
+  instagram: https://www.instagram.com/swsantodomingo/
+  youtube: https://www.youtube.com/user/SWSantoDomingo
+  youtube_playlist: https://www.youtube.com/playlist?list=PLBV2dDWGD15xn9R9MWwt-L91kxwIqGzA6   # "#historiasdestartupweekend"
+  default_home_video: https://www.youtube.com/watch?v=cPScUWwP6ec   # used when no video was set in the CMS
+
+newsletter:
+  provider: mailchimp
+  # Public embed values, taken from the old signup form.
+  form_action: https://startupweekend.us3.list-manage.com/subscribe/post?u=895ed5d768489522ad5ac074b&id=5346939bd2
+  honeypot_field: b_895ed5d768489522ad5ac074b_5346939bd2
+  fields:
+    - { name: FNAME, label: Primer Nombre, type: text, required: true }
+    - { name: LNAME, label: Apellido, type: text, required: false }
+    - { name: EMAIL, label: Correo Electrónico, type: email, required: true }
+    - name: MMERGE3
+      label: ¿Has participado en Startup Weekend?
+      type: radio
+      options: ["Sí", "No"]
+    - name: MMERGE5
+      label: ¿Cuál ha sido tu rol?
+      type: select
+      shown_if: MMERGE3 = Sí
+      options: [Organizador, Participante, Juez, Coach, Staff]
+    - name: MMERGE4
+      label: ¿Cuál es tu perfil profesional?
+      type: select
+      shown_if: MMERGE3 = Sí
+      options: [Programador, Diseñador, Negocios, Otro perfil]
+  # Check this list still exists and who owns it: the account is "startupweekend"
+  # (us3), which may belong to Techstars rather than the local team.
+
+urls:
+  # Old public URLs. Keep them, or add redirects, so old links and search results still work.
+  - /                              # home
+  - /startup-weekend/              # about + FAQ
+  - /eventos/                      # upcoming / past events
+  - /eventos/<event-slug>/         # e.g. /eventos/startup-weekend-alpha/
+  - /blog/                         # "Novedades"
+  - /blog/<post-slug>/
+  - /blog/category/<slug>/
+  - /blog/author/<username>/
+  - /press-kit/
+  - /press-kit/fotos-de-prensa/    # press photo gallery
+  - /conectate/                    # newsletter + social feeds
+
+license:
+  content: CC BY-NC-SA 4.0         # stated in the old footer
+  url: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+credits:
+  developer: Codemera
+  url: http://codemera.com/
+  logo: images/brand/codemera-logo.png
+
+retired:
+  # Kept for reference only. Do not carry these into the new site.
+  google_analytics: UA-56104547-1          # Universal Analytics, shut down July 2023; use a GA4 property instead
+  facebook_app_id: "506679936201353"       # loaded the FB SDK for the page plugin
+  instagram_feed: >-
+    Instafeed.js against the Instagram legacy API (shut down 2020). A client ID
+    and access token were committed in startupweekenddo/templates/pages/conectate.html.
+    They are deliberately not copied here. Revoke that app in Meta's developer console.
+  twitter_timeline_widget: embedded timeline for @SWSantoDomingo

@@ -1,0 +1,126 @@
+# Every piece of copy that was hardcoded in the old templates, grouped by page.
+# Spanish, verbatim (typos fixed where noted). `{event}` = the event's title.
+# Sources: startupweekenddo/templates/** at commit 58b8811.
+
+site:
+  title: Startup Weekend República Dominicana
+  logo_alt: Startup Weekend Santo Domingo
+  page_title_suffix: " - Startup Weekend República Dominicana"
+  og_description: >-
+    Startup Weekend es un evento global orientado a desarrollar la cultura
+    emprendedora, con una red de líderes enfocados en inspirar, educar y
+    empoderar a las personas. No talk, just action.
+
+nav:
+  # Menu order from the old page tree.
+  - { label: Startup Weekend, url: /startup-weekend/ }
+  - { label: Eventos, url: /eventos/ }
+  - { label: Novedades, url: /blog/ }
+  - { label: Press Kit, url: /press-kit/ }
+  - { label: Conéctate, url: /conectate/ }
+
+common:
+  breadcrumb_home: Inicio
+  see_more: Ver Más
+  read_more: Leer más
+  posted_by: Publicado por        # followed by author name, then "| {date}"
+  see_more_events: Ver más eventos »
+  see_more_news: Ver más noticias »
+  see_more_social: Ver más »
+
+newsletter:
+  heading_home: ¡Suscríbete a las informaciones de la comunidad!
+  heading: Suscríbete a nuestro boletín
+  body: Regístrate para recibir periódicamente nuestro boletín de noticias y próximos eventos.
+  submit: Regístrate
+  # Field labels/options live in site.yml -> newsletter.
+
+home_static:
+  # Shown when there is no upcoming/active event.
+  # The jumbotron header text, the "about" text and the video description were
+  # CMS fields (HomePageData) stored in the database. They are NOT in the repo.
+  about_heading: ¿Qué es el Startup Weekend?
+  news_heading: Noticias Recientes
+  counters:
+    events: Eventos
+    participants: Participantes
+    cities: Ciudades
+  calendar_heading: Calendario
+
+home_current_event:
+  # Shown when an event is upcoming or in progress.
+  kicker: Próximo Evento
+  register_cta: Inscríbete          # links to the event's registration URL
+  more_info_cta: Más Información    # scrolls to the event details
+  about_heading: ¿Qué es {event}?
+  schedule_heading: Programa
+  schedule_panel_title: Programa del evento
+  facilitator_heading: Facilitador
+  coaches_heading: Coaches
+  judges_heading: Jueces
+  organizers_heading: Organizadores
+  organizers_intro: "{event} llega a ti por la labor de las siguientes personas"
+  collaborators_heading: Colaboradores
+  sponsors_heading: Patrocinadores
+  other_events_heading: Otros Eventos
+
+events_list:
+  tab_upcoming: Próximos Eventos
+  tab_past: Eventos Pasados
+
+event_page:
+  # The CTAs and the "about" section only showed while the event was upcoming/active.
+  register_cta: Inscríbete
+  more_info_cta: Más Información
+  about_heading: ¿Qué es {event}?
+  facilitator_heading: Facilitador
+  coaches_heading: Coaches
+  judges_heading: Jueces
+  organizers_heading: Organizadores
+  collaborators_heading: Colaboradores
+  sponsors_heading: Patrocinadores
+
+startup_weekend_page:
+  # Page body is in startup-weekend.md; these are the sections under it.
+  events_heading: Eventos
+  events_lead: ¿Quieres conocer más sobre nuestros eventos?
+  faq_heading: Preguntas Frecuentes
+  # FAQ questions/answers were stored in the database. NOT in the repo.
+
+blog:
+  title: Novedades
+  sidebar_recent: Entradas recientes
+  sidebar_follow: Síguenos
+
+press_kit:
+  logos_heading: Logos
+  logo_labels:
+    black: Startup Weekend (Negro)
+    color: Startup Weekend (Color)
+    white: Startup Weekend (Blanco)
+  photos_heading: Fotografías
+  releases_heading: Notas de prensa
+
+conectate:
+  # Sidebar section titles, one per social channel.
+  twitter: "@SWSantoDomingo"
+  facebook: "@SantoDomingoStartupWeekend"
+  instagram: "@SWSantoDomingo"
+  youtube: "#historiasdestartupweekend"
+
+sponsor_tiers:
+  # Display order. Empty tiers were hidden.
+  - Diamante
+  - Platino
+  - Oro
+  - Plata
+  - Bronce
+  - Media Partner
+
+footer:
+  copyright: Copyright © 2016 Startup Weekend Santo Domingo.
+  license: >-
+    This work is licensed under a Creative Commons
+    Attribution-NonCommercial-ShareAlike 4.0 International License.
+  license_url: http://creativecommons.org/licenses/by-nc-sa/4.0/
+  credit: Desarrollado por Codemera   # links to http://codemera.com/ with codemera-logo.png
